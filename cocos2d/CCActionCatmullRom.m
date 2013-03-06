@@ -36,13 +36,13 @@
 #import "ccMacros.h"
 #import "Support/CGPointExtension.h"
 #import "CCActionCatmullRom.h"
-
+//宏，点扩展
 #pragma mark - CCPointArray
-
+//控制点
 @implementation CCPointArray
 
 @synthesize controlPoints = controlPoints_;
-
+//容量初始化
 +(id) arrayWithCapacity:(NSUInteger)capacity
 {
 	return [[[self alloc] initWithCapacity:capacity] autorelease];
@@ -53,7 +53,7 @@
 	return [self initWithCapacity:50];
 }
 
-// designated initializer
+// designated initializer    指定初始化
 -(id) initWithCapacity:(NSUInteger)capacity
 {
 	if( (self=[super init])) {
@@ -79,7 +79,7 @@
 	
 	[super dealloc];
 }
-
+//增加
 -(void) addControlPoint:(CGPoint)controlPoint
 {
 #ifdef __CC_PLATFORM_MAC
@@ -90,7 +90,7 @@
 	
 	[controlPoints_ addObject:value];
 }
-
+//插入
 -(void) insertControlPoint:(CGPoint)controlPoint atIndex:(NSUInteger)index
 {
 #ifdef __CC_PLATFORM_MAC
@@ -102,7 +102,7 @@
 	[controlPoints_ insertObject:value atIndex:index];
 	
 }
-
+//获取控制点的顺序
 -(CGPoint) getControlPointAtIndex:(NSInteger)index
 {
 	index = MIN([controlPoints_ count]-1, MAX(index, 0));
@@ -117,7 +117,7 @@
 
 	return point;
 }
-
+//替换
 -(void) replaceControlPoint:(CGPoint)controlPoint atIndex:(NSUInteger)index
 {
 #ifdef __CC_PLATFORM_MAC
@@ -128,17 +128,17 @@
 
 	[controlPoints_ replaceObjectAtIndex:index withObject:value];
 }
-
+//指定删除
 -(void) removeControlPointAtIndex:(NSUInteger)index
 {
 	[controlPoints_ removeObjectAtIndex:index];
 }
-
+//控制点个数
 -(NSUInteger) count
 {
 	return [controlPoints_ count];
 }
-
+//控制点反向
 -(CCPointArray*) reverse
 {
 	NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:[controlPoints_ count]];
@@ -246,7 +246,7 @@ inline CGPoint ccCardinalSplineAt( CGPoint p0, CGPoint p1, CGPoint p2, CGPoint p
 		lt = (dt - deltaT_ * (CGFloat)p) / deltaT_;
 	}
 
-	// Interpolate
+	// Interpolate 插入
 	CGPoint pp0 = [points_ getControlPointAtIndex:p-1];
 	CGPoint pp1 = [points_ getControlPointAtIndex:p+0];
 	CGPoint pp2 = [points_ getControlPointAtIndex:p+1];
@@ -256,7 +256,7 @@ inline CGPoint ccCardinalSplineAt( CGPoint p0, CGPoint p1, CGPoint p2, CGPoint p
 	
 	[self updatePosition:newPos];
 }
-
+//更新控制点位置
 -(void) updatePosition:(CGPoint)newPos
 {
 	[target_ setPosition:newPos];
