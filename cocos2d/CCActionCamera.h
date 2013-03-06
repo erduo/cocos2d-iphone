@@ -29,6 +29,7 @@
 @class CCCamera;
 
 /** Base class for CCCamera actions
+从CCCamera 类基础而来
  */
 @interface CCActionCamera : CCActionInterval <NSCopying>
 {
@@ -48,6 +49,7 @@
 
 /** CCOrbitCamera action
  Orbits the camera around the center of the screen using spherical coordinates
+轨道摄像运行使用球面中心系统
  */
 @interface CCOrbitCamera : CCActionCamera <NSCopying>
 {
@@ -64,10 +66,14 @@
 	float radDeltaX_;
 
 }
-/** creates a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
+/** creates a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX 
+创建一个轨道摄像运动使用角度，三角度，以及z,x进行计算？
+*/
 +(id) actionWithDuration:(float) t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx;
-/** initializes a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
+/** initializes a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX初始化的方法 */
 -(id) initWithDuration:(float) t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx;
-/** positions the camera according to spherical coordinates */
+/** positions the camera according to spherical coordinates
+根据球面坐标，进行摄像定位
+ */
 -(void) sphericalRadius:(float*) r zenith:(float*) zenith azimuth:(float*) azimuth;
 @end
