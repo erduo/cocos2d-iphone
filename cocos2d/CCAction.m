@@ -24,7 +24,7 @@
  *
  */
 
-
+//关于运动都要调用到：导演，宏定义，运动间隔类，点扩展
 #import "CCDirector.h"
 #import "ccMacros.h"
 #import "CCAction.h"
@@ -33,7 +33,7 @@
 
 //
 // Action Base Class
-//
+//运动基类的实现
 #pragma mark -
 #pragma mark Action
 @implementation CCAction
@@ -59,7 +59,7 @@
 	CCLOGINFO(@"cocos2d: deallocing %@", self);
 	[super dealloc];
 }
-
+//运动的描述方法
 -(NSString*) description
 {
 	return [NSString stringWithFormat:@"<%@ = %p | Tag = %ld>", [self class], self, (long)tag_];
@@ -71,12 +71,12 @@
 	copy.tag = tag_;
 	return copy;
 }
-
+//开始
 -(void) startWithTarget:(id)aTarget
 {
 	originalTarget_ = target_ = aTarget;
 }
-
+//结束
 -(void) stop
 {
 	target_ = nil;
@@ -100,7 +100,7 @@
 
 //
 // FiniteTimeAction
-//
+//限定时间运动
 #pragma mark -
 #pragma mark FiniteTimeAction
 @implementation CCFiniteTimeAction
@@ -116,7 +116,7 @@
 
 //
 // RepeatForever
-//
+//重复动作
 #pragma mark -
 #pragma mark RepeatForever
 @implementation CCRepeatForever
@@ -179,7 +179,7 @@
 
 //
 // Speed
-//
+//速度
 #pragma mark -
 #pragma mark Speed
 @implementation CCSpeed
@@ -242,7 +242,7 @@
 
 //
 // Follow
-//
+//跟随运动
 #pragma mark -
 #pragma mark Follow
 @implementation CCFollow
