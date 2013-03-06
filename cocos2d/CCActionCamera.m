@@ -30,10 +30,10 @@
 #import "CCNode.h"
 #import "CCCamera.h"
 #import "ccMacros.h"
-
+//宏，节点，摄像
 //
 // CameraAction
-//
+//摄像运动 启动方法
 @implementation CCActionCamera
 -(void) startWithTarget:(id)aTarget
 {
@@ -43,7 +43,7 @@
 	[camera eyeX:&eyeXOrig_ eyeY:&eyeYOrig_ eyeZ:&eyeZOrig_];
 	[camera upX:&upXOrig_ upY:&upYOrig_ upZ: &upZOrig_];
 }
-
+//反向方法
 -(id) reverse
 {
 	return [CCReverseTime actionWithAction:self];
@@ -51,6 +51,7 @@
 @end
 
 @implementation CCOrbitCamera
+//关于轨道摄像方法
 +(id) actionWithDuration:(float)t radius:(float)r deltaRadius:(float) dr angleZ:(float)z deltaAngleZ:(float)dz angleX:(float)x deltaAngleX:(float)dx
 {
 	return [[[self alloc] initWithDuration:t radius:r deltaRadius:dr angleZ:z deltaAngleZ:dz angleX:x deltaAngleX:dx] autorelease];
