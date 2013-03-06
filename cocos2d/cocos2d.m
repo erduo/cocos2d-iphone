@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 static NSString *version = @"cocos2d v2.0.0";
-
+//只有一个获取当前的cocos2d的版本号
 NSString *cocos2dVersion()
 {
 	return version;
