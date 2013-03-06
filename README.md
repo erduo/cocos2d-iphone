@@ -13,7 +13,7 @@ cocos2d for iPhone is:
   * Free
   * Easy to use
   * Community Supported
-
+快速，免费，易用，社区支持
 
 How to start a new game
 -----------------------
