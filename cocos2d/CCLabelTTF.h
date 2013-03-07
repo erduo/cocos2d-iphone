@@ -30,11 +30,11 @@
 #import "Platforms/CCNS.h"
 
 
-/** CCLabel is a subclass of CCTextureNode that knows how to render text labels
+/** CCLabel is a subclass of CCTextureNode that knows how to render text labels   CCLable是CCTextureNode的子类，知道如何程序文字标签
  *
  * All features from CCTextureNode are valid in CCLabel
- *
- * CCLabel objects are slow. Consider using CCLabelAtlas or CCLabelBMFont instead.
+ *继承所有CCTextureNode的特征
+ * CCLabel objects are slow. Consider using CCLabelAtlas or CCLabelBMFont instead.  由于CCLabel对象比较慢，可以使用CCLabelAtlas或者CCLabelIBMFont替换
  */
 
 @interface CCLabelTTF : CCSprite <CCLabelProtocol>
@@ -48,25 +48,25 @@
 	NSString	*string_;
 }
 
-/** Font name used in the label */
+/** Font name used in the label   字体名称*/
 @property (nonatomic,retain) NSString* fontName;
-/** Font size of the label */
+/** Font size of the label  大小 */
 @property (nonatomic,assign) float fontSize;
-/** Dimensions of the label in Points */
+/** Dimensions of the label in Points   尺寸*/
 @property (nonatomic,assign) CGSize dimensions;
-/** The alignment of the label */
+/** The alignment of the label  对齐*/
 @property (nonatomic,assign) CCTextAlignment horizontalAlignment;
-/** The vertical alignment of the label */
+/** The vertical alignment of the label  垂直对齐*/
 @property (nonatomic,assign) CCVerticalTextAlignment verticalAlignment;
 
 
-/** creates a CCLabelTTF with a font name and font size in points*/
+/** creates a CCLabelTTF with a font name and font size in points  创建使用个字体名称和大小*/
 + (id) labelWithString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size;
 
-/** creates a CCLabelTTF from a fontname, horizontal alignment, dimension in points,  and font size in points.
+/** creates a CCLabelTTF from a fontname, horizontal alignment, dimension in points,  and font size in points.  字体名称，水平对齐，大小；支持换行模式
  Supported lineBreakModes:
  - iOS: all UILineBreakMode supported modes
- - Mac: Only NSLineBreakByWordWrapping is supported.
+ - Mac: Only NSLineBreakByWordWrapping is supported. mac仅仅支持NSLineBreakByWordWrapping模式
  @since v1.0
  */
 + (id) labelWithString:(NSString*)string dimensions:(CGSize)dimensions hAlignment:(CCTextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size;
@@ -75,7 +75,7 @@
  Supported lineBreakModes:
  - iOS: all UILineBreakMode supported modes
  - Mac: Only NSLineBreakByWordWrapping is supported.
- @since v1.0
+ @since v1.0  同上
  */
 + (id) labelWithString:(NSString*)string dimensions:(CGSize)dimensions hAlignment:(CCTextAlignment)alignment lineBreakMode:(CCLineBreakMode)lineBreakMode fontName:(NSString*)name fontSize:(CGFloat)size;
 
@@ -97,7 +97,7 @@
 /** initializes the CCLabelTTF with a font name, horizonal alignment, dimension in points, and font size in points.
  Default verticalAlignment: kCCVerticalTextAlignmentTop 
  Default lineBreakMode: CCLineBreakModeWordWrap
- @since v1.0
+ @since v1.0  默认对齐方式，换行模式。
  */
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions hAlignment:(CCTextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size;
 
@@ -120,12 +120,12 @@
  Supported lineBreakModes:
  - iOS: all UILineBreakMode supported modes
  - Mac: Only NSLineBreakByWordWrapping is supported.
- @since v2.0
+ @since v2.0  创建和初始化方法都使用字体名称，对齐方式，大小，换行模式，等参数来定义不同的方法。 ios平台支持所有换行模式
  */
 - (id) initWithString:(NSString*)str dimensions:(CGSize)dimensions hAlignment:(CCTextAlignment)alignment vAlignment:(CCVerticalTextAlignment)vAlignment lineBreakMode:(CCLineBreakMode)lineBreakMode fontName:(NSString*)name fontSize:(CGFloat)size;
 
-/** changes the string to render
- * @warning Changing the string is as expensive as creating a new CCLabelTTF. To obtain better performance use CCLabelAtlas or CCLabelBMFont.
+/** changes the string to render  呈现改变字符串
+ * @warning Changing the string is as expensive as creating a new CCLabelTTF. To obtain better performance use CCLabelAtlas or CCLabelBMFont.  改变字符串最好使用CCLabelAtlas和CCLabelBMFont来创建
  */
 - (void) setString:(NSString*)str;
 
