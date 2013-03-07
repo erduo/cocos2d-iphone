@@ -29,7 +29,7 @@
 #import "ccMacros.h"
 #import "CCTexture2D.h"
 #import "Support/OpenGL_Internal.h"
-
+//gl,宏，纹理
 @implementation CCGrabber
 
 -(id) init
@@ -45,13 +45,13 @@
 {
 	glGetIntegerv(GL_FRAMEBUFFER_BINDING, &oldFBO_);
 
-	// bind
+	// bind  绑定
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
 
 	// associate texture with FBO
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.name, 0);
 
-	// check if it worked (probably worth doing :) )
+	// check if it worked (probably worth doing :) ) 检测是否在使用中
 	GLuint status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 	if (status != GL_FRAMEBUFFER_COMPLETE)
 		[NSException raise:@"Frame Grabber" format:@"Could not attach texture to framebuffer"];
@@ -64,7 +64,7 @@
 	glGetIntegerv(GL_FRAMEBUFFER_BINDING, &oldFBO_);
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
 
-	// save clear color
+	// save clear color   保存清楚颜色
 	glGetFloatv(GL_COLOR_CLEAR_VALUE,oldClearColor_);
 
 	// BUG XXX: doesn't work with RGB565.
@@ -85,7 +85,7 @@
 	glBindFramebuffer(GL_FRAMEBUFFER, oldFBO_);
 //	glColorMask(TRUE, TRUE, TRUE, TRUE);	// #631
 	
-	// Restore clear color
+	// Restore clear color  重新存储
 	glClearColor( oldClearColor_[0], oldClearColor_[1], oldClearColor_[2], oldClearColor_[3] );
 }
 
