@@ -29,7 +29,7 @@
 #import "ccMacros.h"
 #import "CCDrawingPrimitives.h"
 #import "kazmath/GL/matrix.h"
-
+//GL, 宏，矩阵，绘制单元
 @implementation CCCamera
 
 @synthesize dirty = dirty_;
