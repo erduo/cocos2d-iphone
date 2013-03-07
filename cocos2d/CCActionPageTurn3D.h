@@ -32,7 +32,7 @@
  *
  * Based on an original paper by L Hong et al.
  * http://www.parc.com/publication/1638/turning-pages-of-3d-electronic-books.html
- *
+ *该运动就是模拟页面从右下开始翻页的效果。 通常用于PageTurnTransition
  * @since v0.8.2
  */
 @interface CCPageTurn3D : CCGrid3DAction
