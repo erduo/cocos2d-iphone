@@ -45,7 +45,7 @@
 #import "CCLayer.h"
 #import "ccGLStateCache.h"
 #import "CCShaderCache.h"
-
+//调度，运动管理，纹理缓存，运行缓存，标签集，宏，转换，场景，层，着色缓存，状态缓存
 // support imports
 #import "Platforms/CCGL.h"
 #import "Platforms/CCNS.h"
@@ -54,7 +54,7 @@
 #import "Support/CGPointExtension.h"
 #import "Support/CCProfiling.h"
 #import "Support/CCFileUtils.h"
-
+//gl,点扩展，文件单元
 #ifdef __CC_PLATFORM_IOS
 #import "Platforms/iOS/CCDirectorIOS.h"
 #define CC_DIRECTOR_DEFAULT CCDirectorDisplayLink
@@ -65,22 +65,22 @@
 
 
 #pragma mark -
-#pragma mark Director - global variables (optimization)
+#pragma mark Director - global variables (optimization)  全局变量
 
 // XXX it shoul be a Director ivar. Move it there once support for multiple directors is added
 NSUInteger	__ccNumberOfDraws = 0;
 
-#define kDefaultFPS		60.0	// 60 frames per second
+#define kDefaultFPS		60.0	// 60 frames per second  默认每秒60帧
 
 extern NSString * cocos2dVersion(void);
 
 @interface CCDirector (Private)
 -(void) setNextScene;
-// shows the statistics
+// shows the statistics   显示统计数
 -(void) showStats;
-// calculates delta time since last time it was called
+// calculates delta time since last time it was called  计算时间差
 -(void) calculateDeltaTime;
-// calculates the milliseconds per frame from the start of the frame
+// calculates the milliseconds per frame from the start of the frame  毫秒为单位来计算
 -(void) calculateMPF;
 @end
 
@@ -103,7 +103,7 @@ extern NSString * cocos2dVersion(void);
 
 //
 // singleton stuff
-//
+//单例
 static CCDirector *_sharedDirector = nil;
 
 + (CCDirector *)sharedDirector
@@ -145,7 +145,7 @@ static CCDirector *_sharedDirector = nil;
 		oldAnimationInterval_ = animationInterval_ = 1.0 / kDefaultFPS;
 		scenesStack_ = [[NSMutableArray alloc] initWithCapacity:10];
 
-		// Set default projection (3D)
+		// Set default projection (3D)  设置3D投影
 		projection_ = kCCDirectorProjectionDefault;
 
 		// projection delegate if "Custom" projection is used
@@ -200,7 +200,8 @@ static CCDirector *_sharedDirector = nil;
 
 -(void) setGLDefaultValues
 {
-	// This method SHOULD be called only after view_ was initialized
+	// This method SHOULD be called only after view_ was initialized 视图创建时调用
+
 	NSAssert( view_, @"view_ must be initialized");
 
 	[self setAlphaBlending: YES];
@@ -213,7 +214,7 @@ static CCDirector *_sharedDirector = nil;
 
 //
 // Draw the Scene
-//
+//绘制场景
 - (void) drawScene
 {
 	// Override me
@@ -247,7 +248,7 @@ static CCDirector *_sharedDirector = nil;
 	lastUpdate_ = now;
 }
 
-#pragma mark Director - Memory Helper
+#pragma mark Director - Memory Helper  内存
 
 -(void) purgeCachedData
 {
@@ -256,7 +257,7 @@ static CCDirector *_sharedDirector = nil;
 	[[CCFileUtils sharedFileUtils] purgeCachedEntries];
 }
 
-#pragma mark Director - Scene OpenGL Helper
+#pragma mark Director - Scene OpenGL Helper   场景中Opengl
 
 -(ccDirectorProjection) projection
 {
@@ -299,7 +300,7 @@ static CCDirector *_sharedDirector = nil;
 	CHECK_GL_ERROR_DEBUG();
 }
 
-#pragma mark Director Integration with a UIKit view
+#pragma mark Director Integration with a UIKit view  集成UIKIT视图
 
 -(void) setView:(CCGLView*)view
 {
@@ -332,7 +333,7 @@ static CCDirector *_sharedDirector = nil;
 }
 
 
-#pragma mark Director Scene Landscape
+#pragma mark Director Scene Landscape  坐标系统转换
 
 -(CGPoint)convertToGL:(CGPoint)uiPoint
 {
@@ -362,7 +363,7 @@ static CCDirector *_sharedDirector = nil;
 	[self setProjection:projection_];
 }
 
-#pragma mark Director Scene Management
+#pragma mark Director Scene Management  场景管理：运行，替换，停止，恢复等方法
 
 - (void)runWithScene:(CCScene*) scene
 {
@@ -466,14 +467,14 @@ static CCDirector *_sharedDirector = nil;
 	[CCShaderCache purgeSharedShaderCache];
 	[[CCFileUtils sharedFileUtils] purgeCachedEntries];
 
-	// OpenGL view
+	// OpenGL view  注意释放opengl的视图
 
 	// Since the director doesn't attach the openglview to the window
 	// it shouldn't remove it from the window too.
 //	[openGLView_ removeFromSuperview];
 
 
-	// Invalidate GL state cache
+	// Invalidate GL state cache  设置opengl的状态为无效
 	ccGLInvalidateStateCache();
 
 	CHECK_GL_ERROR();
@@ -485,12 +486,12 @@ static CCDirector *_sharedDirector = nil;
 	BOOL runningIsTransition = [runningScene_ isKindOfClass:transClass];
 	BOOL newIsTransition = [nextScene_ isKindOfClass:transClass];
 
-	// If it is not a transition, call onExit/cleanup
+	// If it is not a transition, call onExit/cleanup  不是过渡场景则清楚或退出
 	if( ! newIsTransition ) {
 		[runningScene_ onExit];
 
 		// issue #709. the root node (scene) should receive the cleanup message too
-		// otherwise it might be leaked.
+		// otherwise it might be leaked.   根场景需要清楚消息，否则会内存泄露
 		if( sendCleanupToScene_)
 			[runningScene_ cleanup];
 	}
@@ -555,7 +556,7 @@ static CCDirector *_sharedDirector = nil;
 }
 
 
-// display statistics
+// display statistics  显示统计数
 -(void) showStats
 {
 	frames_++;
