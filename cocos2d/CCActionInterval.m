@@ -34,7 +34,7 @@
 #import "CCNode.h"
 #import "Support/CGPointExtension.h"
 
-//
+//使用及时运动，精灵，动画，节点，点扩展
 // IntervalAction
 //
 #pragma mark - CCIntervalAction
@@ -90,7 +90,7 @@
 		elapsed_ += dt;
 
 
-	[self update: MAX(0,					// needed for rewind. elapsed could be negative
+	[self update: MAX(0,					// needed for rewind. elapsed could be negative   经过可能是负面的？？
 					  MIN(1, elapsed_/
 						  MAX(duration_,FLT_EPSILON)	// division by 0
 						  )
@@ -114,7 +114,7 @@
 
 //
 // Sequence
-//
+//序列
 #pragma mark - CCSequence
 @implementation CCSequence
 +(id) actions: (CCFiniteTimeAction*) action1, ...
@@ -239,7 +239,7 @@
 		}
 	}
 	
-	// New action. Start it.
+	// New action. Start it. 新的运动，开始启动
 	if( found != last_ )
 		[actions_[found] startWithTarget:target_];
 	
@@ -255,7 +255,7 @@
 
 //
 // Repeat
-//
+//重复
 #pragma mark - CCRepeat
 @implementation CCRepeat
 @synthesize innerAction=innerAction_;
@@ -274,7 +274,7 @@
 		self.innerAction = action;
 		isActionInstant_ = ([action isKindOfClass:[CCActionInstant class]]) ? YES : NO;
 
-		//a instant action needs to be executed one time less in the update method since it uses startWithTarget to execute the action
+		//a instant action needs to be executed one time less in the update method since it uses startWithTarget to execute the action  一个及时运动需要被执行的时间少于更新执行一个启动时间
 		if (isActionInstant_) times_ -=1;
 		total_ = 0;
 	}
@@ -310,6 +310,7 @@
 
 // issue #80. Instead of hooking step:, hook update: since it can be called by any
 // container action like CCRepeat, CCSequence, CCEase, etc..
+//替换钩。钩更新
 -(void) update:(ccTime) dt
 {
 	if (dt >= nextDt_)
@@ -331,7 +332,7 @@
 			total_++;
 		}
 		
-		// don't set a instantaction back or update it, it has no use because it has no duration
+		// don't set a instantaction back or update it, it has no use because it has no duration   没有周期，无需设定更新
 		if (!isActionInstant_)
 		{
 			if (total_ == times_)
@@ -365,7 +366,7 @@
 
 //
 // Spawn
-//
+//卵，不清楚是什么效果？？
 #pragma mark - CCSpawn
 
 @implementation CCSpawn
@@ -473,7 +474,7 @@
 
 //
 // RotateTo
-//
+//旋转属性
 #pragma mark - CCRotateTo
 
 @implementation CCRotateTo
@@ -565,7 +566,7 @@
 
 //
 // MoveTo
-//
+//移动
 #pragma mark - CCMoveTo
 
 @implementation CCMoveTo
@@ -642,7 +643,7 @@
 
 //
 // SkewTo
-//
+//倾斜
 #pragma mark - CCSkewTo
 
 @implementation CCSkewTo
@@ -745,7 +746,7 @@
 
 //
 // JumpBy
-//
+//跳跃，使用抛物线
 #pragma mark - CCJumpBy
 
 @implementation CCJumpBy
@@ -815,9 +816,9 @@
 
 #pragma mark - CCBezierBy
 
-// Bezier cubic formula:
+// Bezier cubic formula:贝塞尔立方公式：
 //	((1 - t) + t)3 = 1
-// Expands to…
+// Expands to… 扩展
 //   (1 - t)3 + 3t(1-t)2 + 3t2(1 - t) + t3 = 1
 static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 {
@@ -958,7 +959,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // ScaleBy
-//
+//缩放属性
 #pragma mark - CCScaleBy
 @implementation CCScaleBy
 -(void) startWithTarget:(CCNode *)aTarget
@@ -976,7 +977,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // Blink
-//
+//闪烁，修改可见性
 #pragma mark - CCBlink
 @implementation CCBlink
 +(id) actionWithDuration: (ccTime) t blinks: (NSUInteger) b
@@ -1016,7 +1017,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // FadeIn
-//
+//淡入和淡出效果
 #pragma mark - CCFadeIn
 @implementation CCFadeIn
 -(void) update: (ccTime) t
@@ -1084,7 +1085,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // TintTo
-//
+//着色
 #pragma mark - CCTintTo
 @implementation CCTintTo
 +(id) actionWithDuration:(ccTime)t red:(GLubyte)r green:(GLubyte)g blue:(GLubyte)b
@@ -1171,7 +1172,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // DelayTime
-//
+//延迟
 #pragma mark - CCDelayTime
 @implementation CCDelayTime
 -(void) update: (ccTime) t
@@ -1187,7 +1188,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // ReverseTime
-//
+//反向
 #pragma mark - CCReverseTime
 @implementation CCReverseTime
 +(id) actionWithAction: (CCFiniteTimeAction*) action
@@ -1247,7 +1248,7 @@ static inline CGFloat bezierat( float a, float b, float c, float d, ccTime t )
 
 //
 // Animate
-//
+//动画
 
 #pragma mark - CCAnimate
 @implementation CCAnimate
