@@ -34,13 +34,14 @@ typedef enum  {
 } tCCMenuState;
 
 enum {
-	//* priority used by the menu for the event handler
+	//* priority used by the menu for the event handler  事件处理的菜单优先级
 	kCCMenuHandlerPriority = -128,
 };
 
 /** A CCMenu
  *
  * Features and Limitation:
+特征与限制：可以增加子菜单对象（运行时），只接受子菜单对象
  *  - You can add MenuItem objects in runtime using addChild:
  *  - But the only accecpted children are MenuItem objects
  */
@@ -53,17 +54,17 @@ enum {
 	BOOL		enabled_;
 }
 
-/** conforms to CCRGBAProtocol protocol */
+/** conforms to CCRGBAProtocol protocol  符合CCRGBAProtocol 协议 */
 @property (nonatomic,readonly) GLubyte opacity;
 /** conforms to CCRGBAProtocol protocol */
 @property (nonatomic,readonly) ccColor3B color;
-/** whether or not the menu will receive events */
+/** whether or not the menu will receive events  接收事件*/
 @property (nonatomic, readwrite) BOOL enabled;
 
-/** creates a CCMenu with its items */
+/** creates a CCMenu with its items   使用子菜单创建*/
 + (id) menuWithItems: (CCMenuItem*) item, ... NS_REQUIRES_NIL_TERMINATION;
 
-/** creates a CCMenu with a NSArray of CCMenuItem objects */
+/** creates a CCMenu with a NSArray of CCMenuItem objects 子菜单数组 */
 + (id) menuWithArray:(NSArray*)arrayOfItems;
 
 /** initializes a CCMenu with its items */
@@ -72,29 +73,29 @@ enum {
 /** initializes a CCMenu with a NSArray of CCMenuItem objects */
 - (id) initWithArray:(NSArray*)arrayOfItems;
 
-/** align items vertically */
+/** align items vertically  菜单垂直 */
 -(void) alignItemsVertically;
 /** align items vertically with padding
- @since v0.7.2
+ @since v0.7.2  填充
  */
 -(void) alignItemsVerticallyWithPadding:(float) padding;
 
-/** align items horizontally */
+/** align items horizontally   水平*/
 -(void) alignItemsHorizontally;
 /** align items horizontally with padding
  @since v0.7.2
  */
 -(void) alignItemsHorizontallyWithPadding: (float) padding;
 
-/** align items in rows of columns */
+/** align items in rows of columns  行 */
 -(void) alignItemsInColumns: (NSNumber *) columns, ... NS_REQUIRES_NIL_TERMINATION;
 -(void) alignItemsInColumns: (NSNumber *) columns vaList: (va_list) args;
 
-/** align items in columns of rows */
+/** align items in columns of rows  柱 */
 -(void) alignItemsInRows: (NSNumber *) rows, ... NS_REQUIRES_NIL_TERMINATION;
 -(void) alignItemsInRows: (NSNumber *) rows vaList: (va_list) args;
 
-/** set event handler priority. By default it is: kCCMenuTouchPriority */
+/** set event handler priority. By default it is: kCCMenuTouchPriority   设置事件处理优先级 默认是kCCMenuTouchPriority   */
 -(void) setHandlerPriority:(NSInteger)newPriority;
 
 @end
