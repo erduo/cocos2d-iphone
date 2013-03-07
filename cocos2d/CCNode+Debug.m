@@ -27,7 +27,7 @@
 #ifdef DEBUG
 
 @implementation CCNode (Debug)
-
+//调试
 -(void) walkSceneGraph:(NSUInteger)level
 {
 	char buf[64];
