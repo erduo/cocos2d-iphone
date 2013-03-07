@@ -44,9 +44,9 @@
 #import "Support/CCFileUtils.h"
 #import "Support/CGPointExtension.h"
 #import "Support/uthash.h"
-
+//宏，精灵，绘制单元，配置，纹理缓存，文件单元，点扩展，哈希值
 #pragma mark -
-#pragma mark FNTConfig Cache - free functions
+#pragma mark FNTConfig Cache - free functions   释放函数
 
 NSMutableDictionary *configurations = nil;
 CCBMFontConfiguration* FNTConfigLoadFile( NSString *fntFile)
@@ -71,7 +71,7 @@ void FNTConfigRemoveCache( void )
 	[configurations removeAllObjects];
 }
 
-#pragma mark - Hash Element
+#pragma mark - Hash Element  哈希值元素
 
 // Equal function for targetSet.
 typedef struct _KerningHashElement
@@ -252,7 +252,7 @@ typedef struct _FontDefHashElement
 	propertyValue = [array objectAtIndex:1];
 	NSAssert(propertyValue,@"LabelBMFont file could not be found");
 
-	// Supports subdirectories
+	// Supports subdirectories  支持子目录
 	NSString *dir = [fntFile stringByDeletingLastPathComponent];
 	atlasName_ = [dir stringByAppendingPathComponent:propertyValue];
 
@@ -262,7 +262,7 @@ typedef struct _FontDefHashElement
 -(void) parseInfoArguments:(NSString*)line
 {
 	//
-	// possible lines to parse:
+	// possible lines to parse:  行解析
 	// info face="Script" size=32 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=1,4,3,2 spacing=0,0 outline=0
 	// info face="Cracked" size=36 bold=0 italic=0 charset="" unicode=0 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1
 	//
