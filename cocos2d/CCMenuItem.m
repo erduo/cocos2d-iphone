@@ -30,7 +30,7 @@
 #import "CCActionInterval.h"
 #import "CCSprite.h"
 #import "Support/CGPointExtension.h"
-
+//标签字体，动画间隔，精灵，点扩展
 static NSUInteger _fontSize = kCCItemSize;
 static NSString *_fontName = @"Marker Felt";
 static BOOL _fontNameRelease = NO;
@@ -62,7 +62,7 @@ const NSInteger	kCCZoomActionTag = 0xc0c05002;
 
 -(id) initWithTarget:(id)target selector:(SEL)selector
 {
-	// avoid retain cycle
+	// avoid retain cycle  避免循环引用
 	__block id t = target;
 	return [self initWithBlock:^(id sender) {
 
