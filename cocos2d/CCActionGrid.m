@@ -29,7 +29,7 @@
 
 #pragma mark -
 #pragma mark GridAction
-
+//导演
 @implementation CCGridAction
 
 @synthesize gridSize = gridSize_;
