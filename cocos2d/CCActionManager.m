@@ -30,7 +30,7 @@
 #import "CCActionManager.h"
 #import "CCScheduler.h"
 #import "ccMacros.h"
-
+//宏，调度
 @interface CCActionManager (Private)
 -(void) removeActionAtIndex:(NSUInteger)index hashElement:(tHashElement*)element;
 -(void) deleteHashElement:(tHashElement*)element;
@@ -64,7 +64,7 @@
 }
 
 #pragma mark ActionManager - Private
-
+//实现删除指定的哈希值对象方法
 -(void) deleteHashElement:(tHashElement*)element
 {
 	ccArrayFree(element->actions);
@@ -107,7 +107,7 @@
 }
 
 #pragma mark ActionManager - Pause / Resume
-
+//暂停和恢复方法
 -(void) pauseTarget:(id)target
 {
 	tHashElement *element = NULL;
@@ -186,7 +186,7 @@
 }
 -(void) removeAllActionsFromTarget:(id)target
 {
-	// explicit nil handling
+	// explicit nil handling  明确无处理
 	if( target == nil )
 		return;
 
@@ -328,7 +328,7 @@
 		// so it is safe to ask this here (issue #490)
 		elt = elt->hh.next;
 
-		// only delete currentTarget if no actions were scheduled during the cycle (issue #481)
+		// only delete currentTarget if no actions were scheduled during the cycle (issue #481)  没有运动只需删除当前目标
 		if( currentTargetSalvaged && currentTarget->actions->num == 0 )
 			[self deleteHashElement:currentTarget];
 	}
