@@ -35,7 +35,7 @@
 #import "CCGLProgram.h"
 #import "CCActionCatmullRom.h"
 #import "Support/OpenGL_Internal.h"
-
+//宏，GＬ，状态缓存，着色缓存，程序
 
 static BOOL initialized = NO;
 static CCGLProgram *shader_ = nil;
