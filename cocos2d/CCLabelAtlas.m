@@ -36,13 +36,13 @@
 #import "Support/CGPointExtension.h"
 #import "Support/TransformUtils.h"
 #import "Support/CCFileUtils.h"
-
+//配置，宏，绘制图形单元，着色缓存，着色方案，状态缓存，导演，点扩展，文件，转换
 // external
 #import "kazmath/GL/matrix.h"
 
 @implementation CCLabelAtlas
 
-#pragma mark CCLabelAtlas - Creation & Init
+#pragma mark CCLabelAtlas - Creation & Init  创建和初始化方法
 +(id) labelWithString:(NSString*)string charMapFile:(NSString*)charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)c
 {
 	return [[[self alloc] initWithString:string charMapFile:charmapfile itemWidth:w itemHeight:h startCharMap:c] autorelease];
