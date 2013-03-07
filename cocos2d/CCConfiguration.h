@@ -28,6 +28,7 @@
 #import "Platforms/CCGL.h"
 
 /** OS version definitions. Includes both iOS and Mac OS versions
+包括ios 和mac os版本 都有哪些
  */
 enum {
 	kCCiOSVersion_4_0   = 0x04000000,
@@ -53,6 +54,7 @@ enum {
 
 /**
  CCConfiguration contains some openGL variables
+包括一些openGL的参数变量
  @since v0.99.0
  */
 @interface CCConfiguration : NSObject {
@@ -69,56 +71,57 @@ enum {
 	GLint			maxTextureUnits_;
 }
 
-/** OpenGL Max texture size. */
+/** OpenGL Max texture size  最大纹理. */
 @property (nonatomic, readonly) GLint maxTextureSize;
 
-/** OpenGL Max Modelview Stack Depth. */
+/** OpenGL Max Modelview Stack Depth.  堆栈深度*/
 @property (nonatomic, readonly) GLint maxModelviewStackDepth;
 
-/** returns the maximum texture units
+/** returns the maximum texture units   返回最大纹理单元
  @since v2.0.0
  */
 @property (nonatomic, readonly) GLint maxTextureUnits;
 
 /** Whether or not the GPU supports NPOT (Non Power Of Two) textures.
  OpenGL ES 2.0 already supports NPOT (iOS).
-
+图像的模糊与Non Power Of Two相关
  @since v0.99.2
  */
 @property (nonatomic, readonly) BOOL supportsNPOT;
 
-/** Whether or not PVR Texture Compressed is supported */
+/** Whether or not PVR Texture Compressed is supported   支持纹理压缩*/
 @property (nonatomic, readonly) BOOL supportsPVRTC;
 
 /** Whether or not BGRA8888 textures are supported.
-
+是否支持BGRA8888 纹理
  @since v0.99.2
  */
 @property (nonatomic, readonly) BOOL supportsBGRA8888;
 
 /** Whether or not glDiscardFramebufferEXT is supported
-
+是否支持glDiscardFramebufferEXT，就是清除方法
  @since v0.99.2
  */
 @property (nonatomic, readonly) BOOL supportsDiscardFramebuffer;
 
 /** Whether or not shareable VAOs are supported.
  @since v2.0.0
+是否支持vao渲染
  */
 @property (nonatomic, readonly) BOOL supportsShareableVAO;
 
 /** returns the OS version.
 	- On iOS devices it returns the firmware version.
 	- On Mac returns the OS version
-
+设备版本号
  @since v0.99.5
  */
 @property (nonatomic, readonly) unsigned int OSVersion;
 
-/** returns a shared instance of the CCConfiguration */
+/** returns a shared instance of the CCConfiguration  返回配置类共享实例 */
 +(CCConfiguration *) sharedConfiguration;
 
-/** returns whether or not an OpenGL is supported */
+/** returns whether or not an OpenGL is supported  是否支持Opengl*/
 - (BOOL) checkForGLExtension:(NSString *)searchName;
 
 
