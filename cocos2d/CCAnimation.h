@@ -28,7 +28,7 @@
 #ifdef __CC_PLATFORM_IOS
 #import <CoreGraphics/CoreGraphics.h>
 #endif // IPHONE
-
+//iphone平台用到核心绘图
 @class CCSpriteFrame;
 @class CCTexture2D;
 @class CCSpriteFrame;
@@ -38,7 +38,7 @@
 	- sprite frame name
 	- # of delay units.
 	- offset
- 
+ 一个动画边框包括：精灵边框，延迟单元，偏移量
  @since v2.0
  */
 @interface CCAnimationFrame : NSObject <NSCopying>
@@ -47,13 +47,15 @@
     float delayUnits_;
     NSDictionary *userInfo_;
 }
-/** CCSpriteFrameName to be used */
+/** CCSpriteFrameName to be used  精灵边框 */
 @property (nonatomic, readwrite, retain) CCSpriteFrame* spriteFrame;
 
-/**  how many units of time the frame takes */
+/**  how many units of time the frame takes 多少单元被使用 */
 @property (nonatomic, readwrite) float delayUnits;
 
-/**  A CCAnimationFrameDisplayedNotification notification will be broadcasted when the frame is displayed with this dictionary as UserInfo. If UserInfo is nil, then no notification will be broadcasted. */
+/**  A CCAnimationFrameDisplayedNotification notification will be broadcasted when the frame is displayed with this dictionary as UserInfo. If UserInfo is nil, then no notification will be broadcasted.  
+当宽框架显示时注册一个通知，作为用户信息；如用户信息为Nil，则不用广播通知
+ */
 @property (nonatomic, readwrite, retain) NSDictionary *userInfo;
 
 /** initializes the animation frame with a spriteframe, number of delay units and a notification user info */
@@ -61,9 +63,11 @@
 @end
 
 /** A CCAnimation object is used to perform animations on the CCSprite objects.
-
+一个动画对象被精灵对象来使用；
  The CCAnimation object contains CCAnimationFrame objects, and a possible delay between the frames.
- You can animate a CCAnimation object by using the CCAnimate action. Example:
+ You can animate a CCAnimation object by using the CCAnimate action. 
+可以使用CCAnimate 动作来标示动画对象
+Example:
 
   [sprite runAction:[CCAnimate actionWithAnimation:animation]];
 
@@ -77,26 +81,29 @@
 	NSUInteger		loops_;
 }
 
-/** total Delay units of the CCAnimation. */
+/** total Delay units of the CCAnimation  所有延迟单元. */
 @property (nonatomic, readonly) float totalDelayUnits;
-/** Delay in seconds of the "delay unit" */
+/** Delay in seconds of the "delay unit"  以秒来计算的延迟单元 */
 @property (nonatomic, readwrite) float delayPerUnit;
-/** duration in seconds of the whole animation. It is the result of totalDelayUnits * delayPerUnit */
+/** duration in seconds of the whole animation. It is the result of totalDelayUnits * delayPerUnit  周期 */
 @property (nonatomic,readonly) float duration;
-/** array of CCAnimationFrames */
+/** array of CCAnimationFrames   数组*/
 @property (nonatomic,readwrite,retain) NSMutableArray *frames;
-/** whether or not it shall restore the original frame when the animation finishes */
+/** whether or not it shall restore the original frame when the animation finishes 
+是否存储原框架
+*/
 @property (nonatomic,readwrite) BOOL restoreOriginalFrame;
-/** how many times the animation is going to loop. 0 means animation is not animated. 1, animation is executed one time, ... */
+/** how many times the animation is going to loop. 0 means animation is not animated. 1, animation is executed one time, ...   动画循环次数 */
 @property (nonatomic, readwrite) NSUInteger loops;
 
-/** Creates an animation
+/** Creates an animation 创建动画
  @since v0.99.5
  */
 +(id) animation;
 
 /** Creates an animation with an array of CCSpriteFrame.
  The frames will be created with one "delay unit".
+使用一组CCSpriteFrame来创建
  @since v0.99.5
  */
 +(id) animationWithSpriteFrames:(NSArray*)arrayOfSpriteFrameNames;
@@ -132,6 +139,7 @@
 
 /** Adds a CCSpriteFrame to a CCAnimation.
  The frame will be added with one "delay unit".
+增加方法
 */
 -(void) addSpriteFrame:(CCSpriteFrame*)frame;
 
@@ -144,6 +152,7 @@
 /** Adds a frame with a texture and a rect. Internally it will create a CCSpriteFrame and it will add it.
  The frame will be added with one "delay unit".
  Added to facilitate the migration from v0.8 to v0.9.
+不同的增加方法，都是增加一个延迟单元，不过是参数不同
  */
 -(void) addSpriteFrameWithTexture:(CCTexture2D*)texture rect:(CGRect)rect;
 
