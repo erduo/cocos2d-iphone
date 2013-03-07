@@ -25,7 +25,7 @@
 
 #import "CCActionTween.h"
 
-
+//方法实现：键值的改变，周期； 开始，更新，方向
 @implementation CCActionTween
 
 + (id)actionWithDuration:(ccTime)aDuration key:(NSString *)aKey from:(float)aFrom to:(float)aTo {
