@@ -34,13 +34,13 @@
 #import "CCSprite.h"
 #import "Support/CCFileUtils.h"
 
-
+//宏，精灵单元缓存，动画，精灵，文件单元
 @implementation CCAnimationCache
 
 #pragma mark CCAnimationCache - Alloc, Init & Dealloc
 
 static CCAnimationCache *sharedAnimationCache_=nil;
-
+//实现单例
 + (CCAnimationCache *)sharedAnimationCache
 {
 	if (!sharedAnimationCache_)
@@ -84,7 +84,7 @@ static CCAnimationCache *sharedAnimationCache_=nil;
 }
 
 #pragma mark CCAnimationCache - load/get/del
-
+//动画的载人，获取和删除方法
 -(void) addAnimation:(CCAnimation*)animation name:(NSString*)name
 {
 	[animations_ setObject:animation forKey:name];
