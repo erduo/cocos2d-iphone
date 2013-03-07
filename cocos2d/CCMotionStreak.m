@@ -33,7 +33,7 @@
 #import "Support/CCVertex.h"
 #import "Support/CGPointExtension.h"
 
-
+//纹理缓存，状态缓存，着色方案，着色缓存，宏，顶点，点扩展
 @implementation CCMotionStreak
 @synthesize texture = texture_;
 @synthesize blendFunc = blendFunc_;
@@ -149,7 +149,7 @@
     NSUInteger newIdx, newIdx2, i, i2;
     NSUInteger mov = 0;
 
-    // Update current points
+    // Update current points  更新当前点
     for(i = 0; i<nuPoints_; i++)
     {
         pointState_[i]-=delta;
