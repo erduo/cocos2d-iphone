@@ -41,7 +41,7 @@
 
 //
 // EaseAction
-//
+//实现缓解运动
 @implementation CCActionEase
 
 +(id) actionWithAction: (CCActionInterval*) action
@@ -76,7 +76,7 @@
 	[super startWithTarget:aTarget];
 	[other startWithTarget:target_];
 }
-
+//停止方法
 -(void) stop
 {
 	[other stop];
@@ -100,7 +100,7 @@
 
 //
 // EaseRateAction
-//
+//带有比率参数的
 @implementation CCEaseRateAction
 @synthesize rate;
 +(id) actionWithAction: (CCActionInterval*) action rate:(float)aRate
@@ -135,7 +135,7 @@
 
 //
 // EeseIn
-//
+//powf()计算以x为底数的y次幂 输入和输出为浮点数
 @implementation CCEaseIn
 -(void) update: (ccTime) t
 {
@@ -168,7 +168,7 @@
     }
 }
 
-// InOut and OutIn are symmetrical
+// InOut and OutIn are symmetrical  对称的
 -(CCActionInterval*) reverse
 {
 	return [[self class] actionWithAction: [other reverse] rate:rate];
@@ -179,7 +179,7 @@
 #pragma mark -
 #pragma mark EaseExponential
 
-//
+//指数
 // EaseExponentialIn
 //
 @implementation CCEaseExponentialIn
@@ -231,7 +231,7 @@
 
 //
 // EaseSineIn
-//
+//正弦计算
 @implementation CCEaseSineIn
 -(void) update: (ccTime) t
 {
@@ -274,7 +274,7 @@
 
 //
 // EaseElastic
-//
+//弹性，使用到波的周期
 @implementation CCEaseElastic
 
 @synthesize period = period_;
@@ -404,7 +404,7 @@
 
 //
 // EaseBounce
-//
+//弹跳，估计用到重力加速度
 @implementation CCEaseBounce
 -(ccTime) bounceTime:(ccTime) t
 {
@@ -514,7 +514,7 @@
 
 //
 // EaseBackInOut
-//
+//这个参数还未理解用途 ？？
 @implementation CCEaseBackInOut
 
 -(void) update: (ccTime) t
