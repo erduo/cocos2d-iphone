@@ -46,7 +46,7 @@ extern "C" {
 	
 /**
  @file
- Drawing OpenGL ES primitives.
+ Drawing OpenGL ES primitives. 绘制opengl es图像单元
   - ccDrawPoint
   - ccDrawLine
   - ccDrawPoly
@@ -56,77 +56,80 @@ extern "C" {
 
  You can change the color, width and other property by calling the
    glColor4ub(), glLineWidth(), glPointSize().
-
- @warning These functions draws the Line, Point, Polygon, immediately. They aren't batched. If you are going to make a game that depends on these primitives, I suggest creating a batch.
+调用相关函数改变如颜色，宽度等属性
+ @warning These functions draws the Line, Point, Polygon, immediately. They aren't batched. If you are going to make a game that depends on these primitives, I suggest creating a batch. 
+这些函数不是批处理。做游戏依赖于这些单元，创建批处理
  */
 
 
-/** draws a point given x and y coordinate measured in points. */
+/** draws a point given x and y coordinate measured in points.   绘制点*/
 void ccDrawPoint( CGPoint point );
 
-/** draws an array of points.
+/** draws an array of points.绘制一组点
  @since v0.7.2
  */
 void ccDrawPoints( const CGPoint *points, NSUInteger numberOfPoints );
 
-/** draws a line given the origin and destination point measured in points. */
+/** draws a line given the origin and destination point measured in points.  绘制线：从原点到目标点 */
 void ccDrawLine( CGPoint origin, CGPoint destination );
 
-/** draws a rectangle given the origin and destination point measured in points. */
+/** draws a rectangle given the origin and destination point measured in points. 
+绘制矩形
+*/
 void ccDrawRect( CGPoint origin, CGPoint destination );
 
-/** draws a solid rectangle given the origin and destination point measured in points.
+/** draws a solid rectangle given the origin and destination point measured in points.  绘制实心矩形
     @since 1.1
  */
 void ccDrawSolidRect( CGPoint origin, CGPoint destination, ccColor4F color );
 
 /** draws a poligon given a pointer to CGPoint coordiantes and the number of vertices measured in points.
- The polygon can be closed or open
+ The polygon can be closed or open  绘制多边形
  */
 void ccDrawPoly( const CGPoint *vertices, NSUInteger numOfVertices, BOOL closePolygon );
 
-/** draws a solid polygon given a pointer to CGPoint coordiantes, the number of vertices measured in points, and a color.
+/** draws a solid polygon given a pointer to CGPoint coordiantes, the number of vertices measured in points, and a color. 绘制实心多边形
  */
 void ccDrawSolidPoly( const CGPoint *poli, NSUInteger numberOfPoints, ccColor4F color );
     
-/** draws a circle given the center, radius and number of segments measured in points */
+/** draws a circle given the center, radius and number of segments measured in points  绘制圆形 */
 void ccDrawCircle( CGPoint center, float radius, float angle, NSUInteger segments, BOOL drawLineToCenter);
 
 /** draws a quad bezier path measured in points.
- @warning This function could be pretty slow. Use it only for debugging purposes.
+ @warning This function could be pretty slow. Use it only for debugging purposes.   绘制贝塞尔路径。运行慢，测试使用
  @since v0.8
  */
 void ccDrawQuadBezier(CGPoint origin, CGPoint control, CGPoint destination, NSUInteger segments);
 
 /** draws a cubic bezier path measured in points.
- @warning This function could be pretty slow. Use it only for debugging purposes.
+ @warning This function could be pretty slow. Use it only for debugging purposes.  同上
  @since v0.8
  */
 void ccDrawCubicBezier(CGPoint origin, CGPoint control1, CGPoint control2, CGPoint destination, NSUInteger segments);
 
 /** draws a Catmull Rom path.
- @warning This function could be pretty slow. Use it only for debugging purposes.
+ @warning This function could be pretty slow. Use it only for debugging purposes.同上
  @since v2.0
  */
 void ccDrawCatmullRom( CCPointArray *arrayOfControlPoints, NSUInteger segments );
 
 /** draws a Cardinal Spline path.
  @warning This function could be pretty slow. Use it only for debugging purposes.
- @since v2.0
+ @since v2.0绘制基数样条路径
  */
 void ccDrawCardinalSpline( CCPointArray *config, CGFloat tension,  NSUInteger segments );
 
 /** set the drawing color with 4 unsigned bytes
- @since v2.0
+ @since v2.0   设置绘制颜色用4个无符号整数字节
  */
 void ccDrawColor4B( GLubyte r, GLubyte g, GLubyte b, GLubyte a );
 
-/** set the drawing color with 4 floats
+/** set the drawing color with 4 floats   同上
  @since v2.0
  */
 void ccDrawColor4F( GLfloat r, GLfloat g, GLfloat b, GLfloat a );
 
-/** set the point size in points. Default 1.
+/** set the point size in points. Default 1.  设置点大小
  @since v2.0
  */
 void ccPointSize( GLfloat pointSize );
