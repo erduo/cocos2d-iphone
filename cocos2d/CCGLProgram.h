@@ -54,12 +54,12 @@ enum {
 #define kCCShader_PositionTextureA8Color		@"ShaderPositionTextureA8Color"
 #define kCCShader_Position_uColor				@"ShaderPosition_uColor"
 
-// uniform names
+// uniform names   同一名称
 #define kCCUniformMVPMatrix_s			"u_MVPMatrix"
 #define kCCUniformSampler_s				"u_texture"
 #define kCCUniformAlphaTestValue		"u_alpha_value"
 
-// Attribute names
+// Attribute names  属性名称
 #define	kCCAttributeNameColor			@"a_color"
 #define	kCCAttributeNamePosition		@"a_position"
 #define	kCCAttributeNameTexCoord		@"a_texCoord"
@@ -69,7 +69,7 @@ struct _hashUniformEntry;
 
 /** CCGLProgram
  Class that implements a glProgram
- 
+ 该类实现了一个glProgram
  
  @since v2.0.0
  */
@@ -85,31 +85,31 @@ struct _hashUniformEntry;
 	GLint			uniforms_[kCCUniform_MAX];
 }
 
-/** Initializes the CCGLProgram with a vertex and fragment with bytes array */
+/** Initializes the CCGLProgram with a vertex and fragment with bytes array  使用顶点和带有字节数组的碎片创建和初始化 */
 - (id)initWithVertexShaderByteArray:(const GLchar*)vShaderByteArray fragmentShaderByteArray:(const GLchar*)fShaderByteArray;
 
-/** Initializes the CCGLProgram with a vertex and fragment with contents of filenames */
+/** Initializes the CCGLProgram with a vertex and fragment with contents of filenames  碎片是带有文件*/
 - (id)initWithVertexShaderFilename:(NSString *)vShaderFilename fragmentShaderFilename:(NSString *)fShaderFilename;
 
-/**  It will add a new attribute to the shader */
+/**  It will add a new attribute to the shader   增加一个属性给着色器*/
 - (void)addAttribute:(NSString *)attributeName index:(GLuint)index;
 
-/** links the glProgram */
+/** links the glProgram  链接glProgram*/
 - (BOOL)link;
 
-/** it will call glUseProgram() */
+/** it will call glUseProgram()  调用glProgram*/
 - (void)use;
 
-/** It will create 3 uniforms:
+/** It will create 3 uniforms:  创建三种规格
 	- kCCUniformPMatrix
 	- kCCUniformMVMatrix
 	- kCCUniformSampler
 
- And it will bind "kCCUniformSampler" to 0
+ And it will bind "kCCUniformSampler" to 0   给kCCUniformSampler赋值为0
  */
 - (void) updateUniforms;
 
-/** calls glUniform1i only if the values are different than the previous call for this same shader program. */
+/** calls glUniform1i only if the values are different than the previous call for this same shader program.   值不同于上一次调用说色时，分别进行不同的调用根据输入的参数是整数，浮点数，不同： glUniform1i,glUniform1f,glUniform2f,glUniform3f ,glUniform4f*/
 -(void) setUniformLocation:(NSUInteger)location withI1:(GLint)i1;
 
 /** calls glUniform1f only if the values are different than the previous call for this same shader program. */
@@ -133,18 +133,18 @@ struct _hashUniformEntry;
 /** calls glUniform4fv only if the values are different than the previous call for this same shader program. */
 -(void) setUniformLocation:(NSUInteger)location with4fv:(GLvoid*)floats count:(NSUInteger)numberOfArrays;
 
-/** calls glUniformMatrix4fv only if the values are different than the previous call for this same shader program. */
+/** calls glUniformMatrix4fv only if the values are different than the previous call for this same shader program. 同上，只是参数不同时，进行不同调用gl函数*/
 -(void) setUniformLocation:(NSUInteger)location withMatrix4fv:(GLvoid*)matrix_array count:(NSUInteger)numberOfMatrix;
 
-/** will update the MVP matrix on the MVP uniform if it is different than the previous call for this same shader program. */
+/** will update the MVP matrix on the MVP uniform if it is different than the previous call for this same shader program.  更新mvp matrix */
 -(void) setUniformForModelViewProjectionMatrix;
 
-/** returns the vertexShader error log */
+/** returns the vertexShader error log    返回顶点着色的错误信息*/
 - (NSString *)vertexShaderLog;
 
-/** returns the fragmentShader error log */
+/** returns the fragmentShader error log  返回碎片着色的错误信息*/
 - (NSString *)fragmentShaderLog;
 
-/** returns the program error log */
+/** returns the program error log  返回程序或者说方案错误信息*/
 - (NSString *)programLog;
 @end
