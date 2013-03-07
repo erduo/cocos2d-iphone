@@ -30,6 +30,7 @@
 /** CCActionTween
 
  CCActionTween is an action that lets you update any property of an object.
+是一个可以更新对象的任意属性的运动，如修改宽度，
  For example, if you want to modify the "width" property of a target from 200 to 300 in 2 seconds, then:
 
 	id modifyWidth = [CCActionTween actionWithDuration:2 key:@"width" from:200 to:300];
@@ -42,7 +43,7 @@
 	id scaleA = [CCScaleTo actionWithDuration:2 scale:3];
 	id scaleB = [CCActionTween actionWithDuration:2 key:@"scale" from:1 to:3];
 
-
+可以这样理解：通过在周期内，目标对象的属性从一个值到另一个值
  @since v0.99.2
  */
 @interface CCActionTween : CCActionInterval
