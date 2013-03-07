@@ -28,9 +28,9 @@
 #import "CCTexture2D.h"
 #import "ccTypes.h"
 #import "CCNode.h"
-
+//纹理，类型，节点
 /** MotionStreak.
- Creates a trailing path.
+ Creates a trailing path. 创建一个路径
  */
 @interface CCMotionStreak : CCNode <CCTextureProtocol, CCRGBAProtocol>
 {
@@ -46,7 +46,7 @@
     NSUInteger nuPoints_;
 	NSUInteger previousNuPoints_;
 
-    /** Pointers */
+    /** Pointers   指针*/
     CGPoint *pointVertexes_;
     float *pointState_;
 
@@ -59,16 +59,16 @@
 	
 	BOOL	startingPositionInitialized_;
 }
-/** blending function */
+/** blending function  混合函数*/
 @property (nonatomic, readwrite, assign) ccBlendFunc blendFunc;
 
-/** When fast mode is enbled, new points are added faster but with lower precision */
+/** When fast mode is enbled, new points are added faster but with lower precision 开启快速模式，会失精度 */
 @property (nonatomic, readwrite, assign, getter = isFastMode) BOOL fastMode;
 
-/** texture used for the motion streak */
+/** texture used for the motion streak 纹理 运动轨迹 */
 @property (nonatomic, retain) CCTexture2D *texture;
 
-/** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture filename */
+/** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture filename   */
 + (id) streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color textureFilename:(NSString*)path;
 /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's width, color, texture */
 + (id) streakWithFade:(float)fade minSeg:(float)minSeg width:(float)stroke color:(ccColor3B)color texture:(CCTexture2D*)texture;
@@ -81,7 +81,7 @@
 /** color used for the tint */
 - (void) tintWithColor:(ccColor3B)colors;
 
-/** Remove all living segments of the ribbon */
+/** Remove all living segments of the ribbon  移除所有色段 */
 - (void) reset;
 
 @end
