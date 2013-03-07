@@ -28,10 +28,11 @@
 
 /** Debugging extensions of CCNode.
  They are available when the DEBUG macro is defined at compile time
+节点扩展用于调试
  */
 @interface CCNode (Debug)
 
-/** prints on the debug console the scene graph */
+/** prints on the debug console the scene graph  输出调试信息*/
 -(void) walkSceneGraph:(NSUInteger)level;
 
 @end
