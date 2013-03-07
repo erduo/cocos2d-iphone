@@ -27,28 +27,30 @@
 #import "CCActionInterval.h"
 
 /** Base class for Easing actions
+缓解运动
  */
 @interface CCActionEase : CCActionInterval <NSCopying>
 {
 	CCActionInterval * other;
 }
-/** creates the action */
+/** creates the action  创建 */
 +(id) actionWithAction: (CCActionInterval*) action;
-/** initializes the action */
+/** initializes the action  初始化方法 */
 -(id) initWithAction: (CCActionInterval*) action;
 @end
 
 /** Base class for Easing actions with rate parameters
+带有比率参数的缓解运动
  */
 @interface CCEaseRateAction :  CCActionEase <NSCopying>
 {
 	float	rate;
 }
-/** rate value for the actions */
+/** rate value for the actions  运动的比率值*/
 @property (nonatomic,readwrite,assign) float rate;
-/** Creates the action with the inner action and the rate parameter */
+/** Creates the action with the inner action and the rate parameter 创建方法 */
 +(id) actionWithAction: (CCActionInterval*) action rate:(float)rate;
-/** Initializes the action with the inner action and the rate parameter */
+/** Initializes the action with the inner action and the rate parameter  初始化方法*/
 -(id) initWithAction: (CCActionInterval*) action rate:(float)rate;
 @end
 
@@ -82,8 +84,9 @@
 /** Ease Sine InOut
  */
 @interface CCEaseSineInOut : CCActionEase <NSCopying> {} @end
-
+//上面各种缓和或缓出以及扩展 还有正弦等的定义，我还未理解其中的意思？？
 /** Ease Elastic abstract class
+弹性抽象类
  @since v0.8.2
  */
 @interface CCEaseElastic : CCActionEase <NSCopying>
@@ -91,17 +94,19 @@
 	float period_;
 }
 
-/** period of the wave in radians. default is 0.3 */
+/** period of the wave in radians. default is 0.3    使用弧度来标示波的周期，默认为0.3*/
 @property (nonatomic,readwrite) float period;
 
-/** Creates the action with the inner action and the period in radians (default is 0.3) */
+/** Creates the action with the inner action and the period in radians (default is 0.3)   创建方法 */
 +(id) actionWithAction: (CCActionInterval*) action period:(float)period;
-/** Initializes the action with the inner action and the period in radians (default is 0.3) */
+/** Initializes the action with the inner action and the period in radians (default is 0.3)  初始化方法 */
 -(id) initWithAction: (CCActionInterval*) action period:(float)period;
 @end
 
 /** Ease Elastic In action.
  @warning This action doesn't use a bijective fucntion. Actions like Sequence might have an unexpected result when used with this action.
+缓解弹性的行动。
+ 警告此操作不使用双射温控功能。像序列的动作，这个动作时，可能有一个意想不到的结果。
  @since v0.8.2
  */
 @interface CCEaseElasticIn : CCEaseElastic <NSCopying> {} @end
@@ -156,4 +161,4 @@
  @since v0.8.2
  */
 @interface CCEaseBackInOut : CCActionEase <NSCopying> {} @end
-
+/*以上定义都差不多，注意事项都一样：警告此操作不使用双射温控功能。像序列的动作，这个动作时，可能有一个意想不到的结果。  后面有弹跳，返回等类的定义 */
