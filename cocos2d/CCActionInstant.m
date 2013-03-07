@@ -30,7 +30,7 @@
 #import "CCSprite.h"
 
 
-//
+//节点，精灵
 // InstantAction
 //
 #pragma mark CCActionInstant
