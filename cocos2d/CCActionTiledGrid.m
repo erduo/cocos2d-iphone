@@ -28,17 +28,17 @@
 #import "CCDirector.h"
 #import "ccMacros.h"
 #import "Support/CGPointExtension.h"
-
+//宏，导演，点扩展
 typedef struct
 {
 	CGPoint	position;
 	CGPoint	startPosition;
 	ccGridSize	delta;
-} Tile;
+} Tile;   //定义瓦片的结构体
 
 #pragma mark -
 #pragma mark ShakyTiles3D
-
+//摇动
 @implementation CCShakyTiles3D
 
 +(id)actionWithRange:(int)range shakeZ:(BOOL)shakeZ grid:(ccGridSize)gridSize duration:(ccTime)d
@@ -104,7 +104,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark CCShatteredTiles3D
-
+//破碎效果
 @implementation CCShatteredTiles3D
 
 +(id)actionWithRange:(int)range shatterZ:(BOOL)sz grid:(ccGridSize)gridSize duration:(ccTime)d
@@ -176,7 +176,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark CCShuffleTiles
-
+//拖拽效果
 @implementation CCShuffleTiles
 
 +(id)actionWithSeed:(int)s grid:(ccGridSize)gridSize duration:(ccTime)d
@@ -308,7 +308,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark CCFadeOutTRTiles
-
+//淡入淡出效果
 @implementation CCFadeOutTRTiles
 
 -(float)testFunc:(ccGridSize)pos time:(ccTime)time
@@ -446,7 +446,7 @@ typedef struct
 #pragma mark TurnOffTiles
 
 @implementation CCTurnOffTiles
-
+//关
 +(id)actionWithSeed:(int)s grid:(ccGridSize)gridSize duration:(ccTime)d
 {
 	return [[[self alloc] initWithSeed:s grid:gridSize duration:d] autorelease];
@@ -542,7 +542,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark CCWavesTiles3D
-
+//波纹
 @implementation CCWavesTiles3D
 
 @synthesize amplitude;
@@ -597,7 +597,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark CCJumpTiles3D
-
+//跳跃
 @implementation CCJumpTiles3D
 
 @synthesize amplitude;
@@ -665,7 +665,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark SplitRows
-
+//拆分行
 @implementation CCSplitRows
 
 +(id)actionWithRows:(int)r duration:(ccTime)d
@@ -718,7 +718,7 @@ typedef struct
 
 #pragma mark -
 #pragma mark CCSplitCols
-
+//拆分列
 @implementation CCSplitCols
 
 +(id)actionWithCols:(int)c duration:(ccTime)d
