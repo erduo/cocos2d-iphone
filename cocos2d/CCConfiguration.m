@@ -34,7 +34,7 @@
 #import "ccMacros.h"
 #import "ccConfig.h"
 #import "Support/OpenGL_Internal.h"
-
+//宏，配置，opengl
 @implementation CCConfiguration
 
 @synthesize maxTextureSize = maxTextureSize_, maxTextureUnits=maxTextureUnits_;
@@ -48,7 +48,7 @@
 
 //
 // singleton stuff
-//
+//单例
 static CCConfiguration *_sharedConfiguration = nil;
 
 static char * glExtensions;
