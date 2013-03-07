@@ -30,6 +30,7 @@
 /*
  * Update each tick
  * Time is the percentage of the way through the duration
+更新每个时刻，时间就是周期中百分比的时间
  */
 -(void)update:(ccTime)time
 {
@@ -47,7 +48,7 @@
 	{
 		for( int j = 0; j <= gridSize_.y; j++ )
 		{
-			// Get original vertex
+			// Get original vertex   获取原顶点
 			ccVertex3F	p = [self originalVertex:ccg(i,j)];
 
 			float R = sqrtf(p.x*p.x + (p.y - ay) * (p.y - ay));
@@ -70,15 +71,16 @@
 			p.y = ( R + ay - ( r*(1 - cosBeta)*sinTheta));
 
 			// We scale z here to avoid the animation being
-			// too much bigger than the screen due to perspectve transform
+			// too much bigger than the screen due to perspectve transform   通过缩放z轴来避免动画太大超过屏幕
+
 			p.z = (r * ( 1 - cosBeta ) * cosTheta) / 7; // "100" didn't work for
 
-			// Stop z coord from dropping beneath underlying page in a transition
+			// Stop z coord from dropping beneath underlying page in a transition   停止z坐标,这个可以测试一下效果，改变一下其中内容，看看有什么不同？？
 			// issue #751
 			if( p.z<0.5f )
 				p.z = 0.5f;
 
-			// Set new coords
+			// Set new coords  设置新坐标
 			[self setVertex:ccg(i,j) vertex:p];
 		}
 	}
