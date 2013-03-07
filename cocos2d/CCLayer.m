@@ -26,7 +26,7 @@
 
 
 #import <stdarg.h>
-
+//可以接收可变参数
 #import "Platforms/CCGL.h"
 
 #import "CCLayer.h"
@@ -37,7 +37,7 @@
 #import "ccGLStateCache.h"
 #import "Support/TransformUtils.h"
 #import "Support/CGPointExtension.h"
-
+//导演，宏，着色缓存，着色方案，状态缓存，转换，点扩展
 #ifdef __CC_PLATFORM_IOS
 #import "Platforms/iOS/CCTouchDispatcher.h"
 #import "Platforms/iOS/CCDirectorIOS.h"
@@ -54,7 +54,7 @@
 
 @implementation CCLayer
 
-#pragma mark Layer - Init
+#pragma mark Layer - Init   初始化
 -(id) init
 {
 	if( (self=[super init]) ) {
@@ -77,7 +77,7 @@
 	return self;
 }
 
-#pragma mark Layer - Touch and Accelerometer related
+#pragma mark Layer - Touch and Accelerometer related  触摸和加速计相关的
 
 #ifdef __CC_PLATFORM_IOS
 -(void) registerWithTouchDispatcher
@@ -206,12 +206,12 @@
 #endif // Mac
 
 
-#pragma mark Layer - Callbacks
+#pragma mark Layer - Callbacks   回调
 -(void) onEnter
 {
 #ifdef __CC_PLATFORM_IOS
-	// register 'parent' nodes first
-	// since events are propagated in reverse order
+	// register 'parent' nodes first  首先注册父类
+	// since events are propagated in reverse order  由于事件像反方向传播
 	if (isTouchEnabled_)
 		[self registerWithTouchDispatcher];
 
@@ -313,7 +313,7 @@
 	return [self initWithColor:ccc4(0,0,0,0) width:s.width height:s.height];
 }
 
-// Designated initializer
+// Designated initializer 指定初始化
 - (id) initWithColor:(ccColor4B)color width:(GLfloat)w  height:(GLfloat) h
 {
 	if( (self=[super init]) ) {
@@ -381,7 +381,7 @@
 		squareColors_[i].a = opacity_ / 255.0f;
 	}
 }
-
+//绘制方法
 - (void) draw
 {
 	CC_NODE_DRAW_SETUP();
@@ -419,7 +419,7 @@
 
 
 #pragma mark -
-#pragma mark LayerGradient
+#pragma mark LayerGradient   梯度层，颜色层子类
 
 @implementation CCLayerGradient
 
@@ -562,7 +562,7 @@
 
 #pragma mark -
 #pragma mark MultiplexLayer
-
+//复合层
 @implementation CCLayerMultiplex
 +(id) layerWithLayers: (CCLayer*) layer, ...
 {
