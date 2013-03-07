@@ -31,45 +31,46 @@
 
 /** CCAtlasNode is a subclass of CCNode that implements the CCRGBAProtocol and
  CCTextureProtocol protocol
-
+主要要实现上面连个协议
  It knows how to render a TextureAtlas object.
  If you are going to render a TextureAtlas consider subclassing CCAtlasNode (or a subclass of CCAtlasNode)
-
+如何程序纹理地图对象
  All features from CCNode are valid, plus the following features:
  - opacity and RGB colors
+继承所有节点基类的属性，增加了透明度和颜色值属性
  */
 @interface CCAtlasNode : CCNode <CCRGBAProtocol, CCTextureProtocol>
 {
-	// texture atlas
+	// texture atlas 纹理地图
 	CCTextureAtlas	*textureAtlas_;
 
-	// chars per row
+	// chars per row 行
 	NSUInteger		itemsPerRow_;
-	// chars per column
+	// chars per column  柱
 	NSUInteger		itemsPerColumn_;
 
-	// width of each char
+	// width of each char  宽度
 	NSUInteger		itemWidth_;
-	// height of each char
+	// height of each char  高度
 	NSUInteger		itemHeight_;
 
-	// quads to draw
+	// quads to draw    四边
 	NSUInteger		quadsToDraw_;
 
-	// blend function
+	// blend function   混合功能
 	ccBlendFunc		blendFunc_;
 
-	// texture RGBA.
+	// texture RGBA. 纹理  RGBA为red green+blue+alpha组成
 	GLubyte		opacity_;
 	ccColor3B	color_;
 	ccColor3B	colorUnmodified_;
 	BOOL opacityModifyRGB_;
 
-	// color uniform
+	// color uniform  颜色均匀
 	GLint	uniformColor_;
 }
 
-/** conforms to CCTextureProtocol protocol */
+/** conforms to CCTextureProtocol protocol  符合纹理协议 */
 @property (nonatomic,readwrite,retain) CCTextureAtlas *textureAtlas;
 
 /** conforms to CCTextureProtocol protocol */
@@ -80,10 +81,11 @@
 /** conforms to CCRGBAProtocol protocol */
 @property (nonatomic,readwrite) ccColor3B color;
 
-/** how many quads to draw */
+/** how many quads to draw   个数参数 */
 @property (nonatomic,readwrite) NSUInteger quadsToDraw;
 
-/** creates a CCAtlasNode  with an Atlas file the width and height of each item measured in points and the quantity of items to render*/
+/** creates a CCAtlasNode  with an Atlas file the width and height of each item measured in points and the quantity of items to render 使用地图文件创建对象和初始化
+*/
 +(id) atlasWithTileFile:(NSString*)tile tileWidth:(NSUInteger)w tileHeight:(NSUInteger)h itemsToRender: (NSUInteger) c;
 
 /** initializes an CCAtlasNode  with an Atlas file the width and height of each item measured in points and the quantity of items to render*/
@@ -91,6 +93,7 @@
 
 /** updates the Atlas (indexed vertex array).
  * Shall be overriden in subclasses
+更新地图；要在子类中重载该方法
  */
 -(void) updateAtlasValues;
 @end
