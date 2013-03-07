@@ -41,7 +41,7 @@
 
 #import "kazmath/kazmath.h"
 #import "kazmath/GL/matrix.h"
-
+//采集器，着色方案，着色缓存，状态缓存，点扩展，转化
 #ifdef __CC_PLATFORM_IOS
 #import "Platforms/iOS/CCDirectorIOS.h"
 #endif // __CC_PLATFORM_IOS
@@ -151,7 +151,7 @@
 	[super dealloc];
 }
 
-// properties
+// properties 属性活动
 -(BOOL) active
 {
 	return active_;
@@ -220,7 +220,7 @@
 {
 	[grabber_ afterRender:texture_];
 
-	// restore projection
+	// restore projection 重新存投影
 	CCDirector *director = [CCDirector sharedDirector];
 	[director setProjection: directorProjection_];
 
@@ -241,7 +241,7 @@
 	[self blit];
 }
 
-
+//异常？？
 -(void)blit
 {
 	[NSException raise:@"GridBase" format:@"Abstract class needs implementation"];
