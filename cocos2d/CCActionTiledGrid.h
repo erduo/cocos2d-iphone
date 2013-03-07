@@ -32,7 +32,7 @@
 	BOOL	shakeZ;
 }
 
-/** creates the action with a range, whether or not to shake Z vertices, a grid size, and duration */
+/** creates the action with a range, whether or not to shake Z vertices, a grid size, and duration   使用范围，是否z轴，大小，周期来创建和初始化方法 */
 +(id)actionWithRange:(int)range shakeZ:(BOOL)shakeZ grid:(ccGridSize)gridSize duration:(ccTime)d;
 /** initializes the action with a range, whether or not to shake Z vertices, a grid size, and duration */
 -(id)initWithRange:(int)range shakeZ:(BOOL)shakeZ grid:(ccGridSize)gridSize duration:(ccTime)d;
@@ -41,7 +41,7 @@
 
 ////////////////////////////////////////////////////////////
 
-/** CCShatteredTiles3D action */
+/** CCShatteredTiles3D action   破碎瓦片效果：参数有范围，是否立即，z轴方向 */
 @interface CCShatteredTiles3D : CCTiledGrid3DAction
 {
 	int		randrange;
@@ -60,6 +60,7 @@
 
 /** CCShuffleTiles action
  Shuffle the tiles in random order
+拖拽：随机数，大小，周期
  */
 @interface CCShuffleTiles : CCTiledGrid3DAction
 {
@@ -80,6 +81,7 @@
 
 /** CCFadeOutTRTiles action
  Fades out the tiles in a Top-Right direction
+从右上方淡出效果
  */
 @interface CCFadeOutTRTiles : CCTiledGrid3DAction
 {
@@ -90,6 +92,7 @@
 
 /** CCFadeOutBLTiles action.
  Fades out the tiles in a Bottom-Left direction
+左下方
  */
 @interface CCFadeOutBLTiles : CCFadeOutTRTiles
 {
@@ -100,6 +103,7 @@
 
 /** CCFadeOutUpTiles action.
  Fades out the tiles in upwards direction
+从上方
  */
 @interface CCFadeOutUpTiles : CCFadeOutTRTiles
 {
@@ -110,6 +114,7 @@
 
 /** CCFadeOutDownTiles action.
  Fades out the tiles in downwards direction
+正下方
  */
 @interface CCFadeOutDownTiles : CCFadeOutUpTiles
 {
@@ -119,7 +124,7 @@
 ////////////////////////////////////////////////////////////
 
 /** CCTurnOffTiles action.
- Turn off the files in random order
+ Turn off the files in random order  关：种子，大小，周期
  */
 @interface CCTurnOffTiles : CCTiledGrid3DAction
 {
@@ -136,7 +141,7 @@
 
 ////////////////////////////////////////////////////////////
 
-/** CCWavesTiles3D action. */
+/** CCWavesTiles3D action.  波纹：波个数，幅度，频率*/
 @interface CCWavesTiles3D : CCTiledGrid3DAction
 {
 	int waves;
@@ -158,7 +163,7 @@
 
 ////////////////////////////////////////////////////////////
 
-/** CCJumpTiles3D action.
+/** CCJumpTiles3D action. 跳跃：sin函数，抛物线；参数有次数，幅度，频率
  A sin function is executed to move the tiles across the Z axis
  */
 @interface CCJumpTiles3D : CCTiledGrid3DAction
@@ -182,7 +187,7 @@
 
 ////////////////////////////////////////////////////////////
 
-/** CCSplitRows action */
+/** CCSplitRows action   拆分：行数，大小，周期*/
 @interface CCSplitRows : CCTiledGrid3DAction
 {
 	int		rows;
@@ -197,7 +202,7 @@
 
 ////////////////////////////////////////////////////////////
 
-/** CCSplitCols action */
+/** CCSplitCols action    拆分列： 列数，大小*/
 @interface CCSplitCols : CCTiledGrid3DAction
 {
 	int		cols;
