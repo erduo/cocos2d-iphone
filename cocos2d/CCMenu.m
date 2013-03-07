@@ -30,7 +30,7 @@
 #import "CCDirector.h"
 #import "Support/CGPointExtension.h"
 #import "ccMacros.h"
-
+//导演，点扩展，宏
 #ifdef __CC_PLATFORM_IOS
 #import "Platforms/iOS/CCDirectorIOS.h"
 #import "Platforms/iOS/CCTouchDispatcher.h"
