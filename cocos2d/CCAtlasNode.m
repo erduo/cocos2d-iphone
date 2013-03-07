@@ -31,9 +31,9 @@
 #import "ccGLStateCache.h"
 #import "CCDirector.h"
 #import "Support/TransformUtils.h"
-
+//宏，程序，着色，状态，导演，转换单元
 // external
-#import "kazmath/GL/matrix.h"
+#import "kazmath/GL/matrix.h"//矩阵类
 
 
 @interface CCAtlasNode ()
@@ -48,7 +48,7 @@
 @synthesize blendFunc = blendFunc_;
 @synthesize quadsToDraw = quadsToDraw_;
 
-#pragma mark CCAtlasNode - Creation & Init
+#pragma mark CCAtlasNode - Creation & Init 创建和初始化
 - (id) init
 {
 	NSAssert( NO, @"Not supported - Use initWtihTileFile instead");
