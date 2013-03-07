@@ -29,7 +29,7 @@
 
 @class CCTexture2D;
 
-/** FBO class that grabs the the contents of the screen */
+/** FBO class that grabs the the contents of the screen  fbo类用来抓取屏幕内容的*/
 @interface CCGrabber : NSObject
 {
 	GLuint	fbo_;
