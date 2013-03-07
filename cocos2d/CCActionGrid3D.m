@@ -27,7 +27,7 @@
 #import "CCActionGrid3D.h"
 #import "ccMacros.h"
 #import "Support/CGPointExtension.h"
-
+//宏，点扩展
 #pragma mark -
 #pragma mark Waves3D
 
@@ -80,7 +80,7 @@
 
 #pragma mark -
 #pragma mark FlipX3D
-
+//以x轴翻动   ccg(1,1) 这个函数的意思？？
 @implementation CCFlipX3D
 
 +(id) actionWithDuration:(ccTime)d
@@ -149,25 +149,25 @@
 	diff.x = ( x - x * mx );
 	diff.z = fabsf( floorf( (x * mz) / 4.0f ) );
 
-// bottom-left
+// bottom-left    左下
 	v = [self originalVertex:a];
 	v.x = diff.x;
 	v.z += diff.z;
 	[self setVertex:a vertex:v];
 
-// upper-left
+// upper-left    左上
 	v = [self originalVertex:b];
 	v.x = diff.x;
 	v.z += diff.z;
 	[self setVertex:b vertex:v];
 
-// bottom-right
+// bottom-right  右下
 	v = [self originalVertex:c];
 	v.x -= diff.x;
 	v.z -= diff.z;
 	[self setVertex:c vertex:v];
 
-// upper-right
+// upper-right  右上
 	v = [self originalVertex:d];
 	v.x -= diff.x;
 	v.z -= diff.z;
@@ -180,7 +180,7 @@
 
 #pragma mark -
 #pragma mark FlipY3D
-
+//以y轴翻动
 @implementation CCFlipY3D
 
 -(void)update:(ccTime)time
@@ -253,7 +253,7 @@
 
 #pragma mark -
 #pragma mark Lens3D
-
+//镜像或透镜效果
 @implementation CCLens3D
 
 @synthesize lensEffect=lensEffect_;
@@ -270,7 +270,7 @@
 		position_ = ccp(-1,-1);
 		self.position = pos;
 		radius_ = r;
-		lensEffect_ = 0.7f;
+		lensEffect_ = 0.7f;//透镜效果参数默认为0.7
 		dirty_ = YES;
 	}
 
@@ -340,7 +340,7 @@
 
 #pragma mark -
 #pragma mark Ripple3D
-
+//波纹
 @implementation CCRipple3D
 
 @synthesize amplitude = amplitude_;
@@ -412,7 +412,7 @@
 
 #pragma mark -
 #pragma mark Shaky3D
-
+//摇动
 @implementation CCShaky3D
 
 +(id)actionWithRange:(int)range shakeZ:(BOOL)sz grid:(ccGridSize)gridSize duration:(ccTime)d
@@ -462,7 +462,7 @@
 
 #pragma mark -
 #pragma mark Liquid
-
+//液体
 @implementation CCLiquid
 
 @synthesize amplitude;
@@ -571,7 +571,7 @@
 
 #pragma mark -
 #pragma mark Twirl
-
+//捻效果
 @implementation CCTwirl
 
 @synthesize amplitude = amplitude_;
