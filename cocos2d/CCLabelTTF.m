@@ -32,7 +32,7 @@
 #import "CCGLProgram.h"
 #import "Support/CCFileUtils.h"
 #import "ccDeprecated.h"
-
+//点扩展，宏，着色缓存，着色方案，分解，过时
 #ifdef __CC_PLATFORM_IOS
 #import "Platforms/iOS/CCDirectorIOS.h"
 #endif
