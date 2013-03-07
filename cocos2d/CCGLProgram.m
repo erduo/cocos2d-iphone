@@ -36,17 +36,17 @@
 // extern
 #import "kazmath/GL/matrix.h"
 #import "kazmath/kazmath.h"
-
+//状态缓存，宏，文件单元，哈希值，gl，矩阵
 
 typedef struct _hashUniformEntry
 {
-	GLvoid			*value;		// value
-	NSUInteger		location;	// Key
-	UT_hash_handle  hh;			// hash entry
+	GLvoid			*value;		// value  值
+	NSUInteger		location;	// Key   键
+	UT_hash_handle  hh;			// hash entry  哈希值条目
 } tHashUniformEntry;
 
 
-#pragma mark Function Pointer Definitions
+#pragma mark Function Pointer Definitions  函数指针定义
 typedef void (*GLInfoFunction)(GLuint program,
                                GLenum pname,
                                GLint* params);
@@ -55,7 +55,7 @@ typedef void (*GLLogFunction) (GLuint program,
                                GLsizei* length,
                                GLchar* infolog);
 #pragma mark -
-#pragma mark Private Extension Method Declaration
+#pragma mark Private Extension Method Declaration  扩展方法声明
 
 @interface CCGLProgram()
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type byteArray:(const GLchar*)byteArray;
@@ -82,7 +82,7 @@ typedef void (*GLLogFunction) (GLuint program,
 				CCLOG(@"cocos2d: ERROR: Failed to compile vertex shader");
 		}
 		
-        // Create and compile fragment shader
+        // Create and compile fragment shader  创建和编译碎片着色器
 		if( fShaderByteArray ) {
 			if (![self compileShader:&fragShader_
 								type:GL_FRAGMENT_SHADER
@@ -374,7 +374,7 @@ typedef void (*GLLogFunction) (GLuint program,
 {
 	CCLOGINFO( @"cocos2d: deallocing %@", self);
 
-	// there is no need to delete the shaders. They should have been already deleted.
+	// there is no need to delete the shaders. They should have been already deleted.  不在需要时，则删除
 	NSAssert( vertShader_ == 0, @"Vertex Shaders should have been already deleted");
 	NSAssert( fragShader_ == 0, @"Vertex Shaders should have been already deleted");
 
