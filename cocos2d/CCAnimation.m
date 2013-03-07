@@ -29,7 +29,7 @@
 #import "CCSpriteFrame.h"
 #import "CCTexture2D.h"
 #import "CCTextureCache.h"
-
+//宏，纹理，纹理缓存
 #pragma mark - CCAnimationFrame
 @implementation CCAnimationFrame
 
@@ -177,7 +177,7 @@
 	[frames_ addObject:animFrame];
 	[animFrame release];
 	
-	// update duration
+	// update duration   更新周期
 	totalDelayUnits_++;
 }
 
