@@ -54,7 +54,7 @@
 	from_ = [(kProgressTimerCast)target_ percentage];
 
 	// XXX: Is this correct ?
-	// Adding it to support CCRepeat
+	// Adding it to support CCRepeat   支持重复
 	if( from_ == 100)
 		from_ = 0;
 }
