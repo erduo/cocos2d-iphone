@@ -30,6 +30,7 @@
 
 /**
  Progress to percentage
+进度条
 @since v0.99.1
 */
 @interface CCProgressTo : CCActionInterval <NSCopying>
@@ -37,7 +38,7 @@
 	float to_;
 	float from_;
 }
-/** Creates and initializes with a duration and a percent */
+/** Creates and initializes with a duration and a percent  使用周期和比例创建和初始化方法*/
 +(id) actionWithDuration:(ccTime)duration percent:(float)percent;
 /** Initializes with a duration and a percent */
 -(id) initWithDuration:(ccTime)duration percent:(float)percent;
@@ -45,6 +46,7 @@
 
 /**
  Progress from a percentage to another percentage
+从一个比例到另一个比例
  @since v0.99.1
  */
 @interface CCProgressFromTo : CCActionInterval <NSCopying>
