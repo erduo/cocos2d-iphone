@@ -29,35 +29,37 @@
 #import "CCTextureAtlas.h"
 
 /** CCLabelAtlas is a subclass of CCAtlasNode.
-
+是CCAtlasNode的子类；用来替换标签类
  It can be as a replacement of CCLabel since it is MUCH faster.
 
- CCLabelAtlas versus CCLabel:
- - CCLabelAtlas is MUCH faster than CCLabel
- - CCLabelAtlas "characters" have a fixed height and width
- - CCLabelAtlas "characters" can be anything you want since they are taken from an image file
+ CCLabelAtlas versus CCLabel:  比较：
+ - CCLabelAtlas is MUCH faster than CCLabel   运行速率块
+ - CCLabelAtlas "characters" have a fixed height and width 具有像素高和宽参数
+ - CCLabelAtlas "characters" can be anything you want since they are taken from an image file   参数可以是任何你想要的，因为他来自一个图片文件
 
  A more flexible class is CCLabelBMFont. It supports variable width characters and it also has a nice editor.
+一个更加灵活的类是CCLabelIBMFont. 他支持宽度参数和很好编辑
  */
 @interface CCLabelAtlas : CCAtlasNode  <CCLabelProtocol>
 {
 	// string to render
 	NSString		*string_;
 
-	// the first char in the charmap
+	// the first char in the charmap   字符映射
 	NSUInteger		mapStartChar_;
 }
 
 
-/** creates the CCLabelAtlas with a string, a char map file(the atlas), the width and height of each element in points and the starting char of the atlas */
+/** creates the CCLabelAtlas with a string, a char map file(the atlas), the width and height of each element in points and the starting char of the atlas  使用带有字符串，地图，宽度，高度，以及一个开始字符创建 */
 +(id) labelWithString:(NSString*) string charMapFile: (NSString*) charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)firstElement;
 
 /** creates the CCLabelAtlas with a string and a configuration file
+使用字符串和配置文件
  @since v2.0
  */
 +(id) labelWithString:(NSString*) string fntFile:(NSString*)fontFile;
 
-/** initializes the CCLabelAtlas with a string, a char map file(the atlas), the width and height in points of each element and the starting char of the atlas */
+/** initializes the CCLabelAtlas with a string, a char map file(the atlas), the width and height in points of each element and the starting char of the atlas 初始化方法 */
 -(id) initWithString:(NSString*) string charMapFile: (NSString*) charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)firstElement;
 
 /** initializes the CCLabelAtlas with a string and a configuration file
