@@ -34,7 +34,7 @@
 #import "CCProgressTimer.h"
 #import "CCActionProgressTimer.h"
 #import "Support/CGPointExtension.h"
-
+//导演，纹理，层，即时动作，进度计数，点扩展
 enum {
 	kCCSceneRadial = 0xc001,
 };
@@ -53,7 +53,7 @@ enum {
 
 	[self setupTransition];
 	
-	// create a transparent color layer
+	// create a transparent color layer  创建一个透明色层
 	// in which we are going to add our rendertextures
 	CGSize size = [[CCDirector sharedDirector] winSize];
 
@@ -89,7 +89,7 @@ enum {
 	[self addChild: node z:2 tag:kCCSceneRadial];
 }
 
-// clean up on exit
+// clean up on exit  清除并退出
 -(void) onExit
 {
 	// remove our layer and release all containing objects
