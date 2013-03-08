@@ -27,7 +27,7 @@
 #import "CCParallaxNode.h"
 #import "Support/CGPointExtension.h"
 #import "Support/ccCArray.h"
-
+//点扩展，数组
 @interface CGPointObject : NSObject
 {
 	CGPoint	ratio_;
