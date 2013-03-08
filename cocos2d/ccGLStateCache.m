@@ -31,7 +31,7 @@
 // extern
 #import "kazmath/GL/matrix.h"
 #import "kazmath/kazmath.h"
-
+//着色方案，导演，配置，矩阵
 static GLuint	_ccCurrentProjectionMatrix = -1;
 static BOOL		_vertexAttribPosition = NO;
 static BOOL		_vertexAttribColor = NO;
@@ -47,7 +47,7 @@ static GLenum	_ccBlendingDest = -1;
 static ccGLServerState _ccGLServerState = 0;
 #endif // CC_ENABLE_GL_STATE_CACHE
 
-#pragma mark - GL State Cache functions
+#pragma mark - GL State Cache functions函数
 
 void ccGLInvalidateStateCache( void )
 {
