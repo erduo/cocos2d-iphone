@@ -54,7 +54,7 @@
  *
  */
 
-// CCLOGERROR is no longer supported.
+// CCLOGERROR is no longer supported.  不在支持
 #define CCLOGERROR CCLOGWARN
 
 // ccTypes.h
@@ -106,7 +106,7 @@ DEPRECATED_ATTRIBUTE @interface MacView : CCGLView
 // hack to prevent "incopatible pointer type"
 #define GLProgram CCGLProgram
 
-// Extensions
+// Extensions 扩展
 @interface CCScheduler (Deprecated)
 // new: [director scheduler]
 +(CCScheduler*) sharedScheduler DEPRECATED_ATTRIBUTE;
