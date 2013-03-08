@@ -29,7 +29,7 @@
 #import "Support/CGPointExtension.h"
 #import "CCDirector.h"
 
-
+//只有一个初始化方法，场景大小和窗口大小一样
 @implementation CCScene
 -(id) init
 {
