@@ -25,7 +25,7 @@
 
 //
 // Common layer for OpenGL stuff
-//
+//通用层中的opengl
 
 #import "../ccMacros.h"
 
