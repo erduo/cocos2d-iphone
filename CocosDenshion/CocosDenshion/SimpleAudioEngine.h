@@ -26,11 +26,11 @@
 #import "CDAudioManager.h"
 
 /**
- A wrapper to the CDAudioManager object.
+ A wrapper to the CDAudioManager object. 音频管理对象
  This is recommended for basic audio requirements. If you just want to play some sound fx
  and some background music and have no interest in learning the lower level workings then
  this is the interface to use.
-
+该接口易用
  Requirements:
  - Firmware: OS 2.2 or greater
  - Files: SimpleAudioEngine.*, CocosDenshion.*
@@ -43,20 +43,20 @@
 	BOOL	enabled_;
 }
 
-/** Background music volume. Range is 0.0f to 1.0f. This will only have an effect if willPlayBackgroundMusic returns YES */
+/** Background music volume. Range is 0.0f to 1.0f. This will only have an effect if willPlayBackgroundMusic returns YES 背景音乐音量*/
 @property (readwrite) float backgroundMusicVolume;
-/** Effects volume. Range is 0.0f to 1.0f */
+/** Effects volume. Range is 0.0f to 1.0f 范围 */
 @property (readwrite) float effectsVolume;
-/** If NO it indicates background music will not be played either because no background music is loaded or the audio session does not permit it.*/
+/** If NO it indicates background music will not be played either because no background music is loaded or the audio session does not permit it . 是否播放背景音乐*/
 @property (readonly) BOOL willPlayBackgroundMusic;
 
-/** returns the shared instance of the SimpleAudioEngine object */
+/** returns the shared instance of the SimpleAudioEngine object 返回实例 */
 + (SimpleAudioEngine*) sharedEngine;
 
-/** Preloads a music file so it will be ready to play as background music */
+/** Preloads a music file so it will be ready to play as background music 预载人背景音乐文件*/
 -(void) preloadBackgroundMusic:(NSString*) filePath;
 
-/** plays background music in a loop*/
+/** plays background music in a loop 播放*/
 -(void) playBackgroundMusic:(NSString*) filePath;
 /** plays background music, if loop is true the music will repeat otherwise it will be played once */
 -(void) playBackgroundMusic:(NSString*) filePath loop:(BOOL) loop;
@@ -71,7 +71,7 @@
 /** returns whether or not the background music is playing */
 -(BOOL) isBackgroundMusicPlaying;
 
-/** plays an audio effect with a file path*/
+/** plays an audio effect with a file path 音效*/
 -(ALuint) playEffect:(NSString*) filePath;
 /** stop a sound that is playing, note you must pass in the soundId that is returned when you started playing the sound with playEffect */
 -(void) stopEffect:(ALuint) soundId;
@@ -84,7 +84,7 @@
 /** Gets a CDSoundSource object set up to play the specified file. */
 -(CDSoundSource *) soundSourceForFile:(NSString*) filePath;
 
-/** Shuts down the shared audio engine instance so that it can be reinitialised */
+/** Shuts down the shared audio engine instance so that it can be reinitialised 关闭*/
 +(void) end;
 
 @end
