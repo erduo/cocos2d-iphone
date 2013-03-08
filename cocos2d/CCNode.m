@@ -38,7 +38,7 @@
 #import "Support/TransformUtils.h"
 #import "ccMacros.h"
 #import "CCGLProgram.h"
-
+//节点，网格，导演，运动管理，摄像，调度，配置，宏，点扩展，数组，着色方案
 // externals
 #import "kazmath/GL/matrix.h"
 
@@ -57,9 +57,9 @@
 @interface CCNode ()
 // lazy allocs
 -(void) childrenAlloc;
-// helper that reorder a child
+// helper that reorder a child    插入一个节点
 -(void) insertChild:(CCNode*)child z:(NSInteger)z;
-// used internally to alter the zOrder variable. DON'T call this method manually
+// used internally to alter the zOrder variable. DON'T call this method manually 不要手动调用
 -(void) _setZOrder:(NSInteger) z;
 -(void) detachChild:(CCNode *)child cleanup:(BOOL)doCleanup;
 @end
@@ -82,7 +82,7 @@ static NSUInteger globalOrderOfArrival = 1;
 @synthesize orderOfArrival = orderOfArrival_;
 @synthesize glServerState = glServerState_;
 
-#pragma mark CCNode - Transform related properties
+#pragma mark CCNode - Transform related properties  转换相关属性
 
 @synthesize rotation = rotation_, scaleX = scaleX_, scaleY = scaleY_;
 @synthesize position = position_;
@@ -91,7 +91,7 @@ static NSUInteger globalOrderOfArrival = 1;
 @synthesize ignoreAnchorPointForPosition = ignoreAnchorPointForPosition_;
 @synthesize skewX = skewX_, skewY = skewY_;
 
-#pragma mark CCNode - Init & cleanup
+#pragma mark CCNode - Init & cleanup   初始化和释放
 
 +(id) node
 {
@@ -157,11 +157,11 @@ static NSUInteger globalOrderOfArrival = 1;
 
 - (void)cleanup
 {
-	// actions
+	// actions   运动
 	[self stopAllActions];
 	[self unscheduleAllSelectors];
 
-	// timers
+	// timers  计数
 	[children_ makeObjectsPerformSelector:@selector(cleanup)];
 }
 
@@ -193,7 +193,7 @@ static NSUInteger globalOrderOfArrival = 1;
 
 #pragma mark Setters
 
-// getters synthesized, setters explicit
+// getters synthesized, setters explicit  获取和设置
 -(void) setRotation: (float)newRotation
 {
 	rotation_ = newRotation;
