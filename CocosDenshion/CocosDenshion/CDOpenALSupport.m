@@ -62,7 +62,7 @@ void* CDloadWaveAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *outD
 	err = AudioFileOpenURL(inFileURL, kAudioFileReadPermission, 0, &afid);
 	if(err) { CDLOG(@"MyGetOpenALAudioData: AudioFileOpenURL FAILED, Error = %ld\n", err); goto Exit; }
 
-	// Get the audio data format
+	// Get the audio data format  获取音频数据格式
 	err = AudioFileGetProperty(afid, kAudioFilePropertyDataFormat, &thePropertySize, &theFileFormat);
 	if(err) { CDLOG(@"MyGetOpenALAudioData: AudioFileGetProperty(kAudioFileProperty_DataFormat) FAILED, Error = %ld\n", err); goto Exit; }
 
