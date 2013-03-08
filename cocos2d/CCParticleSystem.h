@@ -34,47 +34,47 @@
 
 //* @enum
 enum {
-	/** The Particle emitter lives forever */
+	/** The Particle emitter lives forever  永存的粒子*/
 	kCCParticleDurationInfinity = -1,
 
-	/** The starting size of the particle is equal to the ending size */
+	/** The starting size of the particle is equal to the ending size  开始等于结束在大小上 */
 	kCCParticleStartSizeEqualToEndSize = -1,
 
-	/** The starting radius of the particle is equal to the ending radius */
+	/** The starting radius of the particle is equal to the ending radius 半径*/
 	kCCParticleStartRadiusEqualToEndRadius = -1,
 
-	// backward compatible
+	// backward compatible 兼容
 	kParticleStartSizeEqualToEndSize = kCCParticleStartSizeEqualToEndSize,
 	kParticleDurationInfinity = kCCParticleDurationInfinity,
 };
 
 //* @enum
 enum {
-	/** Gravity mode (A mode) */
+	/** Gravity mode (A mode)  重力模式*/
 	kCCParticleModeGravity,
 
-	/** Radius mode (B mode) */
+	/** Radius mode (B mode) 半径模式*/
 	kCCParticleModeRadius,
 };
 
 
 /** @typedef tCCPositionType
- possible types of particle positions
+ possible types of particle positions  可能的类型
  */
 typedef enum {
-	/** Living particles are attached to the world and are unaffected by emitter repositioning. */
+	/** Living particles are attached to the world and are unaffected by emitter repositioning. 自由类型 */
 	kCCPositionTypeFree,
 
 	/** Living particles are attached to the world but will follow the emitter repositioning.
-	 Use case: Attach an emitter to an sprite, and you want that the emitter follows the sprite.
+	 Use case: Attach an emitter to an sprite, and you want that the emitter follows the sprite. 相对类型
 	 */
 	kCCPositionTypeRelative,
 
-	/** Living particles are attached to the emitter and are translated along with it. */
+	/** Living particles are attached to the emitter and are translated along with it. 组类型*/
 	kCCPositionTypeGrouped,
 }tCCPositionType;
 
-// backward compatible
+// backward compatible  前后兼容
 enum {
 	kPositionTypeFree = kCCPositionTypeFree,
 	kPositionTypeGrouped = kCCPositionTypeGrouped,
@@ -82,6 +82,7 @@ enum {
 
 /** @struct tCCParticle
  Structure that contains the values of each particle
+每个粒子的结构体
  */
 typedef struct sCCParticle {
 	CGPoint		pos;
@@ -101,14 +102,14 @@ typedef struct sCCParticle {
 	NSUInteger	atlasIndex;
 
 	union {
-		// Mode A: gravity, direction, radial accel, tangential accel
+		// Mode A: gravity, direction, radial accel, tangential accel  重力方向，径向加速度，切向加速度
 		struct {
 			CGPoint		dir;
 			float		radialAccel;
 			float		tangentialAccel;
 		} A;
 
-		// Mode B: radius mode
+		// Mode B: radius mode 半径
 		struct {
 			float		angle;
 			float		degreesPerSecond;
@@ -124,6 +125,7 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 @class CCTexture2D;
 
 /** Particle System base class
+粒子系统基类属性：比率，重力，半径，通用属性：纹理
  Attributes of a Particle System:
 	- emmision rate of the particles
 	- Gravity Mode (Mode A):
@@ -168,28 +170,28 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
  */
 @interface CCParticleSystem : CCNode <CCTextureProtocol>
 {
-	// is the particle system active ?
+	// is the particle system active ? 激活
 	BOOL active;
-	// duration in seconds of the system. -1 is infinity
+	// duration in seconds of the system. -1 is infinity 以秒为单位
 	float duration;
-	// time elapsed since the start of the system (in seconds)
+	// time elapsed since the start of the system (in seconds)从启动开始
 	float elapsed;
 
-	// position is from "superclass" CocosNode
+	// position is from "superclass" CocosNode 原位置
 	CGPoint sourcePosition;
-	// Position variance
+	// Position variance 位置差
 	CGPoint posVar;
 
-	// The angle (direction) of the particles measured in degrees
+	// The angle (direction) of the particles measured in degrees 角度
 	float angle;
-	// Angle variance measured in degrees;
+	// Angle variance measured in degrees; 角度差
 	float angleVar;
 
-	// Different modes
+	// Different modes 不同模式
 
 	NSInteger emitterMode_;
 	union {
-		// Mode A:Gravity + Tangential Accel + Radial Accel
+		// Mode A:Gravity + Tangential Accel + Radial Accel  模式a为重力+径向加速+切向加速
 		struct {
 			// gravity of the particles
 			CGPoint gravity;
@@ -228,7 +230,7 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 		} B;
 	} mode;
 
-	// start ize of the particles
+	// start ize of the particles 大小
 	float startSize;
 	// start Size variance
 	float startSizeVar;
@@ -237,12 +239,12 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 	// end size of variance
 	float endSizeVar;
 
-	// How many seconds will the particle live
+	// How many seconds will the particle live 生命长度
 	float life;
 	// Life variance
 	float lifeVar;
 
-	// Start color of the particles
+	// Start color of the particles  颜色
 	ccColor4F startColor;
 	// Start color variance
 	ccColor4F startColorVar;
@@ -260,16 +262,16 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 	// end angle ariance
 	float endSpinVar;
 
-	// Array of particles
+	// Array of particles 粒子数组
 	tCCParticle *particles;
-	// Maximum particles
+	// Maximum particles 最大值
 	NSUInteger totalParticles;
-	// Count of active particles
+	// Count of active particles  激活的粒子
 	NSUInteger particleCount;
-    // Number of allocated particles
+    // Number of allocated particles  非配的粒子
     NSUInteger allocatedParticles;
 
-	// How many particles can be emitted per second
+	// How many particles can be emitted per second 每秒发射的粒子
 	float emissionRate;
 	float emitCounter;
 
@@ -280,26 +282,26 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 	// Texture alpha behavior
 	BOOL opacityModifyRGB_;
 
-	// movment type: free or grouped
+	// movment type: free or grouped 类型
 	tCCPositionType	positionType_;
 
-	// Whether or not the node will be auto-removed when there are not particles
+	// Whether or not the node will be auto-removed when there are not particles  是否自动移动
 	BOOL	autoRemoveOnFinish_;
 
-	//  particle idx
+	//  particle idx 粒子序号
 	NSUInteger particleIdx;
 
-	// Optimization
+	// Optimization  优化
 	CC_UPDATE_PARTICLE_IMP	updateParticleImp;
 	SEL						updateParticleSel;
 
-	// for batching. If nil, then it won't be batched
+	// for batching. If nil, then it won't be batched 批量
 	CCParticleBatchNode *batchNode_;
 
-	// index of system in batch node array
+	// index of system in batch node array  序号
 	NSUInteger atlasIndex_;
 
-	//YES if scaled or rotated
+	//YES if scaled or rotated 转换
 	BOOL transformSystemDirty_;
 }
 
@@ -415,7 +417,7 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 /** creates an initializes a CCParticleSystem from a plist file.
  This plist files can be creted manually or with Particle Designer:
 	http://particledesigner.71squared.com/
- @since v0.99.3
+ @since v0.99.3   从列表文件初始化
  */
 +(id) particleWithFile:(NSString*)plistFile;
 
@@ -427,25 +429,25 @@ typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CGPoint);
 -(id) initWithFile:(NSString*) plistFile;
 
 /** initializes a particle system from a NSDictionary.
- @since v0.99.3
+ @since v0.99.3 用字典来初始化粒子系统
  */
 -(id) initWithDictionary:(NSDictionary*)dictionary;
 
-//! Initializes a system with a fixed number of particles
+//! Initializes a system with a fixed number of particles 用个数
 -(id) initWithTotalParticles:(NSUInteger) numberOfParticles;
-//! stop emitting particles. Running particles will continue to run until they die
+//! stop emitting particles. Running particles will continue to run until they die 停止发射粒子，运行中的粒子运行到死亡
 -(void) stopSystem;
-//! Kill all living particles.
+//! Kill all living particles. 杀死活着的粒子
 -(void) resetSystem;
-//! whether or not the system is full
+//! whether or not the system is full  系统已满
 -(BOOL) isFull;
 
 //! should be overriden by subclasses
 -(void) updateQuadWithParticle:(tCCParticle*)particle newPosition:(CGPoint)pos;
-//! should be overriden by subclasses
+//! should be overriden by subclasses 子类重载
 -(void) postStep;
 
-//! called in every loop.
+//! called in every loop. 每个循环调用
 -(void) update: (ccTime) dt;
 
 -(void) updateWithNoTime;
