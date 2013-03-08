@@ -271,7 +271,7 @@
 - (void)clearDepth:(float)depthValue
 {
   [self begin];
-  //! save old depth value
+  //! save old depth value 保存旧的位深度值
   GLfloat depthClearValue;
   glGetFloatv(GL_DEPTH_CLEAR_VALUE, &depthClearValue);
 
@@ -296,7 +296,7 @@
   glClearStencil(stencilClearValue);
 }
 
-#pragma mark RenderTexture - Save Image
+#pragma mark RenderTexture - Save Image  保存图片
 
 -(CGImageRef) newCGImage
 {
