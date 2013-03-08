@@ -12,7 +12,7 @@ varying mediump vec2 v_texCoord;					\n\
 varying vec4 v_fragmentColor;						\n\
 varying vec2 v_texCoord;							\n\
 #endif												\n\
-													\n\
+//每个着色器都只有一个main()方法，并针对每个顶点和片段、像素执行代码				\n\
 void main()											\n\
 {													\n\
     gl_Position = u_MVPMatrix * a_position;			\n\
