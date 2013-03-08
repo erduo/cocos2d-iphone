@@ -28,67 +28,67 @@
 #import "ccMacros.h"
 #import "CCParticleSystemQuad.h"
 
-//! A fire particle system
+//! A fire particle system 火粒子系统
 @interface CCParticleFire: CCParticleSystemQuad
 {
 }
 @end
 
-//! A fireworks particle system
+//! A fireworks particle system 烟花粒子
 @interface CCParticleFireworks : CCParticleSystemQuad
 {
 }
 @end
 
-//! A sun particle system
+//! A sun particle system  阳光粒子
 @interface CCParticleSun : CCParticleSystemQuad
 {
 }
 @end
 
-//! A galaxy particle system
+//! A galaxy particle system  星河粒子
 @interface CCParticleGalaxy : CCParticleSystemQuad
 {
 }
 @end
 
-//! A flower particle system
+//! A flower particle system  花朵粒子
 @interface CCParticleFlower : CCParticleSystemQuad
 {
 }
 @end
 
-//! A meteor particle system
+//! A meteor particle system 流星粒子
 @interface CCParticleMeteor : CCParticleSystemQuad
 {
 }
 @end
 
-//! An spiral particle system
+//! An spiral particle system 螺旋粒子
 @interface CCParticleSpiral : CCParticleSystemQuad
 {
 }
 @end
 
-//! An explosion particle system
+//! An explosion particle system  爆炸粒子
 @interface CCParticleExplosion : CCParticleSystemQuad
 {
 }
 @end
 
-//! An smoke particle system
+//! An smoke particle system  冒烟粒子
 @interface CCParticleSmoke : CCParticleSystemQuad
 {
 }
 @end
 
-//! An snow particle system
+//! An snow particle system  雪花粒子
 @interface CCParticleSnow : CCParticleSystemQuad
 {
 }
 @end
 
-//! A rain particle system
+//! A rain particle system  雨粒子
 @interface CCParticleRain : CCParticleSystemQuad
 {
 }
