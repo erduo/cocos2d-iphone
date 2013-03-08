@@ -11,7 +11,7 @@ varying mediump vec2 v_texCoord;					\n\
 varying vec4 v_fragmentColor;						\n\
 varying vec2 v_texCoord;							\n\
 #endif												\n\
-													\n\
+//估计是从库中函数拿出来，定义文件，直接使用													\n\
 void main()											\n\
 {													\n\
     gl_Position = u_MVPMatrix * a_position;			\n\
