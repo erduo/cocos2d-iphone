@@ -9,7 +9,7 @@ varying mediump vec2 v_texCoord;	\n\
 #else								\n\
 varying vec2 v_texCoord;			\n\
 #endif								\n\
-									\n\
+//位置和颜色属性（a_position和a_color）是一个有4个坐标（X，Y，Z，W，用于确定位置）和 (r，g，b，a，用于确定颜色) 的矢量格式\n\
 void main()							\n\
 {									\n\
     gl_Position = u_MVPMatrix * a_position;		\n\
