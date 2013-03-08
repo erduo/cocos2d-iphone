@@ -25,12 +25,12 @@
 
 /**
  @file
- cocos2d (cc) configuration file
+ cocos2d (cc) configuration file 配置文件
 */
 
 /** @def CC_ENABLE_GL_STATE_CACHE
  If enabled, cocos2d will maintain an OpenGL state cache internally to avoid unnecessary switches.
- In order to use them, you have to use the following functions, insead of the the GL ones:
+ In order to use them, you have to use the following functions, insead of the the GL ones:  如果启用了该参数，使用下面的函数来替换，避免不必要的缓存；乜有则不用替换；推荐启用可以提供速度；默认是禁用的；
 	- ccGLUseProgram() instead of glUseProgram()
 	- ccGLDeleteProgram() instead of glDeleteProgram()
 	- ccGLBlendFunc() instead of glBlendFunc()
@@ -52,7 +52,7 @@
  If enabled, cocos2d will compile all deprecated methods, classes and free functions. Also, renamed constants will be active as well.
  Enable it only when migrating a v1.0 or earlier v2.0 versions to the most recent cocdos2d version.
  
- Default value: Enabled by default
+ Default value: Enabled by default  默认启用。从1.0移植到2.0版本是启用
  
  @since v2.0.0
  */
@@ -77,7 +77,7 @@
 	- CCParticleSystemQuad
 	- CCTileMap
 
- To enabled set it to 1. Disabled by default.
+ To enabled set it to 1. Disabled by default. 默认没有启用。
 
  @since v0.99.5
  */
@@ -90,7 +90,7 @@
  0.5 seconds, means that the stats will be updated every 0.5 seconds.
  Having a bigger number means more stable stats
 
- Default value: 0.1f
+ Default value: 0.1f 统计间隔时间
  */
 #ifndef CC_DIRECTOR_STATS_INTERVAL
 #define CC_DIRECTOR_STATS_INTERVAL (0.1f)
@@ -99,7 +99,7 @@
 /** @def CC_DIRECTOR_STATS_POSITION
  Position of the FPS
 
- Default: 0,0 (bottom-left corner)
+ Default: 0,0 (bottom-left corner) 统计显示位置
  */
 #ifndef CC_DIRECTOR_STATS_POSITION
 #define CC_DIRECTOR_STATS_POSITION ccp(0,0)
@@ -113,7 +113,7 @@
  Only valid for cocos2d-ios. Not supported on cocos2d-mac.
  
  This is an EXPERIMENTAL feature. Do not use it unless you are a developer.
-
+测试使用；默认为启用的；
  */
 #ifndef CC_DIRECTOR_IOS_USE_BACKGROUND_THREAD
 #define CC_DIRECTOR_IOS_USE_BACKGROUND_THREAD 0
@@ -135,7 +135,7 @@
 	CC_MAC_USE_MAIN_THREAD
  
  Only valid for cocos2d-mac. Not supported on cocos2d-ios.
-
+mac相关线程
  */
 #ifndef CC_DIRECTOR_MAC_THREAD
 #define CC_DIRECTOR_MAC_THREAD CC_MAC_USE_DISPLAY_LINK_THREAD
@@ -145,7 +145,7 @@
  If enabled, the CCNode objects (CCSprite, CCLabel,etc) will be able to render in subpixels.
  If disabled, integer pixels will be used.
 
- To enable set it to 1. Enabled by default.
+ To enable set it to 1. Enabled by default.默认启用，节点对象呈现子像素
  */
 #ifndef CC_NODE_RENDER_SUBPIXEL
 #define CC_NODE_RENDER_SUBPIXEL 1
@@ -155,7 +155,7 @@
  If enabled, the CCSprite objects rendered with CCSpriteBatchNode will be able to render in subpixels.
  If disabled, integer pixels will be used.
 
- To enable set it to 1. Enabled by default.
+ To enable set it to 1. Enabled by default. 默认启用
  */
 #ifndef CC_SPRITEBATCHNODE_RENDER_SUBPIXEL
 #define CC_SPRITEBATCHNODE_RENDER_SUBPIXEL	1
@@ -166,7 +166,7 @@
  It seems it is the recommend way, but it is much slower, so, enable it at your own risk
 
  To enable set it to a value different than 0. Disabled by default.
-
+运行慢，默认不启用
  */
 #ifndef CC_TEXTURE_ATLAS_USE_TRIANGLE_STRIP
 #define CC_TEXTURE_ATLAS_USE_TRIANGLE_STRIP 0
@@ -176,7 +176,7 @@
  By default, CCTextureAtlas (used by many cocos2d classes) will use VAO (Vertex Array Objects).
  Apple recommends its usage but they might consume a lot of memory, specially if you use many of them.
  So for certain cases, where you might need hundreds of VAO objects, it might be a good idea to disable it.
- 
+ 默认使用该方法，但是如果使用多个时会消耗很大的内存；某些情况下禁用
  To disable it set it to 0. Enabled by default.
  
  */
@@ -189,7 +189,7 @@
  If enabled, it will use LA88 (Luminance Alpha 16-bit textures) for CCLabelTTF objects.
  If it is disabled, it will use A8 (Alpha 8-bit textures).
  LA88 textures are 6% faster than A8 textures, but they will consume 2x memory.
-
+默认启用，速度快但是消耗2倍数的内存；不同的字节纹理或质地
  This feature is enabled by default.
 
  @since v0.99.5
@@ -207,6 +207,7 @@
  0 -- disabled
  1 -- draw bounding box
  2 -- draw texture box
+仅在测试中使用
  */
 #ifndef CC_SPRITE_DEBUG_DRAW
 #define CC_SPRITE_DEBUG_DRAW 0
@@ -217,7 +218,7 @@
  If enabled, all subclasses of CCLabelBMFont will draw a bounding box
  Useful for debugging purposes only. It is recommened to leave it disabled.
 
- To enable set it to a value different than 0. Disabled by default.
+ To enable set it to a value different than 0. Disabled by default. 默认禁用
  */
 #ifndef CC_LABELBMFONT_DEBUG_DRAW
 #define CC_LABELBMFONT_DEBUG_DRAW 0
@@ -227,7 +228,7 @@
  If enabled, all subclasses of CCLabeltAtlas will draw a bounding box
  Useful for debugging purposes only. It is recommened to leave it disabled.
 
- To enable set it to a value different than 0. Disabled by default.
+ To enable set it to a value different than 0. Disabled by default.禁用。由于子类都会绘制边界
  */
 #ifndef CC_LABELATLAS_DEBUG_DRAW
 #define CC_LABELATLAS_DEBUG_DRAW 0
@@ -238,7 +239,7 @@
  In order to display saved data, you have to call the CC_PROFILER_DISPLAY_TIMERS() macro.
  Useful for profiling purposes only. If unsure, leave it disabled.
 
- To enable set it to a value different than 0. Disabled by default.
+ To enable set it to a value different than 0. Disabled by default.事件检测，默认禁用。
  */
 #ifndef CC_ENABLE_PROFILERS
 #define CC_ENABLE_PROFILERS 0
