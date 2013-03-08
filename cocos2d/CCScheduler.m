@@ -32,7 +32,7 @@
 #import "Support/utlist.h"
 #import "Support/ccCArray.h"
 
-//
+//宏，导演，哈希值，链表，数组
 // Data structures
 //
 #pragma mark -
