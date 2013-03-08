@@ -33,10 +33,10 @@
 @class CCSpriteFrame;
 
 /** CCParticleSystemQuad is a subclass of CCParticleSystem
- 
+ 是粒子系统的子类，包括一切他的属性；
  It includes all the features of ParticleSystem.
 
- Special features and Limitations:
+ Special features and Limitations:限制，大小任意浮点数，可以缩放，旋转，支持矩形，
   - Particle size can be any float number.
   - The system can be scaled
   - The particles can be rotated
@@ -52,7 +52,7 @@
 	GLuint				buffersVBO_[2]; //0: vertex  1: indices
 }
 
-/** initialices the indices for the vertices */
+/** initialices the indices for the vertices  用索引初始化 */
 -(void) initIndices;
 
 /** initilizes the texture with a rectangle measured Points */
@@ -60,7 +60,7 @@
 
 /** Sets a new CCSpriteFrame as particle.
  WARNING: this method is experimental. Use setTexture:withRect instead.
- @since v0.99.4
+ @since v0.99.4 注意该方法内存消耗大
  */
 -(void)setDisplayFrame:(CCSpriteFrame*)spriteFrame;
 
