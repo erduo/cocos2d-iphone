@@ -23,7 +23,7 @@
  */
 
 #import "Platforms/CCGL.h"
-
+//gl附加定义
 extern const GLchar * ccPosition_uColor_frag;
 extern const GLchar * ccPosition_uColor_vert;
 
