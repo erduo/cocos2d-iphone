@@ -34,7 +34,7 @@ static CCShaderCache *_sharedShaderCache;
 @implementation CCShaderCache
 
 #pragma mark CCShaderCache - Alloc, Init & Dealloc
-
+ 
 + (CCShaderCache *)sharedShaderCache
 {
 	if (!_sharedShaderCache)
