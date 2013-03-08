@@ -32,7 +32,7 @@
 @class CCGLProgram;
 
 /** CCShaderCache
- Singleton that stores manages GL shaders
+ Singleton that stores manages GL shaders 单例模式来管理着色
  @since v2.0
  */
 @interface CCShaderCache : NSObject {
@@ -41,19 +41,19 @@
 
 }
 
-/** returns the shared instance */
+/** returns the shared instance  返回实例 */
 + (CCShaderCache *)sharedShaderCache;
 
-/** purges the cache. It releases the retained instance. */
+/** purges the cache. It releases the retained instance. 清除缓存 */
 +(void)purgeSharedShaderCache;
 
-/** loads the default shaders */
+/** loads the default shaders 载人着色器 */
 -(void) loadDefaultShaders;
 
-/** returns a GL program for a given key */
+/** returns a GL program for a given key  给定值，返回着色方案 */
 -(CCGLProgram *) programForKey:(NSString*)key;
 
-/** adds a CCGLProgram to the cache for a given name */
+/** adds a CCGLProgram to the cache for a given name  给定值来增加一种着色方案*/
 - (void) addProgram:(CCGLProgram*)program forKey:(NSString*)key;
 
 @end
