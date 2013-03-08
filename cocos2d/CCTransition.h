@@ -34,7 +34,7 @@
  */
 @protocol CCTransitionEaseScene <NSObject>
 /** returns the Ease action that will be performed on a linear action.
- @since v0.8.2
+ @since v0.8.2   协议定义，缓解运动
  */
 -(CCActionInterval*) easeActionWithAction:(CCActionInterval*)action;
 @end
