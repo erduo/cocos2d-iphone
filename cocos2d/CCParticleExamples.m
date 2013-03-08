@@ -31,9 +31,9 @@
 #import "CCDirector.h"
 #import "Support/CGPointExtension.h"
 
-//
+//导演，纹理缓存，点扩展
 // ParticleFireworks
-//
+//烟花
 @implementation CCParticleFireworks
 -(id) init
 {
@@ -43,10 +43,10 @@
 -(id) initWithTotalParticles:(NSUInteger)p
 {
 	if( (self=[super initWithTotalParticles:p]) ) {
-		// duration
+		// duration  周期
 		duration = kCCParticleDurationInfinity;
 
-		// Gravity Mode
+		// Gravity Mode  重力
 		self.emitterMode = kCCParticleModeGravity;
 
 		// Gravity Mode: gravity
@@ -110,7 +110,7 @@
 
 //
 // ParticleFire
-//
+//火
 @implementation CCParticleFire
 -(id) init
 {
@@ -190,7 +190,7 @@
 
 //
 // ParticleSun
-//
+//阳光
 @implementation CCParticleSun
 -(id) init
 {
@@ -353,7 +353,7 @@
 
 //
 // ParticleFlower
-//
+//花朵
 @implementation CCParticleFlower
 -(id) init
 {
@@ -436,7 +436,7 @@
 
 //
 // ParticleMeteor
-//
+//流星
 @implementation CCParticleMeteor
 -(id) init
 {
@@ -519,7 +519,7 @@
 
 //
 // ParticleSpiral
-//
+//螺旋
 @implementation CCParticleSpiral
 -(id) init
 {
@@ -602,7 +602,7 @@
 
 //
 // ParticleExplosion
-//
+//爆炸
 @implementation CCParticleExplosion
 -(id) init
 {
@@ -684,7 +684,7 @@
 
 //
 // ParticleSmoke
-//
+//冒烟
 @implementation CCParticleSmoke
 -(id) init
 {
