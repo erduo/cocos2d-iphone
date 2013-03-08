@@ -29,16 +29,16 @@
     #import "CDXMacOSXSupport.h"
 #endif
 
-/** Different modes of the engine */
+/** Different modes of the engine  引擎不同的模式*/
 typedef enum {
 	kAMM_FxOnly,					//!Other apps will be able to play audio
 	kAMM_FxPlusMusic,				//!Only this app will play audio
 	kAMM_FxPlusMusicIfNoOtherAudio,	//!If another app is playing audio at start up then allow it to continue and don't play music
-	kAMM_MediaPlayback,				//!This app takes over audio e.g music player app
+	kAMM_MediaPlayback,				//!This app takes over audio e.g music player app 此应用替换音频播放器播放
 	kAMM_PlayAndRecord				//!App takes over audio and has input and output
 } tAudioManagerMode;
 
-/** Possible states of the engine */
+/** Possible states of the engine  状态 */
 typedef enum {
 	kAMStateUninitialised, //!Audio manager has not been initialised - do not use
 	kAMStateInitialising,  //!Audio manager is in the process of initialising - do not use
@@ -51,13 +51,13 @@ typedef enum {
 	kAMRBStop					//Background music is stopped on resign but not resumed - maybe because you want to do this from within your game
 } tAudioManagerResignBehavior;
 
-/** Notifications */
+/** Notifications  通知 */
 extern NSString * const kCDN_AudioManagerInitialised;
 
 @interface CDAsynchInitialiser : NSOperation {}
 @end
 
-/** CDAudioManager supports two long audio source channels called left and right*/
+/** CDAudioManager supports two long audio source channels called left and right  支持左右频道*/
 typedef enum {
 	kASC_Left = 0,
 	kASC_Right = 1
@@ -109,22 +109,22 @@ typedef enum {
 @property (readwrite, nonatomic) NSInteger numberOfLoops;
 @property (readwrite, nonatomic) float volume;
 @property (assign) id<CDLongAudioSourceDelegate> delegate;
-/* This long audio source functions as background music */
+/* This long audio source functions as background music是否作为背景音乐 */
 @property (readwrite, nonatomic) BOOL backgroundMusic;
 
-/** Loads the file into the audio source */
+/** Loads the file into the audio source载人 */
 -(void) load:(NSString*) filePath;
-/** Plays the audio source */
+/** Plays the audio source播放 */
 -(void) play;
-/** Stops playing the audio soruce */
+/** Stops playing the audio soruce 停止*/
 -(void) stop;
-/** Pauses the audio source */
+/** Pauses the audio source 暂停*/
 -(void) pause;
-/** Rewinds the audio source */
+/** Rewinds the audio source 回放 */
 -(void) rewind;
-/** Resumes playing the audio source if it was paused */
+/** Resumes playing the audio source if it was paused 恢复 */
 -(void) resume;
-/** Returns whether or not the audio source is playing */
+/** Returns whether or not the audio source is playing 播放中？*/
 -(BOOL) isPlaying;
 
 @end
@@ -135,7 +135,7 @@ typedef enum {
  for playing long duration audio such as background music and narration tracks.  Additionally it manages
  the audio session to take care of things like audio session interruption and interacting with the audio
  of other apps that are running on the device.
-
+音效管理类管理声音。提供一个访问声音引擎对象来播放音效；提供二个左右频道对象播放长声音作为背景音乐； 要求硬件：os 2.2版本以上；文件，库（openal, AudioToolbox,AVFoundation)
  Requirements:
  - Firmware: OS 2.2 or greater
  - Files: CDAudioManager.*, CocosDenshion.*
@@ -167,10 +167,10 @@ typedef enum {
 @property (readonly) CDLongAudioSource *backgroundMusic;
 @property (readonly) BOOL willPlayBackgroundMusic;
 
-/** Returns the shared singleton */
+/** Returns the shared singleton  返回单例*/
 + (CDAudioManager *) sharedManager;
 + (tAudioManagerState) sharedManagerState;
-/** Configures the shared singleton with a mode*/
+/** Configures the shared singleton with a mode 模式*/
 + (void) configure: (tAudioManagerMode) mode;
 /** Initializes the engine asynchronously with a mode */
 + (void) initAsynchronously: (tAudioManagerMode) mode;
@@ -179,7 +179,7 @@ typedef enum {
 -(void) audioSessionInterrupted;
 -(void) audioSessionResumed;
 -(void) setResignBehavior:(tAudioManagerResignBehavior) resignBehavior autoHandle:(BOOL) autoHandle;
-/** Returns true is audio is muted at a hardware level e.g user has ringer switch set to off */
+/** Returns true is audio is muted at a hardware level e.g user has ringer switch set to off  是否静音 */
 -(BOOL) isDeviceMuted;
 /** Returns true if another app is playing audio such as the iPod music player */
 -(BOOL) isOtherAudioPlaying;
