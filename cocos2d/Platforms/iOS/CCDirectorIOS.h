@@ -25,7 +25,7 @@
 
 
 // Only compile this code on iOS. These files should NOT be included on your Mac project.
-// But in case they are included, it won't be compiled.
+// But in case they are included, it won't be compiled. 仅在ios平台编译
 #import "../../ccMacros.h"
 #ifdef __CC_PLATFORM_IOS
 
@@ -34,11 +34,11 @@
 
 @class CCTouchDispatcher;
 
-/** CCDirector extensions for iPhone
+/** CCDirector extensions for iPhone  针对Ios扩展
  */
 @interface CCDirector (iOSExtension)
 
-/** sets the CCTouchDispatcher (iOS only) */
+/** sets the CCTouchDispatcher (iOS only) 设置触摸调度 */
 @property (nonatomic,readwrite,retain) CCTouchDispatcher * touchDispatcher;
 
 /** The size in pixels of the surface. It could be different than the screen size.
@@ -46,7 +46,7 @@
  In non High-res device the contentScale will be emulated.
 
  The recommend way to enable Retina Display is by using the "enableRetinaDisplay:(BOOL)enabled" method.
-
+设置内容缩放矢量
  @since v0.99.4
  */
 -(void) setContentScaleFactor:(CGFloat)scaleFactor;
@@ -56,23 +56,24 @@
  It will return YES, if it could enabled it, otherwise it will return NO.
 
  This is the recommened way to enable Retina Display.
+缩放超清显示屏幕
  @since v0.99.5
  */
 -(BOOL) enableRetinaDisplay:(BOOL)enableRetina;
 
-/** returns the content scale factor */
+/** returns the content scale factor 返回内容比例矢量 */
 -(CGFloat) contentScaleFactor;
 @end
 
 #pragma mark -
 #pragma mark CCDirectorIOS
 
-/** CCDirectorIOS: Base class of iOS directors
+/** CCDirectorIOS: Base class of iOS directors 是导演的子类
  @since v0.99.5
  */
 @interface CCDirectorIOS : CCDirector
 {
-	/* contentScaleFactor could be simulated */
+	/* contentScaleFactor could be simulated  缩放支持内容比例*/
 	BOOL	isContentScaleSupported_;
 	
 	CCTouchDispatcher	*touchDispatcher_;
@@ -85,7 +86,7 @@
  * - Only available on 3.1+
  * - Scheduled timers & drawing are synchronizes with the refresh rate of the display
  * - Only supports animation intervals of 1/60 1/30 & 1/15
- *
+ *只支持3中间隔
  * It is the recommended Director if the SDK is 3.1 or newer
  *
  * @since v0.8.2
@@ -98,7 +99,7 @@
 -(void) mainLoop:(id)sender;
 @end
 
-// optimization. Should only be used to read it. Never to write it.
+// optimization. Should only be used to read it. Never to write it. 只读属性
 extern CGFloat	__ccContentScaleFactor;
 
 #endif // __CC_PLATFORM_IOS
