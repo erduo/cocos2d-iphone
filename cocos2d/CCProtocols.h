@@ -32,7 +32,7 @@
 
 /// CC RGBA protocol
 @protocol CCRGBAProtocol <NSObject>
-/** sets Color
+/** sets Color 颜色协议
  @since v0.8
  */
 -(void) setColor:(ccColor3B)color;
@@ -41,7 +41,7 @@
  */
 -(ccColor3B) color;
 
-/// returns the opacity
+/// returns the opacity  透明度
 -(GLubyte) opacity;
 /** sets the opacity.
  @warning If the the texture has premultiplied alpha then, the R, G and B channels will be modifed.
@@ -63,7 +63,7 @@
 @end
 
 #pragma mark -
-#pragma mark CCBlendProtocol
+#pragma mark CCBlendProtocol  混合协议
 /**
  You can specify the blending fuction.
  @since v0.99.0
@@ -77,7 +77,7 @@
 
 
 #pragma mark -
-#pragma mark CCTextureProtocol
+#pragma mark CCTextureProtocol  纹理质地协议
 
 /** CCNode objects that uses a Texture2D to render the images.
  The texture can have a blending function.
@@ -100,7 +100,7 @@
 /** Common interface for Labels */
 @protocol CCLabelProtocol <NSObject>
 /** sets a new label using an NSString.
- The string will be copied.
+ The string will be copied.  标签协议
  */
 -(void) setString:(NSString*)label;
 /** returns the string that is rendered */
@@ -115,7 +115,7 @@
 
 
 #pragma mark -
-#pragma mark CCDirectorDelegate
+#pragma mark CCDirectorDelegate  导演
 /** CCDirector delegate */
 @protocol CCDirectorDelegate <NSObject>
 
@@ -124,7 +124,7 @@
 -(void) updateProjection;
 
 #ifdef __CC_PLATFORM_IOS
-/** Returns a Boolean value indicating whether the CCDirector supports the specified orientation. Default value is YES (supports all possible orientations) */
+/** Returns a Boolean value indicating whether the CCDirector supports the specified orientation. Default value is YES (supports all possible orientations)  支持的方向 */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 
 #endif // __CC_PLATFORM_IOS
