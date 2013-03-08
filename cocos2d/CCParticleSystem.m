@@ -53,7 +53,7 @@
 #import "CCTextureAtlas.h"
 #import "ccMacros.h"
 #import "Support/CCProfiling.h"
-
+//配置，粒子系统，批量粒子节点，纹理集和缓存，宏，事件检测
 // support
 #import "Support/OpenGL_Internal.h"
 #import "Support/CGPointExtension.h"
@@ -461,7 +461,7 @@
 	return (particleCount == totalParticles);
 }
 
-#pragma mark ParticleSystem - MainLoop
+#pragma mark ParticleSystem - MainLoop  主循环
 -(void) update: (ccTime) dt
 {
 	CC_PROFILER_START_CATEGORY(kCCProfilerCategoryParticles , @"CCParticleSystem - update");
