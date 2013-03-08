@@ -27,7 +27,7 @@
 
 NSString * const kCDN_AudioManagerInitialised = @"kCDN_AudioManagerInitialised";
 
-//NSOperation object used to asynchronously initialise
+//NSOperation object used to asynchronously initialise  异步操作对象初始化
 @implementation CDAsynchInitialiser
 
 -(void) main {
@@ -137,7 +137,7 @@ NSString * const kCDN_AudioManagerInitialised = @"kCDN_AudioManagerInitialised";
 	return volume;
 }
 
-#pragma mark Audio Interrupt Protocol
+#pragma mark Audio Interrupt Protocol  音效中断协议
 -(BOOL) mute
 {
 	return mute;
