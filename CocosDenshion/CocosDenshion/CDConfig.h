@@ -26,12 +26,12 @@
 
 /**
  If enabled code useful for debugging such as parameter check assertions will be performed.
- If you experience any problems you should enable this and test your code with a debug build.
+ If you experience any problems you should enable this and test your code with a debug build.  测试
  */
 //#define CD_DEBUG 1
 
 /**
- The total number of sounds/buffers that can be loaded assuming memory is sufficient
+ The total number of sounds/buffers that can be loaded assuming memory is sufficient  被加载的缓冲总数
  */
 //Number of buffers slots that will be initially created
 #define CD_BUFFERS_START 64
@@ -42,6 +42,7 @@
  If enabled, OpenAL code will use static buffers. When static buffers are used the audio
  data is managed outside of OpenAL, this eliminates a memcpy operation which leads to
  higher performance when loading sounds.
+启用，openAL可以更好的使用静态缓冲，消除内存拷贝，提供加载声音效率
 
  However, the downside is that when the audio data is freed you must
  be certain that it is no longer being accessed otherwise your app will crash. Testing on OS 2.2.1
@@ -53,7 +54,7 @@
 
  Performance tests on a 1st gen iPod running OS 2.2.1 loading the CocosDenshionDemo sounds were ~0.14 seconds without
  static buffers and ~0.12 seconds when using static buffers.
-
+测试使用静态缓存
  */
 //#define CD_USE_STATIC_BUFFERS 1
 
