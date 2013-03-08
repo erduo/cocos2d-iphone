@@ -28,7 +28,7 @@
 #import "Support/uthash.h"
 #import "ccTypes.h"
 
-// Priority level reserved for system services.
+// Priority level reserved for system services.  优先级
 #define kCCPrioritySystem INT_MIN
 
 // Minimum priority level for user scheduling.
@@ -38,7 +38,7 @@ typedef void (*TICK_IMP)(id, SEL, ccTime);
 
 //
 // CCTimer
-//
+//定时器
 /** Light weight timer */
 @interface CCTimer : NSObject
 {
@@ -56,10 +56,10 @@ typedef void (*TICK_IMP)(id, SEL, ccTime);
 	ccTime interval;
 	SEL selector;
 }
-/** interval in seconds */
+/** interval in seconds  间隔*/
 @property (nonatomic,readwrite,assign) ccTime interval;
 
-/** Allocates a timer with a target and a selector.
+/** Allocates a timer with a target and a selector. 目标和一个选择器
 */
 +(id) timerWithTarget:(id) t selector:(SEL)s;
 
@@ -72,11 +72,12 @@ typedef void (*TICK_IMP)(id, SEL, ccTime);
  -(id) initWithTarget:(id) t selector:(SEL)s;
 
 /** Initializes a timer with a target, a selector, an interval in seconds, repeat in number of times to repeat, delay in seconds
+使用目标，选择器，时间间隔，重复次数，延迟参数来初始化
 */
 -(id) initWithTarget:(id)t selector:(SEL)s interval:(ccTime) seconds repeat:(uint) r delay:(ccTime) d;
 
 
-/** triggers the timer */
+/** triggers the timer 触发定时器 */
 -(void) update: (ccTime) dt;
 @end
 
@@ -87,14 +88,14 @@ typedef void (*TICK_IMP)(id, SEL, ccTime);
 //
 /** CCScheduler is responsible of triggering the scheduled callbacks.
  You should not use NSTimer. Instead use this class.
-
+不用是使用NSTimer类，使用此类来替换；主要是负责触发调用回调；更新选择器（每帧都会调用，可以定义优先级）+自定义选择器（可以低昂一时间间隔）
  There are 2 different types of callbacks (selectors):
 
 	- update selector: the 'update' selector will be called every frame. You can customize the priority.
 	- custom selector: A custom selector will be called every frame, or with a custom interval of time
 
  The 'custom selectors' should be avoided when possible. It is faster, and consumes less memory to use the 'update selector'.
-
+尽量少用自定义的；使用更新选择器更快，消耗较少内存
 */
 
 struct _listEntry;
@@ -131,11 +132,12 @@ struct _hashUpdateEntry;
  To create a 'fast fordward' effect, use values higher than 1.0.
  @since v0.8
  @warning It will affect EVERY scheduled selector / action.
+时间比例
  */
 @property (nonatomic,readwrite) ccTime	timeScale;
 
 /** 'update' the scheduler.
- You should NEVER call this method, unless you know what you are doing.
+ You should NEVER call this method, unless you know what you are doing.不要调用此方法
  */
 -(void) update:(ccTime)dt;
 
@@ -167,7 +169,7 @@ struct _hashUpdateEntry;
 -(void) unscheduleSelector:(SEL)selector forTarget:(id)target;
 
 /** Unschedules the update selector for a given target
- @since v0.99.3
+ @since v0.99.3  不定期调用给定的目标
  */
 -(void) unscheduleUpdateForTarget:(id)target;
 
@@ -192,7 +194,7 @@ struct _hashUpdateEntry;
 
 /** Pauses the target.
  All scheduled selectors/update for a given target won't be 'ticked' until the target is resumed.
- If the target is not present, nothing happens.
+ If the target is not present, nothing happens.  暂停方法
  @since v0.99.3
  */
 -(void) pauseTarget:(id)target;
