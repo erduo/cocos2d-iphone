@@ -49,7 +49,7 @@ typedef enum
  adds a sprite as its display child with the results, so you can simply add
  the render texture to your scene and treat it like any other CCNode.
  There are also functions for saving the render texture to disk in PNG or JPG format.
-
+可以作为任何节点来在场景呈现；使用png,jpg格式来构造
  @since v0.8.1
  */
 @interface CCRenderTexture : CCNode
@@ -70,13 +70,13 @@ typedef enum
 */
 @property (nonatomic,readwrite, assign) CCSprite* sprite;
 
-/** initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format*/
+/** initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format  宽，高，像素格式，位深格式*/
 +(id)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexture2DPixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat;
 
 /** creates a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid */
 +(id)renderTextureWithWidth:(int)w height:(int)h pixelFormat:(CCTexture2DPixelFormat) format;
 
-/** creates a RenderTexture object with width and height in Points, pixel format is RGBA8888 */
+/** creates a RenderTexture object with width and height in Points, pixel format is RGBA8888   像素格式是*/
 +(id)renderTextureWithWidth:(int)w height:(int)h;
 
 /** initializes a RenderTexture object with width and height in Points and a pixel format, only RGB and RGBA formats are valid */
@@ -85,7 +85,7 @@ typedef enum
 /** initializes a RenderTexture object with width and height in Points and a pixel format( only RGB and RGBA formats are valid ) and depthStencil format*/
 - (id)initWithWidth:(int)w height:(int)h pixelFormat:(CCTexture2DPixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat;
 
-/** starts grabbing */
+/** starts grabbing  开始抓取*/
 -(void)begin;
 
 /** starts rendering to the texture while clearing the texture first.
@@ -101,36 +101,36 @@ typedef enum
 - (void)beginWithClear:(float)r g:(float)g b:(float)b a:(float)a depth:(float)depthValue stencil:(int)stencilValue;
 
 
-/** ends grabbing */
+/** ends grabbing 结束*/
 -(void)end;
 
-/** clears the texture with a color */
+/** clears the texture with a color   清除颜色*/
 -(void)clear:(float)r g:(float)g b:(float)b a:(float)a;
 
-/** clears the texture with a specified depth value */
+/** clears the texture with a specified depth value 清除位深度值*/
 - (void)clearDepth:(float)depthValue;
 
 /** clears the texture with a specified stencil value */
 - (void)clearStencil:(int)stencilValue;
 
 /* creates a new CGImage from with the texture's data.
- Caller is responsible for releasing it by calling CGImageRelease().
+ Caller is responsible for releasing it by calling CGImageRelease(). 创建新的image
  */
 -(CGImageRef) newCGImage;
 
 /** saves the texture into a file using JPEG format. The file will be saved in the Documents folder.
- Returns YES if the operation is successful.
+ Returns YES if the operation is successful.  将纹理保存到文件
  */
 -(BOOL)saveToFile:(NSString*)name;
 
 /** saves the texture into a file. The format could be JPG or PNG. The file will be saved in the Documents folder.
-  Returns YES if the operation is successful.
+  Returns YES if the operation is successful. 以什么格式保存
  */
 -(BOOL)saveToFile:(NSString*)name format:(tCCImageFormat)format;
 
 #ifdef __CC_PLATFORM_IOS
 
-/* returns an autoreleased UIImage from the texture */
+/* returns an autoreleased UIImage from the texture 返回自动释放的图像类 */
 -(UIImage *) getUIImage;
 
 #endif // __CC_PLATFORM_IOS
