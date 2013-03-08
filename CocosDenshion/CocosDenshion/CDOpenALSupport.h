@@ -48,6 +48,7 @@
  The 1.4 version code is used for loading IMA4 files, however, this code causes very noticeable clicking
  when used to load wave files that are looped so the 1.1 version code is used specifically for loading
  wav files.
+该文件包括1.1版本到1.4版本；1.4版本可以载人IMA4文件，而载人wav文件可以1.1版本
  */
 
 #ifndef __CD_OPENAL_H
@@ -63,7 +64,7 @@ extern "C" {
 #import <CoreFoundation/CFURL.h>
 
 
-//Taken from oalTouch MyOpenALSupport 1.1
+//Taken from oalTouch MyOpenALSupport 1.1  替换1.1版本
 void* CDloadWaveAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *outDataFormat, ALsizei*	outSampleRate);
 void* CDloadCafAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *outDataFormat, ALsizei* outSampleRate);
 void* CDGetOpenALAudioData(CFURLRef inFileURL, ALsizei *outDataSize, ALenum *outDataFormat, ALsizei* outSampleRate);
