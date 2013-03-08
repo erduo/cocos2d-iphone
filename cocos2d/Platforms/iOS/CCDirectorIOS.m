@@ -134,7 +134,7 @@ CGFloat	__ccContentScaleFactor = 1;
 
 //
 // Draw the Scene
-//
+//绘制场景
 - (void) drawScene
 {
 	/* calculate "global" dt */
