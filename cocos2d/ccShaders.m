@@ -24,7 +24,7 @@
 
 #import "ccShaders.h"
 
-//
+//就是将上面定义的文件
 const GLchar * ccPosition_uColor_frag = 
 #import "ccShader_Position_uColor_frag.h"
 const GLchar * ccPosition_uColor_vert =
