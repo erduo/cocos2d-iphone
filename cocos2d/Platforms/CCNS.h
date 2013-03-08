@@ -25,7 +25,7 @@
 
 //
 // Common layer for NS (Next-Step) stuff
-//
+//通用层中
 
 #import "../ccMacros.h"
 
