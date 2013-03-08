@@ -9,7 +9,7 @@ varying lowp vec4 v_fragmentColor;					\n\
 #else												\n\
 varying vec4 v_fragmentColor;						\n\
 #endif												\n\
-													\n\
+//位置，大小，着色					\n\
 void main()											\n\
 {													\n\
     gl_Position = u_MVPMatrix * a_position;			\n\
