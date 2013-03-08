@@ -28,7 +28,7 @@
 #import "CCNode.h"
 
 /** CCScene is a subclass of CCNode that is used only as an abstract concept.
-
+是节点子类，仅作为虚概念。不同是使用锚点定义中心位置。没有什么逻辑；
  CCScene an CCNode are almost identical with the difference that CCScene has its
  anchor point (by default) at the center of the screen.
 
