@@ -30,7 +30,7 @@
 /** CCParallaxNode: A node that simulates a parallax scroller
 
  The children will be moved faster / slower than the parent according the the parallax ratio.
-
+视差滚动节点。子类运动块、慢参照视差比例
  */
 @interface CCParallaxNode : CCNode
 {
@@ -38,12 +38,12 @@
 	CGPoint				lastPosition;
 }
 
-/** array that holds the offset / ratio of the children */
+/** array that holds the offset / ratio of the children  偏移和比例数组 */
 @property (nonatomic,readwrite) ccArray * parallaxArray;
 
 /** Adds a child to the container with a z-order, a parallax ratio and a position offset
  It returns self, so you can chain several addChilds.
- @since v0.8
+ @since v0.8  增加多个子节点。 参数：次序，视差比例和偏移
  */
 -(void) addChild: (CCNode*)node z:(NSInteger)z parallaxRatio:(CGPoint)c positionOffset:(CGPoint)positionOffset;
 
