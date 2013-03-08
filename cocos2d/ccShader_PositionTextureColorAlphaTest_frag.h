@@ -7,7 +7,7 @@ varying vec4 v_fragmentColor;								\n\
 varying vec2 v_texCoord;									\n\
 uniform sampler2D u_texture;								\n\
 uniform		float u_alpha_value;							\n\
-															\n\
+//测试中															\n\
 void main()													\n\
 {															\n\
 	vec4 texColor = texture2D(u_texture, v_texCoord);		\n\
