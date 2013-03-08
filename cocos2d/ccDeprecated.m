@@ -193,7 +193,7 @@ void ccGLUniformModelViewProjectionMatrix( CCGLProgram* program )
 	return [self initWithNormalSprite:normalSprite selectedSprite:selectedSprite disabledSprite:disabledSprite block:block];
 }
 @end
-
+  
 @implementation CCMenuItemImage (Deprecated)
 +(id) itemFromNormalImage: (NSString*)value selectedImage:(NSString*) value2
 {
