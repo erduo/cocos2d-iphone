@@ -31,7 +31,7 @@ static CDSoundEngine* soundEngine = nil;
 static CDAudioManager *am = nil;
 static CDBufferManager *bufferManager = nil;
 
-// Init
+// Init 单例
 + (SimpleAudioEngine *) sharedEngine
 {
 	@synchronized(self)     {
