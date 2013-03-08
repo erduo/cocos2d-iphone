@@ -29,7 +29,7 @@
 /** CCTransitionPageTurn transition.
  * A transition which peels back the bottom right hand corner of a scene
  * to transition to the scene beneath it simulating a page turn
- *
+ *翻页转换；使用3DAction推荐用深度缓存做参数
  * This uses a 3DAction so it is strongly recommended that depth buffering
  * is turned on in CCDirector using:
  *
@@ -45,13 +45,14 @@
  * creates a base transition with duration and incoming scene
  * if back is TRUE then the effect is reversed to appear as if the incoming
  * scene is being turned from left over the outgoing scene
+ *使用时间，场景，是否反向；是，则是相反的效果来创建
  */
 +(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s backwards:(BOOL) back;
 
 /**
  * creates a base transition with duration and incoming scene
  * if back is TRUE then the effect is reversed to appear as if the incoming
- * scene is being turned from left over the outgoing scene
+ * scene is being turned from left over the outgoing scene  初始化方法
  */
 -(id) initWithDuration:(ccTime) t scene:(CCScene*)s backwards:(BOOL) back;
 
