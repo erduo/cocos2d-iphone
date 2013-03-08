@@ -26,7 +26,7 @@
 #import <Foundation/Foundation.h>
 #import "CCSprite.h"
 
-/** Types of progress
+/** Types of progress  进度条类型
  @since v0.99.1
  */
 typedef enum {
@@ -37,7 +37,7 @@ typedef enum {
 } CCProgressTimerType;
 
 /**
- CCProgresstimer is a subclass of CCNode.
+ CCProgresstimer is a subclass of CCNode.是节点的子类，呈现百分比，使用半径，垂直，水平
  It renders the inner sprite according to the percentage.
  The progress can be Radial, Horizontal or vertical.
  @since v0.99.1
@@ -62,7 +62,7 @@ typedef enum {
 @property (nonatomic, readonly) int vertexDataCount;
 
 /**
- *	Midpoint is used to modify the progress start position.
+ *	Midpoint is used to modify the progress start position. 用于修改进度开始的位置
  *	If you're using radials type then the midpoint changes the center point
  *	If you're using bar type the the midpoint changes the bar growth
  *		it expands from the center but clamps to the sprites edge so:
@@ -78,17 +78,18 @@ typedef enum {
  *	Set the component to 0 to make sure it stays at 100%.
  *	For example you want a left to right bar but not have the height stay 100%
  *	Set the rate to be ccp(0,1); and set the midpoint to = ccp(0,.5f);
+改变的比率
  */
 @property (nonatomic, readwrite) CGPoint barChangeRate;
 
-/** Percentages are from 0 to 100 */
+/** Percentages are from 0 to 100  百分比 */
 @property (nonatomic, readwrite) float percentage;
 
-/** The image to show the progress percentage */
+/** The image to show the progress percentage  精灵显示 */
 @property (nonatomic, readwrite, retain) CCSprite *sprite;
 
 /** Creates a progress timer with the sprite as the shape the timer goes through */
 + (id) progressWithSprite:(CCSprite*) sprite;
-/** Initializes a progress timer with the sprite as the shape the timer goes through */
+/** Initializes a progress timer with the sprite as the shape the timer goes through   用精灵来初始化 */
 - (id) initWithSprite:(CCSprite*) sprite;
 @end
