@@ -6,7 +6,7 @@ precision lowp float;								\n\
 varying vec4 v_fragmentColor;						\n\
 varying vec2 v_texCoord;							\n\
 uniform sampler2D u_texture;						\n\
-													\n\
+//基本着色器													\n\
 void main()											\n\
 {													\n\
 	gl_FragColor = vec4( v_fragmentColor.rgb,										// RGB from uniform				\n\
