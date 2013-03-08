@@ -27,7 +27,7 @@
  */
 
 
-// opengl
+// opengl 
 #import "Platforms/CCGL.h"
 
 // cocos2d
