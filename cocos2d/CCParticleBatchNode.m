@@ -40,7 +40,7 @@
 #import "CCShaderCache.h"
 #import "CCGLProgram.h"
 #import "ccGLStateCache.h"
-
+//纹理缓存，配置，宏，网格，点扩展，粒子系统，着色缓存，着色方案，gl
 #import "Support/base64.h"
 #import "Support/ZipUtils.h"
 #import "Support/CCFileUtils.h"
@@ -80,7 +80,7 @@
 }
 
 /*
- * creation with File Image
+ * creation with File Image  用图片文件创建
  */
 +(id)batchNodeWithFile:(NSString*)fileImage capacity:(NSUInteger)capacity
 {
@@ -93,7 +93,7 @@
 }
 
 /*
- * init with CCTexture2D
+ * init with CCTexture2D 初始化
  */
 -(id)initWithTexture:(CCTexture2D *)tex capacity:(NSUInteger)capacity
 {
@@ -135,7 +135,7 @@
 
 #pragma mark CCParticleBatchNode - composition
 
-// override visit.
+// override visit.  重载访问
 // Don't call visit on it's children
 -(void) visit
 {
