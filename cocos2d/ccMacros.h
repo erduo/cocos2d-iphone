@@ -32,7 +32,7 @@
 
 /**
  @file
- cocos2d helper macros
+ cocos2d helper macros   帮助宏
  */
 
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
@@ -44,7 +44,8 @@
 /*
  * if COCOS2D_DEBUG is not defined, or if it is 0 then
  *	all CCLOGXXX macros will be disabled
- *
+ *未定义，则宏不可用；debug==1则log,logerror可用，loginfo不可用；debug==2,则都可用
+
  * if COCOS2D_DEBUG==1 then:
  *		CCLOG() will be enabled
  *		CCLOGERROR() will be enabled
@@ -56,7 +57,7 @@
  *		CCLOGINFO()	will be enabled
  */
 
-
+//输出日志方法
 #define __CCLOGWITHFUNCTION(s, ...) \
 NSLog(@"%s : %@",__FUNCTION__,[NSString stringWithFormat:(s), ##__VA_ARGS__])
 
@@ -83,6 +84,7 @@ NSLog(@"%@",[NSString stringWithFormat:(s), ##__VA_ARGS__])
 
 /** @def CC_SWAP
 simple macro that swaps 2 variables
+交换2个变量
 */
 #define CC_SWAP( x, y )			\
 ({ __typeof__(x) temp  = (x);		\
@@ -92,27 +94,32 @@ simple macro that swaps 2 variables
 
 /** @def CCRANDOM_MINUS1_1
  returns a random float between -1 and 1
+返回-1到1的随机浮点数
  */
 #define CCRANDOM_MINUS1_1() ((random() / (float)0x3fffffff )-1.0f)
 
 /** @def CCRANDOM_0_1
  returns a random float between 0 and 1
+返回0到1的随机浮点数
  */
 #define CCRANDOM_0_1() ((random() / (float)0x7fffffff ))
 
 /** @def CC_DEGREES_TO_RADIANS
  converts degrees to radians
+角度转弧度
  */
 #define CC_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f) // PI / 180
 
 /** @def CC_RADIANS_TO_DEGREES
  converts radians to degrees
+弧度转角度
  */
 #define CC_RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) * 57.29577951f) // PI * 180
 
 #define kCCRepeatForever UINT_MAX -1
 /** @def CC_BLEND_SRC
 default gl blend src function. Compatible with premultiplied alpha images.
+定义混合功能
 */
 #define CC_BLEND_SRC GL_ONE
 #define CC_BLEND_DST GL_ONE_MINUS_SRC_ALPHA
@@ -131,7 +138,7 @@ default gl blend src function. Compatible with premultiplied alpha images.
  IMPORTANT: If you want to use another type of render buffer (eg: RGBA8)
  or if you want to use a 16-bit or 24-bit depth buffer, you should NOT
  use this macro. Instead, you should create the CCGLView manually.
-
+导演初始化定义；如果使用其他字节深度缓存则需要手动创建，gl视图； 创建窗口
  @since v0.99.4
  */
 
@@ -184,6 +191,7 @@ do	{																							\
 
 /** @def CC_NODE_DRAW_SETUP
  Helpful macro that setups the GL server state, the correct GL program and sets the Model View Projection matrix
+节点绘制启动：启动gl服务端，确定gl方案和设置模型视图投影矩阵
  @since v2.0
  */
 #define CC_NODE_DRAW_SETUP()																	\
@@ -198,7 +206,7 @@ do {																							\
  /** @def CC_DIRECTOR_END
   Stops and removes the director from memory.
   Removes the CCGLView from its parent
-
+结束导演
   @since v0.99.4
   */
 #define CC_DIRECTOR_END()										\
@@ -219,6 +227,7 @@ do {															\
 /** @def CC_CONTENT_SCALE_FACTOR
  On Mac it returns 1;
  On iPhone it returns 2 if RetinaDisplay is On. Otherwise it returns 1
+是否超清显示；2为Iphone，当然设备要支持
  */
 extern float __ccContentScaleFactor;
 #define CC_CONTENT_SCALE_FACTOR() __ccContentScaleFactor
@@ -226,6 +235,7 @@ extern float __ccContentScaleFactor;
 
 /** @def CC_RECT_PIXELS_TO_POINTS
  Converts a rect in pixels to points
+转换矩形从像素到点
  */
 #define CC_RECT_PIXELS_TO_POINTS(__rect_in_pixels__)																		\
 	CGRectMake( (__rect_in_pixels__).origin.x / CC_CONTENT_SCALE_FACTOR(), (__rect_in_pixels__).origin.y / CC_CONTENT_SCALE_FACTOR(),	\
@@ -233,6 +243,7 @@ extern float __ccContentScaleFactor;
 
 /** @def CC_RECT_POINTS_TO_PIXELS
  Converts a rect in points to pixels
+点到像素
  */
 #define CC_RECT_POINTS_TO_PIXELS(__rect_in_points_points__)																		\
 	CGRectMake( (__rect_in_points_points__).origin.x * CC_CONTENT_SCALE_FACTOR(), (__rect_in_points_points__).origin.y * CC_CONTENT_SCALE_FACTOR(),	\
@@ -266,7 +277,7 @@ CGSizeMake( (__size_in_points__).width * CC_CONTENT_SCALE_FACTOR(), (__size_in_p
 #elif defined(__CC_PLATFORM_MAC)
 
 /*****************************/
-/** RETINA DISPLAY DISABLED **/
+/** RETINA DISPLAY DISABLED   显示相关**/
 /*****************************/
 
 #define CC_CONTENT_SCALE_FACTOR() 1
@@ -322,7 +333,7 @@ CGSizeMake( (__size_in_points__).width * CC_CONTENT_SCALE_FACTOR(), (__size_in_p
 #endif
 
 /*****************/
-/** ARC Macros  **/
+/** ARC Macros  自动引用计数  **/
 /*****************/
 #if defined(__has_feature) && __has_feature(objc_arc)
 // ARC (used for inline functions)
@@ -345,9 +356,10 @@ extern NSUInteger __ccNumberOfDraws;
 #define CC_INCREMENT_GL_DRAWS(__n__) __ccNumberOfDraws += __n__
 
 /*******************/
-/** Notifications **/
+/** Notifications  通知**/
 /*******************/
 /** @def CCAnimationFrameDisplayedNotification
  Notification name when a CCSpriteFrame is displayed
+显示通知
  */
 #define CCAnimationFrameDisplayedNotification @"CCAnimationFrameDisplayedNotification"
