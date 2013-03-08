@@ -8,7 +8,7 @@ varying mediump vec2 v_texCoord;						\n\
 #else													\n\
 varying vec2 v_texCoord;								\n\
 #endif													\n\
-														\n\
+	  													\n\
 void main()												\n\
 {														\n\
     gl_Position = u_MVPMatrix * a_position;				\n\
