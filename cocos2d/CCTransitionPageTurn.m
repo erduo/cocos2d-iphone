@@ -27,10 +27,10 @@
 #import "CCTransitionPageTurn.h"
 #import	"CCActionPageTurn3D.h"
 #import "CCDirector.h"
-
+//导演，翻页动作
 @implementation CCTransitionPageTurn
 
-/** creates a base transition with duration and incoming scene */
+/** creates a base transition with duration and incoming scene  基于周期和输入场景创建方法 */
 +(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s backwards:(BOOL) back
 {
 	return [[[self alloc] initWithDuration:t scene:s backwards:back] autorelease];
