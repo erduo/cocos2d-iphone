@@ -87,7 +87,7 @@ CDSoundSource *toneSource;
 		[slider retain];
 		[self addChild:slider];
 
-		//This is related to setting up the flashes that appear when a pad is hit
+		//This is related to setting up the flashes that appear when a pad is hit 击中出现闪烁
 		int flashLocations[9][2] = {{PFC_X - PFO_X,PFC_Y - PFO_Y},{PFC_X,PFC_Y - PFO_Y},{PFC_X + PFO_X,PFC_Y - PFO_Y},
 									{PFC_X - PFO_X,PFC_Y},{PFC_X,PFC_Y},{PFC_X + PFO_X,PFC_Y},
 									{PFC_X - PFO_X,PFC_Y + PFO_Y},{PFC_X,PFC_Y + PFO_Y},{PFC_X + PFO_X,PFC_Y + PFO_Y}};
