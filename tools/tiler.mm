@@ -3,7 +3,7 @@
 Tiler is a small command line utility that tiles an arbitrary image
 into a PNG texture containing tiles and a TGA image containing a tilemap.
 You can specify the tile size (must be a power of 2) with the -tilesize option.
-
+是一个命令行工作，用于将任意图片进行质地纹理瓷砖化
 To Compile:
 gcc tiler.mm -o tiler -framework Cocoa -lstdc++
 
