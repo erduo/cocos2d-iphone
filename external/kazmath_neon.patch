@@ -14,7 +14,7 @@ index 3e109bc..934cc4c 100644
  
 +#include "kazmath/neon_matrix_impl.h"
 +
- /**
+ /** 补丁文件  kazmath是三维数学库用于游戏编程
   * Fills a kmMat4 structure with the values from a 16
   * element array of floats
 @@ -213,6 +215,14 @@ kmMat4* const kmMat4Transpose(kmMat4* pOut, const kmMat4* pIn)
