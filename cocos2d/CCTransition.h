@@ -39,7 +39,7 @@
 -(CCActionInterval*) easeActionWithAction:(CCActionInterval*)action;
 @end
 
-/** Orientation Type used by some transitions
+/** Orientation Type used by some transitions 方向
  */
 typedef enum {
 	/// An horizontal orientation where the Left is nearer
@@ -52,7 +52,7 @@ typedef enum {
 	kOrientationDownOver = 1,
 } tOrientation;
 
-/** Base class for CCTransition scenes
+/** Base class for CCTransition scenes 过渡场景
  */
 @interface CCTransitionScene : CCScene
 {
@@ -73,7 +73,7 @@ typedef enum {
 @end
 
 /** A CCTransition that supports orientation like.
- * Possible orientation: LeftOver, RightOver, UpOver, DownOver
+ * Possible orientation: LeftOver, RightOver, UpOver, DownOver 方向过渡
  */
 @interface CCTransitionSceneOriented : CCTransitionScene
 {
@@ -86,26 +86,26 @@ typedef enum {
 @end
 
 
-/** CCTransitionRotoZoom:
+/** CCTransitionRotoZoom:  旋转和缩放
  Rotate and zoom out the outgoing scene, and then rotate and zoom in the incoming
  */
 @interface CCTransitionRotoZoom : CCTransitionScene
 {}
 @end
 
-/** CCTransitionJumpZoom:
+/** CCTransitionJumpZoom: 跳跃
  Zoom out and jump the outgoing scene, and then jump and zoom in the incoming
 */
 @interface CCTransitionJumpZoom : CCTransitionScene
 {}
 @end
 
-/** CCTransitionMoveInL:
+/** CCTransitionMoveInL: 移动进入
  Move in from to the left the incoming scene.
 */
 @interface CCTransitionMoveInL : CCTransitionScene <CCTransitionEaseScene>
 {}
-/** initializes the scenes */
+/** initializes the scenes  初始化*/
 -(void) initScenes;
 /** returns the action that will be performed */
 -(CCActionInterval*) action;
@@ -132,7 +132,7 @@ typedef enum {
 {}
 @end
 
-/** CCTransitionSlideInL:
+/** CCTransitionSlideInL:  上下左右滑动
  Slide in the incoming scene from the left border.
  */
 @interface CCTransitionSlideInL : CCTransitionScene <CCTransitionEaseScene>
@@ -165,14 +165,14 @@ typedef enum {
 @end
 
 /**
- Shrink the outgoing scene while grow the incoming scene
+ Shrink the outgoing scene while grow the incoming scene  收缩出的场景，增长入的场景
  */
 @interface CCTransitionShrinkGrow : CCTransitionScene <CCTransitionEaseScene>
 {}
 @end
 
 /** CCTransitionFlipX:
- Flips the screen horizontally.
+ Flips the screen horizontally. 翻动x,y轴
  The front face is the outgoing scene and the back face is the incoming scene.
  */
 @interface CCTransitionFlipX : CCTransitionSceneOriented
@@ -195,7 +195,7 @@ typedef enum {
 {}
 @end
 
-/** CCTransitionZoomFlipX:
+/** CCTransitionZoomFlipX: 翻动缩放
  Flips the screen horizontally doing a zoom out/in
  The front face is the outgoing scene and the back face is the incoming scene.
  */
@@ -219,7 +219,7 @@ typedef enum {
 {}
 @end
 
-/** CCTransitionFade:
+/** CCTransitionFade:淡入出
  Fade out the outgoing scene and then fade in the incoming scene.'''
  */
 @interface CCTransitionFade : CCTransitionScene
@@ -244,7 +244,7 @@ typedef enum {
 {}
 @end
 
-/** CCTransitionTurnOffTiles:
+/** CCTransitionTurnOffTiles:翻页
  Turn off the tiles of the outgoing scene in random order
  */
 @interface CCTransitionTurnOffTiles : CCTransitionScene <CCTransitionEaseScene>
@@ -259,7 +259,7 @@ typedef enum {
 -(CCActionInterval*) action;
 @end
 
-/** CCTransitionSplitRows:
+/** CCTransitionSplitRows: 拆分行列
  The odd rows goes to the left while the even rows goes to the right.
  */
 @interface CCTransitionSplitRows : CCTransitionSplitCols
