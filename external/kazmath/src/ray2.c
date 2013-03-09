@@ -174,7 +174,7 @@ kmBool kmRay2IntersectTriangle(const kmRay2* ray, const kmVec2* p1, const kmVec2
             normal_out->y = normal.y;
         }
     }
-
+ 
     return intersected;
 }
 
