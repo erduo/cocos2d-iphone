@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "kazmath/vec3.h"
 #include "kazmath/quaternion.h"
 
-///< Returns pOut, sets pOut to the conjugate of pIn
+///< Returns pOut, sets pOut to the conjugate of pIn  返回输出
 kmQuaternion* const kmQuaternionConjugate(kmQuaternion* pOut, const kmQuaternion* pIn)
 {
 	pOut->x = -pIn->x;
