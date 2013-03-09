@@ -34,7 +34,7 @@ typedef unsigned int kmGLEnum;
 
 #include "../mat4.h"
 #include "../vec3.h"
-
+ 
 #ifdef __cplusplus
 extern "C" {
 #endif
