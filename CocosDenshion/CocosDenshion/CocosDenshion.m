@@ -689,7 +689,7 @@ static BOOL _mixerRateSet = NO;
 }
 
 /**
- * Setting mute silences all sounds but playing sounds continue to advance playback
+ * Setting mute silences all sounds but playing sounds continue to advance playback 设置静音，到声音继续播放
  */
 - (void) setMute:(BOOL) newMuteValue {
 
@@ -806,7 +806,7 @@ static BOOL _mixerRateSet = NO;
 }
 
 /**
- * Play a sound.
+ * Play a sound. 播放音效：声音号
  * @param soundId the id of the sound to play (buffer id).
  * @param SourceGroupId the source group that will be used to play the sound.
  * @param pitch pitch multiplier. e.g 1.0 is unaltered, 0.5 is 1 octave lower.
