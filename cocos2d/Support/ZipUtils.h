@@ -9,7 +9,7 @@
  * Some ideas were taken from:
  *		http://themanaworld.org/
  *		from the mapreader.cpp file
- *
+ *压缩
  */
 
 #ifndef __CC_ZIP_UTILS_H
@@ -33,7 +33,7 @@ extern "C" {
 	};
 
 	enum {
-		CCZ_COMPRESSION_ZLIB,				// zlib format.
+		CCZ_COMPRESSION_ZLIB,				// zlib format.格式
 		CCZ_COMPRESSION_BZIP2,				// bzip2 format (not supported yet)
 		CCZ_COMPRESSION_GZIP,				// gzip format (not supported yet)
 		CCZ_COMPRESSION_NONE,				// plain (not supported yet)
@@ -68,7 +68,7 @@ int ccInflateMemoryWithHint(unsigned char *in, unsigned int inLength, unsigned c
 
 
 /** inflates a GZip file into memory
- *
+ *放置到内存；返回缓存
  * @returns the length of the deflated buffer
  *
  * @since v0.99.5
