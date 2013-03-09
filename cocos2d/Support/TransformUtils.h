@@ -31,6 +31,6 @@
 #elif defined(__CC_PLATFORM_MAC)
 #import <Foundation/Foundation.h>
 #endif
-
+//gl to affine
 void CGAffineToGL(const CGAffineTransform *t, GLfloat *m);
 void GLToCGAffine(const GLfloat *m, CGAffineTransform *t);
