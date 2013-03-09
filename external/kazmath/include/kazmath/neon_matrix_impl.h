@@ -27,7 +27,7 @@
 #ifdef __arm__
 #include "arm/arch.h"
 #endif
-
+//NEON:技术可加速多媒体和信号处理算法（如视频编码/解码、2D/3D 图形、游戏、音频和语音处理、图像处理技术、电话和声音合成）
 // Matrixes are assumed to be stored in column major format according to OpenGL
 // specification.
 
