@@ -11,14 +11,14 @@ extern "C" {
 #endif
 
 /** @file ccUtils.h
- Misc free functions
+ Misc free functions 其他释放函数
  */
 
 /*
  ccNextPOT function is licensed under the same license that is used in CCTexture2D.m.
  */
 
-/** returns the Next Power of Two value.
+/** returns the Next Power of Two value. 返回下一个值
 
  Examples:
 	- If "value" is 15, it will return 16.
