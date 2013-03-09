@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSThread (sendBlockToBackground)
-/** performs a block on the thread. It won't wait until it is done. */
+/** performs a block on the thread. It won't wait until it is done. 执行块；直接执行到完成 */
 - (void) performBlock:(void (^)(void))block;
 
 /** performs a block on the thread. */
