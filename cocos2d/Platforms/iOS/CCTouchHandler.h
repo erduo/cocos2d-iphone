@@ -29,7 +29,7 @@
 #ifdef __CC_PLATFORM_IOS
 
 /*
- * This file contains the delegates of the touches
+ * This file contains the delegates of the touches 两种触摸处理委托：标准和目标
  * There are 2 possible delegates:
  *   - CCStandardTouchHandler: propagates all the events at once
  *   - CCTargetedTouchHandler: propagates 1 event at the time
@@ -39,7 +39,7 @@
 #import "CCTouchDispatcher.h"
 
 /**
- CCTouchHandler
+ CCTouchHandler 参数：委托，优先级，标记
  Object than contains the delegate and priority of the event handler.
 */
 @interface CCTouchHandler : NSObject {
@@ -78,7 +78,7 @@
 	BOOL swallowsTouches;
 	NSMutableSet *claimedTouches;
 }
-/** whether or not the touches are swallowed */
+/** whether or not the touches are swallowed  是否触摸被淹没*/
 @property(nonatomic, readwrite) BOOL swallowsTouches; // default NO
 /** MutableSet that contains the claimed touches */
 @property(nonatomic, readonly) NSMutableSet *claimedTouches;
