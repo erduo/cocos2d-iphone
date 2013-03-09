@@ -40,7 +40,7 @@
 #import "CCRenderTexture.h"
 #import "ccMacros.h"
 #import "Support/CGPointExtension.h"
-
+//节点，导演，动作间隔，摄像，层，网格，渲染纹理，宏，点扩展
 #ifdef __CC_PLATFORM_IOS
 #import "Platforms/iOS/CCTouchDispatcher.h"
 #import "Platforms/iOS/CCDirectorIOS.h"
@@ -78,7 +78,7 @@ const NSInteger kSceneFade = 0xFADEFADE;
 
 		NSAssert( inScene_ != outScene_, @"Incoming scene must be different from the outgoing scene" );
 
-		// disable events while transitions
+		// disable events while transitions  过渡
 		CCDirector *director = [CCDirector sharedDirector];
 #ifdef __CC_PLATFORM_IOS
 		[[director touchDispatcher] setDispatchEvents: NO];
@@ -196,7 +196,7 @@ const NSInteger kSceneFade = 0xFADEFADE;
 
 //
 // Oriented Transition
-//
+//方向过渡
 @implementation CCTransitionSceneOriented
 +(id) transitionWithDuration:(ccTime) t scene:(CCScene*)s orientation:(tOrientation)o
 {
