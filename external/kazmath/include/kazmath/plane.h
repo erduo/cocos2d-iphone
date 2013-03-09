@@ -66,5 +66,5 @@ const POINT_CLASSIFICATION kmPlaneClassifyPoint(const kmPlane* pIn, const kmVec3
 #ifdef __cplusplus
 }
 #endif
-
+ 
 #endif // PLANE_H_INCLUDED
