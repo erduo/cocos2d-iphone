@@ -47,7 +47,7 @@ typedef enum {
 
 }
 //-(void) setUpSoundEngine;
-
+//载人数据，背景播放是否完成
 -(void) loadSoundBuffers:(NSObject*) data;
 -(void) backgroundMusicFinished;
 
