@@ -96,7 +96,7 @@ void ccVertexLineToPolygon(CGPoint *points, float stroke, ccVertex2F *vertices, 
         }
     }
 }
-
+//是否相交
 BOOL ccVertexLineIntersect(float Ax, float Ay,
                                float Bx, float By,
                                float Cx, float Cy,
@@ -123,7 +123,7 @@ BOOL ccVertexLineIntersect(float Ax, float Ay,
     newX = Dx*theCos+Dy*theSin;
     Dy  = Dy*theCos-Dx*theSin; Dx = newX;
 
-    // FAIL: Lines are parallel.
+    // FAIL: Lines are parallel. 线是并行的
     if (Cy == Dy) return NO;
 
     // Discover the relative position of the intersection in the line AB
