@@ -1,4 +1,3 @@
-
 Special thanks to: Lucio Torre, Alejandro Cura, Daniel Moisset & Rayentray Tappa.
 
 cocos2d for iPhone wouldn't be possible without the help of the community who is
@@ -8,15 +7,15 @@ http://www.cocos2d-iphone.org/forum
 cocos2d logos by Michael Heald (http://www.fullyillustrated.com)
 
 
-cocos2d for iPhone 2.0 authors
+cocos2d for iPhone 2.0 authors  作者信息
 ------------------------------
 
-Lead Developer:
+Lead Developer: 主开发者
 	Ricardo Quesada (http://zynga.com/)
 
 
 People/companies who were/are contributing code to cocos2d for iPhone (alphabetically ordered):
-
+人，公司，贡献：
 * Andrew0 (https://github.com/andrew0)
 	Fixed crash on NSThread+block
 	CatmullRom action compiles OK on Mac Release mode
