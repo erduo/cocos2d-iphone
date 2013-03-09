@@ -55,7 +55,7 @@ struct kmVec3* const kmMat3RotationToAxisAngle(struct kmVec3* pAxis, kmScalar* r
 
 kmMat3* const kmMat3Assign(kmMat3* pOut, const kmMat3* pIn);
 const int  kmMat3AreEqual(const kmMat3* pM1, const kmMat3* pM2);
-
+ 
 kmMat3* const kmMat3RotationX(kmMat3* pOut, const kmScalar radians);
 kmMat3* const kmMat3RotationY(kmMat3* pOut, const kmScalar radians);
 kmMat3* const kmMat3RotationZ(kmMat3* pOut, const kmScalar radians);
