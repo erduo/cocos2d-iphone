@@ -53,7 +53,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define kmPIUnder180 57.295779f // 180 / PI
 #define kmEpsilon 1.0 / 64.0
 
-
+//定义了一些符号
 
 #ifdef __cplusplus
 extern "C" {
