@@ -30,7 +30,7 @@
 
 #pragma mark - Profiling Categories
 
-/* set to NO the categories that you don't want to profile */
+/* set to NO the categories that you don't want to profile  不用分析*/
 BOOL kCCProfilerCategorySprite = NO;
 BOOL kCCProfilerCategoryBatchSprite = NO;
 BOOL kCCProfilerCategoryParticles = NO;
