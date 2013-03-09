@@ -58,7 +58,7 @@ CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR OTHERWISE, EVEN IF
 APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Copyright (C) 2008 Apple Inc. All Rights Reserved.
-
+苹果的api
 */
 
 // Only compile this code on iOS. These files should NOT be included on your Mac project.
@@ -89,7 +89,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 //CLASS INTERFACE:
 
-/** CCGLView Class.
+/** CCGLView Class. 该类从核心动画中包装了gl层。该视图内容渲染在opengl的场景中；具有阿尔法值
  * This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
  * The view content is basically an EAGL surface you render your OpenGL scene into.
  * Note that setting the view non-opaque will only work if the EAGL surface has an alpha channel.
@@ -114,7 +114,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 /** creates an initializes an CCGLView with a frame and 0-bit depth buffer, and a RGB565 color buffer. */
 + (id) viewWithFrame:(CGRect)frame;
-/** creates an initializes an CCGLView with a frame, a color buffer format, and 0-bit depth buffer. */
+/** creates an initializes an CCGLView with a frame, a color buffer format, and 0-bit depth buffer. 像素 */
 + (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format;
 /** creates an initializes an CCGLView with a frame, a color buffer format, and a depth buffer. */
 + (id) viewWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth;
@@ -128,9 +128,9 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 /** Initializes an CCGLView with a frame, a color buffer format, a depth buffer format, a sharegroup and multisampling support */
 - (id) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples;
 
-/** pixel format: it could be RGBA8 (32-bit) or RGB565 (16-bit) */
+/** pixel format: it could be RGBA8 (32-bit) or RGB565 (16-bit) 像素格式 */
 @property(nonatomic,readonly) NSString* pixelFormat;
-/** depth format of the render buffer: 0, 16 or 24 bits*/
+/** depth format of the render buffer: 0, 16 or 24 bits 位深度格式*/
 @property(nonatomic,readonly) GLuint depthFormat;
 
 /** returns surface size in pixels */
@@ -141,16 +141,16 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 @property(nonatomic,readwrite) BOOL multiSampling;
 
-/** touch delegate */
+/** touch delegate 委托 */
 @property(nonatomic,readwrite,assign) id<CCTouchDelegate> touchDelegate;
 
-/** CCGLView uses double-buffer. This method swaps the buffers */
+/** CCGLView uses double-buffer. This method swaps the buffers  交换缓存*/
 -(void) swapBuffers;
 
-/** uses and locks the OpenGL context */
+/** uses and locks the OpenGL context 锁 */
 -(void) lockOpenGLContext;
 
-/** unlocks the openGL context */
+/** unlocks the openGL context 解锁*/
 -(void) unlockOpenGLContext;
 
 - (CGPoint) convertPointFromViewToSurface:(CGPoint)point;
