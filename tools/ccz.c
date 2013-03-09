@@ -21,7 +21,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <architecture/byte_order.h>
 
 
-// Format header
+// Format header 格式头
 struct CCZHeader {
     uint8_t			sig[4];				// signature. Should be 'CCZ!' 4 bytes
     uint16_t		compression_type;	// should 0 (See below for supported formats)
@@ -48,7 +48,7 @@ int main (int argc, const char * argv[])
         exit(10);
     }
     
-    /* open file to read */
+    /* open file to read  读取*/
     FILE *in = fopen(argv[1], "rb");
     if(!in)
     {
@@ -56,13 +56,13 @@ int main (int argc, const char * argv[])
         exit(10);
     }
     
-    /* determine length */
+    /* determine length 长度 */
     fseek(in, 0, SEEK_END);
     long len = ftell(in);
     fseek(in, 0, SEEK_SET);
 
     
-    /* alloc memory for the input file */
+    /* alloc memory for the input file  分配内存*/
     unsigned char *data = malloc(len);
 
     struct CCZHeader *header;
@@ -85,7 +85,7 @@ int main (int argc, const char * argv[])
     fclose(in);
         
 
-    /* compress the data */
+    /* compress the data 压缩数据*/
     if(compress2(compressed+sizeof(*header), &destLen, data, len, Z_DEFAULT_COMPRESSION) != Z_OK)
     {
         printf("Failed to compress the data\n");
