@@ -39,7 +39,7 @@ typedef enum
 	kCCTouchSelectorEndedBit = 1 << 2,
 	kCCTouchSelectorCancelledBit = 1 << 3,
 	kCCTouchSelectorAllBits = ( kCCTouchSelectorBeganBit | kCCTouchSelectorMovedBit | kCCTouchSelectorEndedBit | kCCTouchSelectorCancelledBit),
-} ccTouchSelectorFlag;
+} ccTouchSelectorFlag;//标示
 
 
 enum {
@@ -58,7 +58,7 @@ struct ccTouchHandlerHelperData {
 };
 
 /** CCTouchDispatcher.
- Object that handles all the touch events.
+ Object that handles all the touch events.对象调度所有触摸事件；要先注册；处理标准和目标触摸事件的调度
  The dispatcher dispatches events to the registered TouchHandlers.
  There are 2 different type of touch handlers:
    - Standard Touch Handlers
@@ -66,7 +66,7 @@ struct ccTouchHandlerHelperData {
 
  The Standard Touch Handlers work like the CocoaTouch touch handler: a set of touches is passed to the delegate.
  On the other hand, the Targeted Touch Handlers only receive 1 touch at the time, and they can "swallow" touches (avoid the propagation of the event).
-
+标准为一组，而目标位特定触摸事件
  Firstly, the dispatcher sends the received touches to the targeted touches.
  These touches can be swallowed by the Targeted Touch Handlers. If there are still remaining touches, then the remaining touches will be sent
  to the Standard Touch Handlers.
@@ -91,7 +91,7 @@ struct ccTouchHandlerHelperData {
 	struct ccTouchHandlerHelperData handlerHelperData[kCCTouchMax];
 }
 
-/** Whether or not the events are going to be dispatched. Default: YES */
+/** Whether or not the events are going to be dispatched. Default: YES  是否可以调度*/
 @property (nonatomic,readwrite, assign) BOOL dispatchEvents;
 
 /** Adds a standard touch delegate to the dispatcher's list.
@@ -111,7 +111,7 @@ struct ccTouchHandlerHelperData {
 /** Removes all touch delegates, releasing all the delegates */
 -(void) removeAllDelegates;
 /** Changes the priority of a previously added delegate. The lower the number,
- the higher the priority */
+ the higher the priority 改变优先级*/
 -(void) setPriority:(int) priority forDelegate:(id) delegate;
 
 NSComparisonResult sortByPriority(id first, id second, void *context);
