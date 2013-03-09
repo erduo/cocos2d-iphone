@@ -28,7 +28,7 @@
 #import <Foundation/Foundation.h>
 #import "../ccTypes.h"
 
-/** Helper class to handle file operations */
+/** Helper class to handle file operations 处理文件操作 */
 @interface CCFileUtils : NSObject
 {
 	NSFileManager	*fileManager_;
@@ -47,12 +47,12 @@
 }
 
 /** NSBundle used by CCFileUtils. By default it uses [NSBundle mainBundle].
- @since v2.0
+ @since v2.0  绑定
  */
 @property (nonatomic, readwrite, retain) NSBundle	*bundle;
 
 /** NSFileManager used by CCFileUtils. By default it uses its own intance.
- @since v2.0
+ @since v2.0 使用文件管理实例
  */
 @property (nonatomic, readwrite, retain) NSFileManager	*fileManager;
 
@@ -60,7 +60,7 @@
 /** The iPhone RetinaDisplay suffixes to load resources.
  By default it is "-hd" and "" in that order.
  Only valid on iOS. Not valid for OS X.
- 
+ 显示
  @since v1.1
  */
 @property (nonatomic,readwrite, copy, setter = setiPhoneRetinaDisplaySuffix:) NSString *iPhoneRetinaDisplaySuffix;
@@ -98,12 +98,12 @@
 +(CCFileUtils*) sharedFileUtils;
 
 
-/** Purge cached entries.
+/** Purge cached entries. 清除缓存
  Will be called automatically by the Director when a memory warning is received
  */
 -(void) purgeCachedEntries;
 
-/** Returns the fullpath of an filename.
+/** Returns the fullpath of an filename. 路径
 
  If in iPhoneRetinaDisplay mode, and a RetinaDisplay file is found, it will return that path.
  If in iPad mode, and an iPad file is found, it will return that path.
@@ -122,7 +122,7 @@
  
  If in RetinaDisplay mode, and a RetinaDisplay file is found, it will return that path.
  If in iPad mode, and an iPad file is found, it will return that path.
- 
+ 绝对路径
  Examples:
  
  * In iPad mode: "image.png" -> "/full/path/image-ipad.png" (in case the -ipad file exists)
