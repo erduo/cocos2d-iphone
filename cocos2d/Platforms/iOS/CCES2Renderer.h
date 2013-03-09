@@ -61,13 +61,13 @@
 	EAGLContext *context_;
 }
 
-/** Color Renderbuffer */
+/** Color Renderbuffer 颜色渲染缓存 */
 @property (nonatomic,readonly) GLuint colorRenderbuffer;
 
 /** Default Renderbuffer */
 @property (nonatomic,readonly) GLuint defaultFramebuffer;
 
-/** MSAA Framebuffer */
+/** MSAA Framebuffer  MSAA ：多重采样可以是画面更加光滑 */
 @property (nonatomic,readonly) GLuint msaaFramebuffer;
 
 /** MSAA Color Buffer */
