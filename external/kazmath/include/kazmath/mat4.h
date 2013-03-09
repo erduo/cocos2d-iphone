@@ -35,7 +35,7 @@ struct kmPlane;
 
 /*
 A 4x4 matrix
-
+4x4矩阵
         | 0   4   8  12 |
 mat = | 1   5   9  13 |
         | 2   6  10  14 |
