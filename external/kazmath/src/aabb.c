@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
  * Returns KM_TRUE if point is in the specified AABB, returns
- * KM_FALSE otherwise.
+ * KM_FALSE otherwise. 点在指定的AABB，则返回true,否则为false
  */
 const int kmAABBContainsPoint(const kmVec3* pPoint, const kmAABB* pBox)
 {
