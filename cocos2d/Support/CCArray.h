@@ -26,14 +26,14 @@
 #import "ccCArray.h"
 
 
-/** A faster alternative of NSArray.
+/** A faster alternative of NSArray. 是NSArray的替代方案
  CCArray uses internally a c-array.
  @since v0.99.4
  */
 
 
 /** @def CCARRAY_FOREACH
- A convience macro to iterate over a CCArray using. It is faster than the "fast enumeration" interface.
+ A convience macro to iterate over a CCArray using. It is faster than the "fast enumeration" interface. foreach算法
  @since v0.99.4
  */
 
@@ -59,7 +59,7 @@ for(const CC_ARC_UNSAFE_RETAINED id *__arr__ = __array__->data->arr, *end = __ar
 - (id) initWithNSArray:(NSArray*)otherArray;
 
 
-// Querying an Array
+// Querying an Array 查询
 
 - (NSUInteger) count;
 - (NSUInteger) capacity;
@@ -73,7 +73,7 @@ for(const CC_ARC_UNSAFE_RETAINED id *__arr__ = __array__->data->arr, *end = __ar
 - (BOOL) isEqualToArray:(CCArray*)otherArray;
 
 
-// Adding Objects
+// Adding Objects 增加对象
 
 - (void) addObject:(id)object;
 - (void) addObjectsFromArray:(CCArray*)otherArray;
@@ -81,7 +81,7 @@ for(const CC_ARC_UNSAFE_RETAINED id *__arr__ = __array__->data->arr, *end = __ar
 - (void) insertObject:(id)object atIndex:(NSUInteger)index;
 
 
-// Removing Objects
+// Removing Objects 删除
 
 - (void) removeLastObject;
 - (void) removeObject:(id)object;
@@ -92,7 +92,7 @@ for(const CC_ARC_UNSAFE_RETAINED id *__arr__ = __array__->data->arr, *end = __ar
 - (void) fastRemoveObjectAtIndex:(NSUInteger)index;
 
 
-// Rearranging Content
+// Rearranging Content 重新排序
 
 - (void) exchangeObject:(id)object1 withObject:(id)object2;
 - (void) exchangeObjectAtIndex:(NSUInteger)index1 withObjectAtIndex:(NSUInteger)index2;
@@ -101,7 +101,7 @@ for(const CC_ARC_UNSAFE_RETAINED id *__arr__ = __array__->data->arr, *end = __ar
 - (void) reverseObjects;
 - (void) reduceMemoryFootprint;
 
-// Sorting Array 
+// Sorting Array  存储
 /** all since @1.1 */
 - (void) qsortUsingCFuncComparator:(int(*)(const void *, const void *))comparator;	// c qsort is used for sorting
 - (void) insertionSortUsingCFuncComparator:(int(*)(const void *, const void *))comparator;  // insertion sort 
@@ -109,7 +109,7 @@ for(const CC_ARC_UNSAFE_RETAINED id *__arr__ = __array__->data->arr, *end = __ar
 - (void) insertionSort:(SEL)selector; // It sorts source array in ascending order
 - (void) sortUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
 
-// Sending Messages to Elements
+// Sending Messages to Elements 发送消息
 
 - (void) makeObjectsPerformSelector:(SEL)aSelector;
 - (void) makeObjectsPerformSelector:(SEL)aSelector withObject:(id)object;
