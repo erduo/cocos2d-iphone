@@ -66,7 +66,7 @@ kmVec2* kmVec2Add(kmVec2* pOut, const kmVec2* pV1, const kmVec2* pV2)
 	pOut->x = pV1->x + pV2->x;
 	pOut->y = pV1->y + pV2->y;
 
-	return pOut;
+	return pOut; 
 }
 
 kmScalar kmVec2Dot(const kmVec2* pV1, const kmVec2* pV2)
