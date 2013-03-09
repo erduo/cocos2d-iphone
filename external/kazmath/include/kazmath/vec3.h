@@ -61,7 +61,7 @@ kmVec3* kmVec3InverseTransform(kmVec3* pOut, const kmVec3* pV, const struct kmMa
 kmVec3* kmVec3InverseTransformNormal(kmVec3* pOut, const kmVec3* pVect, const struct kmMat4* pM);
 kmVec3* kmVec3Assign(kmVec3* pOut, const kmVec3* pIn);
 kmVec3* kmVec3Zero(kmVec3* pOut);
-
+ 
 #ifdef __cplusplus
 }
 #endif
