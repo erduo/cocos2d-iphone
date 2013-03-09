@@ -10,7 +10,7 @@
 
 #import "NSThread+performBlock.h"
 #import "../ccMacros.h"
-
+ 
 typedef void (^BlockWithParam)(id param);
 @interface CCObjectWith2Params : NSObject
 {
