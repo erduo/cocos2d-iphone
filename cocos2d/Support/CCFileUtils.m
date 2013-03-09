@@ -38,7 +38,7 @@ enum {
 	kCCiPadRetinaDisplay,
 };
 
-#pragma mark - Helper free functions
+#pragma mark - Helper free functions 
 
 NSInteger ccLoadFileIntoMemory(const char *filename, unsigned char **out)
 {
