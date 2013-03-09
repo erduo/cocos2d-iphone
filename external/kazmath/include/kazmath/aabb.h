@@ -35,7 +35,7 @@ extern "C" {
 
 /**
  * A struture that represents an axis-aligned
- * bounding box.
+ * bounding box. 结构体标示轴对齐边框
  */
 typedef struct kmAABB {
     kmVec3 min; /** The max corner of the box */
