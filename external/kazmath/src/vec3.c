@@ -37,7 +37,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
  * Fill a kmVec3 structure using 3 floating point values
- * The result is store in pOut, returns pOut
+ * The result is store in pOut, returns pOut 使用3个浮点指针值；结果是pOut,并返回
  */
 kmVec3* kmVec3Fill(kmVec3* pOut, kmScalar x, kmScalar y, kmScalar z)
 {
@@ -49,7 +49,7 @@ kmVec3* kmVec3Fill(kmVec3* pOut, kmScalar x, kmScalar y, kmScalar z)
 
 
 /**
- * Returns the length of the vector
+ * Returns the length of the vector 返回矢量长度
  */
 kmScalar kmVec3Length(const kmVec3* pIn)
 {
@@ -57,7 +57,7 @@ kmScalar kmVec3Length(const kmVec3* pIn)
 }
 
 /**
- * Returns the square of the length of the vector
+ * Returns the square of the length of the vector 平方
  */
 kmScalar kmVec3LengthSq(const kmVec3* pIn)
 {
