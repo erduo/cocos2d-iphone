@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 1. LL_ macros:  singly-linked lists.
  * 2. DL_ macros:  doubly-linked lists.
  * 3. CDL_ macros: circular doubly-linked lists.
- *
+ *单链表（下一个指针），双链表（前后指针），圆形双链表（指针头）
  * To use singly-linked lists, your structure must have a "next" pointer.
  * To use doubly-linked lists, your structure must "prev" and "next" pointers.
  * Either way, the pointer to the head of the list must be initialized to NULL.
