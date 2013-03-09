@@ -1,6 +1,5 @@
-
 Installing libpng version 1.2.49 - March 29, 2012
-
+ 
 On Unix/Linux and similar systems, you can simply type
 
     ./configure [--prefix=/path]
