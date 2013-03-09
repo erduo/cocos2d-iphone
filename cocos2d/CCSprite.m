@@ -41,7 +41,7 @@
 #import "Support/TransformUtils.h"
 #import "Support/CCProfiling.h"
 #import "Support/OpenGL_Internal.h"
-
+//配置，批量精灵节点，纹理缓存，导演，绘制单元，分析器，转换，点扩展
 // external
 #import "kazmath/GL/matrix.h"
 
@@ -436,7 +436,7 @@
 
 			//
 			// calculate the Quad based on the Affine Matrix
-			//
+			//矩阵平方
 
 			CGSize size = rect_.size;
 
@@ -479,7 +479,7 @@
 		[children_ makeObjectsPerformSelector:@selector(updateTransform)];
 
 #if CC_SPRITE_DEBUG_DRAW
-	// draw bounding box
+	// draw bounding box 绘制边界
 	CGPoint vertices[4] = {
 		ccp( quad_.bl.vertices.x, quad_.bl.vertices.y ),
 		ccp( quad_.br.vertices.x, quad_.br.vertices.y ),
@@ -507,7 +507,7 @@
 
 	//
 	// Attributes
-	//
+	//属性
 
 	ccGLEnableVertexAttribs( kCCVertexAttribFlag_PosColorTex );
 
