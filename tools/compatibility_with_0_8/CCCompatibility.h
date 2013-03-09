@@ -1,4 +1,3 @@
-
 /*
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
@@ -24,7 +23,7 @@
  *
  */
 
-// AUTOMATICALLY GENERATED. DO NOT EDIT
+// AUTOMATICALLY GENERATED. DO NOT EDIT 
 
 
 #import <Foundation/Foundation.h>
