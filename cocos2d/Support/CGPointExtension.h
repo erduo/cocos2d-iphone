@@ -25,7 +25,7 @@
  */
 
 /*
- * Some of the functions were based on Chipmunk's cpVect.h.
+ * Some of the functions were based on Chipmunk's cpVect.h. 有些功能基于物理矢量
  */
 
 /**
@@ -33,7 +33,7 @@
  CGPoint extensions based on Chipmunk's cpVect file.
  These extensions work both with CGPoint and cpVect.
 
- The "ccp" prefix means: "CoCos2d Point"
+ The "ccp" prefix means: "CoCos2d Point" ccp是cocos2d点
 
  Examples:
   - ccpAdd( ccp(1,1), ccp(2,2) ); // preferred cocos2d way
@@ -76,7 +76,7 @@ ccpNeg(const CGPoint v)
 	return ccp(-v.x, -v.y);
 }
 
-/** Calculates sum of two points.
+/** Calculates sum of two points. 两点之和
  @return CGPoint
  @since v0.7.2
  */
@@ -108,7 +108,7 @@ ccpMult(const CGPoint v, const CGFloat s)
 
 /** Calculates midpoint between two points.
  @return CGPoint
- @since v0.7.2
+ @since v0.7.2  中心
  */
 static inline CGPoint
 ccpMidpoint(const CGPoint v1, const CGPoint v2)
@@ -157,7 +157,7 @@ ccpRPerp(const CGPoint v)
 }
 
 /** Calculates the projection of v1 over v2.
- @return CGPoint
+ @return CGPoint 投影
  @since v0.7.2
  */
 static inline CGPoint
@@ -167,7 +167,7 @@ ccpProject(const CGPoint v1, const CGPoint v2)
 }
 
 /** Rotates two points.
- @return CGPoint
+ @return CGPoint 旋转
  @since v0.7.2
  */
 static inline CGPoint
