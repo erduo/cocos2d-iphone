@@ -30,7 +30,7 @@
 @class CCProfilingTimer;
 
 /** CCProfiler
- cocos2d builtin profiler.
+ cocos2d builtin profiler. 内置分析器。启用则CC_ENABLE_PROFILERS=1
 
  To use it, enable set the CC_ENABLE_PROFILERS=1 in the ccConfig.h file
  */
@@ -71,7 +71,7 @@ Profiling timers used by CCProfiler
 	NSUInteger		numberOfCalls;
 }
 
-/** resets the timer properties */
+/** resets the timer properties 重置*/
 -(void) reset;
 @end
 
