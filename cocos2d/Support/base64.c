@@ -76,7 +76,7 @@ int base64Decode(unsigned char *in, unsigned int inLength, unsigned char **out)
 {
 	unsigned int outLength = 0;
 
-	//should be enough to store 6-bit buffers in 8-bit buffers
+	//should be enough to store 6-bit buffers in 8-bit buffers 需要足够的8字节缓存存储6字节缓存
 	*out = malloc( inLength * 3.0f / 4.0f + 1 );
 	if( *out ) {
 		int ret = _base64Decode(in, inLength, *out, &outLength);
