@@ -128,7 +128,7 @@
 - (void)dealloc {
 	[claimedTouches release];
 	[super dealloc];
-}
+} 
 @end
 
 
