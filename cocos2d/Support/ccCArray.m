@@ -21,7 +21,7 @@
 
 #include "CCArray.h"
 
-/** Allocates and initializes a new array with specified capacity */
+/** Allocates and initializes a new array with specified capacity 指定容量创建 */
 ccArray* ccArrayNew(NSUInteger capacity) {
 	if (capacity == 0)
 		capacity = 1;
@@ -34,7 +34,7 @@ ccArray* ccArrayNew(NSUInteger capacity) {
 	return arr;
 }
 
-/** Frees array after removing all remaining objects. Silently ignores nil arr. */
+/** Frees array after removing all remaining objects. Silently ignores nil arr. 删除所有对象，释放内存 */
 void ccArrayFree(ccArray *arr)
 {
 	if( arr == nil ) return;
@@ -59,7 +59,7 @@ void ccArrayEnsureExtraCapacity(ccArray *arr, NSUInteger extra)
 	while (arr->max < arr->num + extra)
 		ccArrayDoubleCapacity(arr);
 }
-
+//收缩
 void ccArrayShrink(ccArray *arr)
 {
     NSUInteger newSize;
