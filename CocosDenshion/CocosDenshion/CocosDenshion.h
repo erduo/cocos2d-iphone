@@ -29,12 +29,12 @@
 @b IMPORTANT
 There are 3 different ways of using CocosDenshion. Depending on which you choose you
 will need to include different files and frameworks.
-
+提供三种方式来选择：
 @par SimpleAudioEngine
 This is recommended for basic audio requirements. If you just want to play some sound fx
 and some background music and have no interest in learning the lower level workings then
 this is the interface to use.
-
+播放背景音乐，
 Requirements:
  - Firmware: OS 2.2 or greater
  - Files: SimpleAudioEngine.*, CocosDenshion.*
@@ -47,7 +47,7 @@ audio session for you deals with audio session interruption. It is fairly low le
 is expected you have some understanding of the underlying technologies. For example, for
 many use cases regarding background music it is expected you will work directly with the
 backgroundMusic AVAudioPlayer which is exposed as a property.
-
+对于于低轨道的音乐播放
 Requirements:
   - Firmware: OS 2.2 or greater
   - Files: CDAudioManager.*, CocosDenshion.*
@@ -59,7 +59,7 @@ example. It can playback up to 32 sounds simultaneously with control over pitch,
 and gain.  It can be set up to handle audio session interruption automatically.  You
 may decide to use CDSoundEngine directly instead of CDAudioManager or SimpleAudioEngine
 because you require OS 2.0 compatibility.
-
+是openAL引擎
 Requirements:
   - Firmware: OS 2.0 or greater
   - Files: CocosDenshion.*
@@ -160,7 +160,7 @@ typedef struct _sourceInfo {
 #pragma mark CDAudioInterruptProtocol
 
 @protocol CDAudioInterruptProtocol <NSObject>
-/** Is audio mute */
+/** Is audio mute 静音*/
 -(BOOL) mute;
 /** If YES then audio is silenced but not stopped, calls to start new audio will proceed but silently */
 -(void) setMute:(BOOL) muteValue;
@@ -172,7 +172,7 @@ typedef struct _sourceInfo {
 
 #pragma mark CDUtilities
 /**
- Collection of utilities required by CocosDenshion
+ Collection of utilities required by CocosDenshion  实例
  */
 @interface CDUtilities : NSObject
 {
@@ -249,7 +249,7 @@ typedef struct _sourceInfo {
  */
 -(CDSoundSource *) soundSourceForSound:(int) soundId sourceGroupId:(int) sourceGroupId;
 
-/** Stops playing a sound */
+/** Stops playing a sound  停止播放 */
 - (void) stopSound:(ALuint) sourceId;
 /** Stops playing a source group */
 - (void) stopSourceGroup:(int) sourceGroupId;
@@ -283,7 +283,7 @@ typedef struct _sourceInfo {
  It allows you to manipulate properties such as pitch, gain, pan and looping while the
  sound is playing. CDSoundSource is based on the old CDSourceWrapper class but with much
  added functionality.
-
+声音源
  @since v1.0
  */
 @interface CDSoundSource : NSObject <CDAudioTransportProtocol, CDAudioInterruptProtocol> {
@@ -308,7 +308,7 @@ typedef struct _sourceInfo {
 
 /** Stores the last error code that occurred. Check against AL_NO_ERROR */
 @property (readonly) ALenum lastError;
-/** Do not init yourself, get an instance from the sourceForSound factory method on CDSoundEngine */
+/** Do not init yourself, get an instance from the sourceForSound factory method on CDSoundEngine 不要自己初始化 */
 -(id)init:(ALuint) theSourceId sourceIndex:(int) index soundEngine:(CDSoundEngine*) engine;
 
 @end
@@ -330,7 +330,7 @@ typedef struct _sourceInfo {
 #pragma mark CDAsynchBufferLoader
 
 /** CDAsynchBufferLoader
- TODO
+ TODO  异步载人缓存
  */
 @interface CDAsynchBufferLoader : NSOperation {
 	NSArray *_loadRequests;
@@ -357,11 +357,11 @@ typedef struct _sourceInfo {
 - (id)init:(int) theSoundId filePath:(const NSString *) theFilePath;
 @end
 
-/** Interpolation type */
+/** Interpolation type插补类型 */
 typedef enum {
-	kIT_Linear,			//!Straight linear interpolation fade
-	kIT_SCurve,			//!S curved interpolation
-	kIT_Exponential 	//!Exponential interpolation
+	kIT_Linear,			//!Straight linear interpolation fade 线性
+	kIT_SCurve,			//!S curved interpolation 立方
+	kIT_Exponential 	//!Exponential interpolation 指数
 } tCDInterpolationType;
 
 #pragma mark CDFloatInterpolator
@@ -385,7 +385,7 @@ typedef enum {
 
 #pragma mark CDPropertyModifier
 
-/** Base class for classes that modify properties such as pitch, pan and gain */
+/** Base class for classes that modify properties such as pitch, pan and gain修改属性 */
 @interface CDPropertyModifier: NSObject
 {
 	CDFloatInterpolator *interpolator;
