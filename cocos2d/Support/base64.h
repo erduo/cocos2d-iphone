@@ -19,9 +19,9 @@ extern "C" {
 /**
  * Decodes a 64base encoded memory. The decoded memory is
  * expected to be freed by the caller.
- *
+ *Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一,同时也具有不可读性，即所编码的数据不会被人用肉眼所直接看到。
  * @returns the length of the out buffer
- *
+ *解码，返回缓存长度
  @since v0.8.1
  */
 int base64Decode(unsigned char *in, unsigned int inLength, unsigned char **out);
