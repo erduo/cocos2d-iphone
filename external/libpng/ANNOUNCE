@@ -1,10 +1,9 @@
-
 Libpng 1.2.49 - March 29, 2012
 
 This is a public release of libpng, intended for use in production codes.
 
 Files available for download:
-
+//库声明
 Source files with LF line endings (for Unix/Linux) and with a
 "configure" script
 
