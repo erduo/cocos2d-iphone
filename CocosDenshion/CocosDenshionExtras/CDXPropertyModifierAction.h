@@ -25,7 +25,7 @@
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
 
-/** Base class for actions that modify audio properties
+/** Base class for actions that modify audio properties  修改音频属性
  @since v 1.0
  */
 @interface CDXPropertyModifierAction : CCActionInterval {
