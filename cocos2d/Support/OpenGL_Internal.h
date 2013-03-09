@@ -61,10 +61,10 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 */
 
-/* Generic error reporting */
+/* Generic error reporting  错误*/
 #define REPORT_ERROR(__FORMAT__, ...) printf("%s: %s\n", __FUNCTION__, [[NSString stringWithFormat:__FORMAT__, __VA_ARGS__] UTF8String])
 
-/* EAGL and GL functions calling wrappers that log on error */
+/* EAGL and GL functions calling wrappers that log on error 日志*/
 #define CALL_EAGL_FUNCTION(__FUNC__, ...) ({ EAGLError __error = __FUNC__( __VA_ARGS__ ); if(__error != kEAGLErrorSuccess) printf("%s() called from %s returned error %i\n", #__FUNC__, __FUNCTION__, __error); (__error ? NO : YES); })
 //#define CHECK_GL_ERROR() ({ GLenum __error = glGetError(); if(__error) printf("OpenGL error 0x%04X in %s\n", __error, __FUNCTION__); (__error ? NO : YES); })
 #define CHECK_GL_ERROR() ({ GLenum __error = glGetError(); if(__error) printf("OpenGL error 0x%04X in %s %d\n", __error, __FUNCTION__, __LINE__); })
@@ -75,7 +75,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #define CHECK_GL_ERROR_DEBUG()
 #endif
 
-/* Optional delegate methods support */
+/* Optional delegate methods support 附加 */
 #ifndef __DELEGATE_IVAR__
 #define __DELEGATE_IVAR__ _delegate
 #endif
