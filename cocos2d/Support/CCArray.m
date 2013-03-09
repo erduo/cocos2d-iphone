@@ -211,7 +211,7 @@
 }
 
 
-#pragma mark Rearranging Content
+#pragma mark Rearranging Content 
 
 - (void) exchangeObject:(id)object1 withObject:(id)object2
 {
