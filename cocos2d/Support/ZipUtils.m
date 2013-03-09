@@ -23,7 +23,7 @@
 #import "CCFileUtils.h"
 #import "../ccMacros.h"
 
-// memory in iPhone is precious
+// memory in iPhone is precious 
 // Should buffer factor be 1.5 instead of 2 ?
 #define BUFFER_INC_FACTOR (2)
 
@@ -35,7 +35,7 @@ static int inflateMemoryWithHint(unsigned char *in, unsigned int inLength, unsig
 	int bufferSize = outLenghtHint;
 	*out = (unsigned char*) malloc(bufferSize);
 
-    z_stream d_stream; /* decompression stream */
+    z_stream d_stream; /* decompression stream  解压流*/
     d_stream.zalloc = (alloc_func)0;
     d_stream.zfree = (free_func)0;
     d_stream.opaque = (voidpf)0;
@@ -136,7 +136,7 @@ int ccInflateGZipFile(const char *path, unsigned char **out)
 		return -1;
 	}
 
-	/* 512k initial decompress buffer */
+	/* 512k initial decompress buffer 解压缓存 */
 	int bufferSize = 512 * 1024;
 	unsigned int totalBufferSize = bufferSize;
 
@@ -159,7 +159,7 @@ int ccInflateGZipFile(const char *path, unsigned char **out)
 
 		offset += len;
 
-		// finish reading the file
+		// finish reading the file 读取文件
 		if( len < bufferSize )
 			break;
 
