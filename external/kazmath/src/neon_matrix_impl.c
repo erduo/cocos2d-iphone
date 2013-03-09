@@ -93,5 +93,5 @@ void NEON_Matrix4Vector4Mul(const float* m, const float* v, float* output)
 	 : "memory", "q0", "q1", "q8", "q9", "q10", "q11" //clobber
 	 );
 }
-
+ 
 #endif
