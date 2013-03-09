@@ -26,7 +26,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "kazmath/utility.h"
 
 /**
- * Returns the square of s (e.g. s*s)
+ * Returns the square of s (e.g. s*s) 返回平方
  */
 kmScalar kmSQR(kmScalar s) {
 	return s*s;
