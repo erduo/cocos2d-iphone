@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define INCREMENT 50
 
 #include "kazmath/GL/mat4stack.h"
-
+ 
 void km_mat4_stack_initialize(km_mat4_stack* stack) {
 	stack->stack = (kmMat4*) malloc(sizeof(kmMat4) * INITIAL_SIZE); //allocate the memory
 	stack->capacity = INITIAL_SIZE; //Set the capacity to 10
