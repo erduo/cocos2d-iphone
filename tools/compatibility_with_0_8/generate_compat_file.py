@@ -1,10 +1,9 @@
 
-
 import sys
 import os
 
 copyright = """
-/*
+/* 
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
