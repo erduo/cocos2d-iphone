@@ -36,7 +36,7 @@ kmMat3* const kmMat3Fill(kmMat3* pOut, const kmScalar* pMat)
 {
     memcpy(pOut->mat, pMat, sizeof(kmScalar) * 9);
     return pOut;
-}
+} 
 
 /** Sets pOut to an identity matrix returns pOut*/
 kmMat3* const kmMat3Identity(kmMat3* pOut)
@@ -81,7 +81,7 @@ kmMat3* const kmMat3Adjugate(kmMat3* pOut, const kmMat3* pIn)
 
     return pOut;
 }
-
+//逆向3x3
 kmMat3* const kmMat3Inverse(kmMat3* pOut, const kmScalar pDeterminate, const kmMat3* pM)
 {
     kmScalar detInv;
@@ -190,7 +190,7 @@ const int kmMat3AreEqual(const kmMat3* pMat1, const kmMat3* pMat2)
 	return KM_TRUE;
 }
 
-/* Rotation around the z axis so everything stays planar in XY */
+/* Rotation around the z axis so everything stays planar in XY 旋转*/
 kmMat3* const kmMat3Rotation(kmMat3* pOut, const float radians)
 {
 	/*
@@ -214,7 +214,7 @@ kmMat3* const kmMat3Rotation(kmMat3* pOut, const float radians)
 	return pOut;
 }
 
-/** Builds a scaling matrix */
+/** Builds a scaling matrix 比例*/
 kmMat3* const kmMat3Scaling(kmMat3* pOut, const kmScalar x, const kmScalar y)
 {
 //	memset(pOut->mat, 0, sizeof(float) * 9);
