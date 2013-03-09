@@ -24,8 +24,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include <stdlib.h>
+//stdlib:C语言标准库函数的定义,五种类型、一些宏和通用工具函数
 #include <assert.h>
-
+//assert() 宏用于程序调试
 #include "kazmath/GL/matrix.h"
 #include "kazmath/GL/mat4stack.h"
 
