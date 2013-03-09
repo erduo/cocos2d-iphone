@@ -73,7 +73,7 @@
 
 //
 // handlers management
-//
+//调度管理
 
 #pragma mark TouchDispatcher - Add Hanlder
 
@@ -238,7 +238,7 @@ NSComparisonResult sortByPriority(id first, id second, void *context)
 	struct ccTouchHandlerHelperData helper = handlerHelperData[idx];
 	//
 	// process the target handlers 1st
-	//
+	//目标
 	if( targetedHandlersCount > 0 ) {
 		for( UITouch *touch in touches ) {
 			for(CCTargetedTouchHandler *handler in targetedHandlers) {
@@ -271,7 +271,7 @@ NSComparisonResult sortByPriority(id first, id second, void *context)
 
 	//
 	// process standard handlers 2nd
-	//
+	//标准
 	if( standardHandlersCount > 0 && [mutableTouches count]>0 ) {
 		for( CCTouchHandler *handler in standardHandlers ) {
 			if( handler.enabledSelectors & helper.type )
