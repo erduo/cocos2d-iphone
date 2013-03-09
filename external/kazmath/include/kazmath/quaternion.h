@@ -99,7 +99,7 @@ kmQuaternion* kmQuaternionSlerp(kmQuaternion* pOut, const kmQuaternion* q1, cons
 ///< Get the axis and angle of rotation from a quaternion
 void kmQuaternionToAxisAngle(const kmQuaternion* pIn, struct kmVec3* pVector, kmScalar* pAngle);
 
-///< Scale a quaternion
+///< Scale a quaternion 
 kmQuaternion* kmQuaternionScale(kmQuaternion* pOut, const kmQuaternion* pIn, kmScalar s);
 kmQuaternion* kmQuaternionAssign(kmQuaternion* pOut, const kmQuaternion* pIn);
 kmQuaternion* kmQuaternionAdd(kmQuaternion* pOut, const kmQuaternion* pQ1, const kmQuaternion* pQ2);
