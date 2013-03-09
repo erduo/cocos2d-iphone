@@ -39,26 +39,26 @@
 
 
 /** CCSprite is a 2d image ( http://en.wikipedia.org/wiki/Sprite_(computer_graphics) )
- *
+ *精灵是一个2d图片；用图片创建或子比例
  * CCSprite can be created with an image, or with a sub-rectangle of an image.
  *
  * If the parent or any of its ancestors is a CCSpriteBatchNode then the following features/limitations are valid
  *	- Features when the parent is a CCBatchNode:
  *		- MUCH faster rendering, specially if the CCSpriteBatchNode has many children. All the children will be drawn in a single batch.
- *
+ *速度快，一次绘制多个精灵；限制：不支持摄像网格运动；混合函数属性属于批量精灵节点；不支持视差滚动
  *	- Limitations
  *		- Camera is not supported yet (eg: CCOrbitCamera action doesn't work)
  *		- GridBase actions are not supported (eg: CCLens, CCRipple, CCTwirl)
  *		- The Alias/Antialias property belongs to CCSpriteBatchNode, so you can't individually set the aliased property.
  *		- The Blending function property belongs to CCSpriteBatchNode, so you can't individually set the blending function property.
  *		- Parallax scroller is not supported, but can be simulated with a "proxy" sprite.
- *
+ *如果父类是标准的节点，则精灵支持混合函数，但是渲染慢。
  *  If the parent is an standard CCNode, then CCSprite behaves like any other CCNode:
  *    - It supports blending functions
  *    - It supports aliasing / antialiasing
  *    - But the rendering will be slower: 1 draw per children.
  *
- * The default anchorPoint in CCSprite is (0.5, 0.5).
+ * The default anchorPoint in CCSprite is (0.5, 0.5). 默认为几何中心位置点
  */
 @interface CCSprite : CCNode <CCRGBAProtocol, CCTextureProtocol>
 {
@@ -70,50 +70,50 @@
 	NSUInteger				atlasIndex_;			// Absolute (real) Index on the batch node
 	CCSpriteBatchNode		*batchNode_;			// Used batch node (weak reference)
 	CGAffineTransform		transformToBatch_;		//
-	BOOL					dirty_;					// Sprite needs to be updated
+	BOOL					dirty_;			// Sprite needs to be updated 需要更新
 	BOOL					recursiveDirty_;		// Subchildren needs to be updated
 	BOOL					hasChildren_;			// optimization to check if it contain children
 	BOOL					shouldBeHidden_;		// should not be drawn because one of the ancestors is not visible
 
 	//
 	// Data used when the sprite is self-rendered
-	//
+	//自我呈现 数据
 	ccBlendFunc				blendFunc_;				// Needed for the texture protocol
 	CCTexture2D				*texture_;				// Texture used to render the sprite
 
 	//
 	// Shared data
-	//
+	//共享数据
 
-	// sprite rectangle
+	// sprite rectangle 
 	CGRect	rect_;
 
-	// texture
+	// rotate 
 	BOOL	rectRotated_;
 
-	// Offset Position (used by Zwoptex)
+	// Offset Position (used by Zwoptex) 偏移
 	CGPoint	offsetPosition_;
 	CGPoint unflippedOffsetPositionFromCenter_;
 
-	// vertex coords, texture coords and color info
+	// vertex coords, texture coords and color info 顶点
 	ccV3F_C4B_T2F_Quad quad_;
 
-	// opacity and RGB protocol
+	// opacity and RGB protocol 透明度
 	GLubyte		opacity_;
 	ccColor3B	color_;
 	ccColor3B	colorUnmodified_;
 	BOOL		opacityModifyRGB_;
 
-	// image is flipped
+	// image is flipped 翻动
 	BOOL	flipX_;
 	BOOL	flipY_;
 }
 
-/** whether or not the Sprite needs to be updated in the Atlas */
+/** whether or not the Sprite needs to be updated in the Atlas 更新 */
 @property (nonatomic,readwrite) BOOL dirty;
-/** the quad (tex coords, vertex coords and color) information */
+/** the quad (tex coords, vertex coords and color) information 顶点信息 */
 @property (nonatomic,readonly) ccV3F_C4B_T2F_Quad quad;
-/** The index used on the TextureAtlas. Don't modify this value unless you know what you are doing */
+/** The index used on the TextureAtlas. Don't modify this value unless you know what you are doing 地图集序号 */
 @property (nonatomic,readwrite) NSUInteger atlasIndex;
 /** returns the texture rect of the CCSprite in points */
 @property (nonatomic,readonly) CGRect textureRect;
@@ -135,7 +135,7 @@
 	sprite.scaleY *= -1;
  */
 @property (nonatomic,readwrite) BOOL flipY;
-/** opacity: conforms to CCRGBAProtocol protocol */
+/** opacity: conforms to CCRGBAProtocol protocol  符合协议*/
 @property (nonatomic,readwrite) GLubyte opacity;
 /** RGB colors: conforms to CCRGBAProtocol protocol */
 @property (nonatomic,readwrite) ccColor3B color;
@@ -150,11 +150,11 @@
 /** conforms to CCTextureProtocol protocol */
 @property (nonatomic,readwrite) ccBlendFunc blendFunc;
 
-#pragma mark CCSprite - Initializers
+#pragma mark CCSprite - Initializers  初始化方法
 
 /** Creates an sprite with a texture.
  The rect used will be the size of the texture.
- The offset will be (0,0).
+ The offset will be (0,0). 用纹理；大小；偏移为(0,0)
  */
 +(id) spriteWithTexture:(CCTexture2D*)texture;
 
@@ -176,12 +176,12 @@
 
 /** Creates an sprite with an image filename.
  The rect used will be the size of the image.
- The offset will be (0,0).
+ The offset will be (0,0). 图片文件名
  */
 +(id) spriteWithFile:(NSString*)filename;
 
 /** Creates an sprite with an image filename and a rect.
- The offset will be (0,0).
+ The offset will be (0,0). 大小
  */
 +(id) spriteWithFile:(NSString*)filename rect:(CGRect)rect;
 
@@ -189,13 +189,13 @@
  The key is used by the CCTextureCache to know if a texture was already created with this CGImage.
  For example, a valid key is: @"sprite_frame_01".
  If key is nil, then a new texture will be created each time by the CCTextureCache.
- @since v0.99.0
+ @since v0.99.0 键值
  */
 +(id) spriteWithCGImage: (CGImageRef)image key:(NSString*)key;
 
 /** Initializes an sprite with a texture.
  The rect used will be the size of the texture.
- The offset will be (0,0).
+ The offset will be (0,0).  同上实例方法的
  */
 -(id) initWithTexture:(CCTexture2D*)texture;
 
