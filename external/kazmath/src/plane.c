@@ -84,7 +84,7 @@ kmPlane* const kmPlaneFromPoints(kmPlane* pOut, const kmVec3* p1, const kmVec3* 
     Outa = nx
     Outb = ny
     Outc = nz
-    Outd = −n⋅A
+    Outd = −n⋅A 
     */
 
     kmVec3 n, v1, v2;
