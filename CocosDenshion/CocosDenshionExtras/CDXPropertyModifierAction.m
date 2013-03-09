@@ -52,7 +52,7 @@
 	[super startWithTarget:aTarget];
 	lastSetValue = [modifier _getTargetProperty];
 }
-
+ 
 -(void) dealloc {
 	CDLOG(@"Denshon::CDXPropertyModifierAction deallocated %@",self);
 	[modifier release];
