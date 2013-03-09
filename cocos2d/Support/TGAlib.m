@@ -41,7 +41,7 @@ void tgaLoadHeader(FILE *file, tImageTGA *info) {
 	if ( cGarbage & 0x20 ) info->flipped = 1;
 }
 
-// loads the image pixels. You shouldn't call this function directly
+// loads the image pixels. You shouldn't call this function directly 载人图像像素。
 void tgaLoadImageData(FILE *file, tImageTGA *info) {
 
 	int mode,total,i;
