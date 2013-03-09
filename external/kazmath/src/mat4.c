@@ -52,7 +52,7 @@ kmMat4* const kmMat4Fill(kmMat4* pOut, const kmScalar* pMat)
     return pOut;
 }
 
-/**
+/** 
  * Sets pOut to an identity matrix returns pOut
  * @Params pOut - A pointer to the matrix to set to identity
  * @Return Returns pOut so that the call can be nested
