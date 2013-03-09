@@ -262,7 +262,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
 		}
 
-		// not MSAA
+		// not MSAA 
 		else if (depthFormat_ ) {
 			GLenum attachments[] = { GL_DEPTH_ATTACHMENT};
 			glDiscardFramebufferEXT(GL_FRAMEBUFFER, 1, attachments);
