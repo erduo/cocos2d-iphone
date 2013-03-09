@@ -47,7 +47,7 @@
  */
 @protocol CCTargetedTouchDelegate <NSObject>
 
-/** Return YES to claim the touch.
+/** Return YES to claim the touch. 开始，移动，结束，取消（目标）
  @since v0.8
  */
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
@@ -62,7 +62,7 @@
  CCStandardTouchDelegate.
 
  This type of delegate is the same one used by CocoaTouch. You will receive all the events (Began,Moved,Ended,Cancelled).
- @since v0.8
+ @since v0.8 标准的触发
 */
 @protocol CCStandardTouchDelegate <NSObject>
 @optional
