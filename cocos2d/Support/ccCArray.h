@@ -29,7 +29,8 @@
  - it assumes you know what you're doing, so it doesn't spend time on safety checks
  (index out of bounds, required capacity etc.)
  - comparisons are done using pointer equality instead of isEqual
-
+基于物理库cpArray:比NSMutableArray(用c接口；不管理安全)
+保持和释放；标准c结构
  There are 2 kind of functions:
  - ccArray functions that manipulates objective-c objects (retain and release are performanced)
  - ccCArray functions that manipulates values like if they were standard C structures (no retain/release is performed)
@@ -69,10 +70,10 @@ typedef struct ccArray {
 
 typedef int (*cc_comparator)(const void *, const void *);
 
-/** Allocates and initializes a new array with specified capacity */
+/** Allocates and initializes a new array with specified capacity 容量新建*/
 ccArray* ccArrayNew(NSUInteger capacity);
 
-/** Frees array after removing all remaining objects. Silently ignores nil arr. */
+/** Frees array after removing all remaining objects. Silently ignores nil arr.释放 */
 void ccArrayFree(ccArray *arr);
 
 /** Doubles array capacity */
@@ -90,7 +91,7 @@ NSUInteger ccArrayGetIndexOfObject(ccArray *arr, id object);
 /** Returns a Boolean value that indicates whether object is present in array. */
 BOOL ccArrayContainsObject(ccArray *arr, id object);
 
-/** Appends an object. Bahaviour undefined if array doesn't have enough capacity. */
+/** Appends an object. Bahaviour undefined if array doesn't have enough capacity. 添加 */
 void ccArrayAppendObject(ccArray *arr, id object);
 
 /** Appends an object. Capacity of arr is increased if needed. */
@@ -103,13 +104,13 @@ void ccArrayAppendArray(ccArray *arr, ccArray *plusArr);
 /** Appends objects from plusArr to arr. Capacity of arr is increased if needed. */
 void ccArrayAppendArrayWithResize(ccArray *arr, ccArray *plusArr);
 
-/** Inserts an object at index */
+/** Inserts an object at index 插入*/
 void ccArrayInsertObjectAtIndex(ccArray *arr, id object, NSUInteger index);
 
-/** Swaps two objects */
+/** Swaps two objects 交换两个对象 */
 void ccArraySwapObjectsAtIndexes(ccArray *arr, NSUInteger index1, NSUInteger index2);
 
-/** Removes all objects from arr */
+/** Removes all objects from arr 移除所有对象 */
 void ccArrayRemoveAllObjects(ccArray *arr);
 
 /** Removes object at specified index and pushes back all subsequent objects.
@@ -124,7 +125,7 @@ void ccArrayFastRemoveObjectAtIndex(ccArray *arr, NSUInteger index);
 void ccArrayFastRemoveObject(ccArray *arr, id object);
 
 /** Searches for the first occurance of object and removes it. If object is not
- found the function has no effect. */
+ found the function has no effect. 搜索到第一个删除 */
 void ccArrayRemoveObject(ccArray *arr, id object);
 
 /** Removes from arr all objects in minusArr. For each object in minusArr, the
@@ -148,7 +149,7 @@ void ccArrayMakeObjectPerformSelectorWithArrayObjects(ccArray *arr, SEL sel, id 
 
 typedef ccArray ccCArray;
 
-/** Allocates and initializes a new C array with specified capacity */
+/** Allocates and initializes a new C array with specified capacity 创建和初始化 */
 ccCArray* ccCArrayNew(NSUInteger capacity);
 
 /** Frees C array after removing all remaining values. Silently ignores nil arr. */
