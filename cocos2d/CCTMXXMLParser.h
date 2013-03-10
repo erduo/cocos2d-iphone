@@ -30,10 +30,10 @@
 
 /*
  * Internal TMX parser
- *
+ *解析tmx
  * IMPORTANT: These classed should not be documented using doxygen strings
  * since the user should not use them.
- *
+ *  
  */
 
 
@@ -66,15 +66,15 @@ typedef enum ccTMXTileFlags_ {
 	kCCFlippedMask					= ~(kCCFlipedAll),
 } ccTMXTileFlags;
 
-// Bits on the far end of the 32-bit global tile ID (GID's) are used for tile flags
+// Bits on the far end of the 32-bit global tile ID (GID's) are used for tile flags 32位字节来用于标记瓦片
 
-/* CCTMXLayerInfo contains the information about the layers like:
+/* CCTMXLayerInfo contains the information about the layers like: 层信息：名称，大小，容量（运行时可以修改），是否可见（不可见，不会被创建）
  - Layer name
  - Layer size
  - Layer opacity at creation time (it can be modified at runtime)
  - Whether the layer is visible (if it is not visible, then the CCNode won't be created)
 
- This information is obtained from the TMX file.
+ This information is obtained from the TMX file. 可以从tmx文件获取；
  */
 @interface CCTMXLayerInfo : NSObject
 {
@@ -103,6 +103,7 @@ typedef enum ccTMXTileFlags_ {
 @end
 
 /* CCTMXTilesetInfo contains the information about the tilesets like:
+tmx瓦片集合信息包括：名称，容量，余量，瓦片大小，图片，图片大小；同样可以从tmx文件中获取
  - Tileset name
  - Tilset spacing
  - Tileset margin
@@ -138,6 +139,7 @@ typedef enum ccTMXTileFlags_ {
 @end
 
 /* CCTMXMapInfo contains the information about the map like:
+tmx地图信息包括：地图方向，瓦片大小，地图大小；也可以包括层，瓦片集合，对象组；可以从tmx文件获取
  - Map orientation (hexagonal, isometric or orthogonal)
  - Tile size
  - Map size
@@ -159,13 +161,13 @@ typedef enum ccTMXTileFlags_ {
 	unsigned int		parentGID_;
 
 
-	// tmx filename
+	// tmx filename 文件名称
 	NSString *filename_;
 
-	// tmx resource path
+	// tmx resource path 资源路径
 	NSString *resources_;
 
-	// map orientation
+	// map orientation 方向
 	int	orientation_;
 
 	// map width & height
@@ -174,7 +176,7 @@ typedef enum ccTMXTileFlags_ {
 	// tiles width & height
 	CGSize	tileSize_;
 
-	// Layers
+	// Layers层
 	NSMutableArray *layers_;
 
 	// tilesets
@@ -201,10 +203,10 @@ typedef enum ccTMXTileFlags_ {
 @property (nonatomic,readwrite,retain) NSMutableDictionary *properties;
 @property (nonatomic,readwrite,retain) NSMutableDictionary *tileProperties;
 
-/** creates a TMX Format with a tmx file */
+/** creates a TMX Format with a tmx file 用tmx文件创建*/
 +(id) formatWithTMXFile:(NSString*)tmxFile;
 
-/** creates a TMX Format with an XML string and a TMX resource path */
+/** creates a TMX Format with an XML string and a TMX resource path xml字符串和资源路径创建和初始化 */
 +(id) formatWithXML:(NSString*)tmxString resourcePath:(NSString*)resourcePath;
 
 /** initializes a TMX format with a tmx file */
