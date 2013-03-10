@@ -34,7 +34,7 @@
 
 @class CCTexture2D;
 
-/** Singleton that handles the loading of textures
+/** Singleton that handles the loading of textures 单例管理纹理，一次载人。
  * Once the texture is loaded, the next time it will return
  * a reference of the previously loaded texture reducing GPU & CPU memory
  */
@@ -49,13 +49,14 @@
 /** Retruns ths shared instance of the cache */
 + (CCTextureCache *) sharedTextureCache;
 
-/** purges the cache. It releases the retained instance.
+/** purges the cache. It releases the retained instance. 清除缓存
  @since v0.99.0
  */
 +(void)purgeSharedTextureCache;
 
 
 /** Returns a Texture2D object given an file image
+ * 参数为一个图片文件；如果文件没有载人，先创建一个纹理对象返回。 支持的图片格式：png,bmp,tiff,jpeg,pvr,gif
  * If the file image was not previously loaded, it will create a new CCTexture2D
  *  object and it will return it. It will use the filename as a key.
  * Otherwise it will return a reference of a previosly loaded image.
@@ -64,6 +65,7 @@
 -(CCTexture2D*) addImage: (NSString*) fileimage;
 
 /** Asynchronously, load a texture2d from a file.
+ * 异步，载人一个纹理
  * If the file image was previously loaded, it will use it.
  * Otherwise it will load a texture in a new thread, and when the image is loaded, the callback will be called with the Texture2D as a parameter.
  * The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback.
@@ -73,6 +75,7 @@
 -(void) addImageAsync:(NSString*) filename target:(id)target selector:(SEL)selector;
 
 /** Asynchronously, load a texture2d from a file.
+ * 使用块
  * If the file image was previously loaded, it will use it.
  * Otherwise it will load a texture in a new thread, and when the image is loaded, the block will be called.
  * The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback.
@@ -83,6 +86,7 @@
 
 
 /** Returns a Texture2D object given an CGImageRef image
+ * 使用CGImageRef参数
  * If the image was not previously loaded, it will create a new CCTexture2D object and it will return it.
  * Otherwise it will return a reference of a previously loaded image
  * The "key" parameter will be used as the "key" for the cache.
@@ -92,11 +96,12 @@
 -(CCTexture2D*) addCGImage: (CGImageRef) image forKey: (NSString *)key;
 
 /** Returns an already created texture. Returns nil if the texture doesn't exist.
- @since v0.99.5
+ @since v0.99.5 通过键值来返回纹理
  */
 -(CCTexture2D *) textureForKey:(NSString *)key;
 
 /** Purges the dictionary of loaded textures.
+ * 清除载人的纹理
  * Call this method if you receive the "Memory Warning"
  * In the short term: it will free some resources preventing your app from being killed
  * In the medium term: it will allocate more resources
@@ -105,17 +110,18 @@
 -(void) removeAllTextures;
 
 /** Removes unused textures
+ * 移除未使用的纹理
  * Textures that have a retain count of 1 will be deleted
  * It is convinient to call this method after when starting a new Scene
  * @since v0.8
  */
 -(void) removeUnusedTextures;
 
-/** Deletes a texture from the cache given a texture
+/** Deletes a texture from the cache given a texture 删除
  */
 -(void) removeTexture: (CCTexture2D*) tex;
 
-/** Deletes a texture from the cache given a its key name
+/** Deletes a texture from the cache given a its key name 
  @since v0.99.4
  */
 -(void) removeTextureForKey: (NSString*) textureKeyName;
@@ -126,6 +132,7 @@
 @interface CCTextureCache (PVRSupport)
 
 /** Returns a Texture2D object given an PVR filename.
+ * 给定pvr文件名，增加
  * If the file image was not previously loaded, it will create a new CCTexture2D
  *  object and it will return it. Otherwise it will return a reference of a previosly loaded image
  *
