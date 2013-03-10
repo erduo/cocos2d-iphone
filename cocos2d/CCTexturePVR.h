@@ -67,7 +67,7 @@ enum {
 
  Object that loads PVR images.
 
- Supported PVR formats:
+ Supported PVR formats:支持的格式
 	- RGBA8888
 	- BGRA8888
 	- RGBA4444
@@ -79,15 +79,16 @@ enum {
 	- PVRTC 4BPP
 	- PVRTC 2BPP
 
- Limitations:
+ Limitations:限制：仅支持精灵为四边形大小；
 	Pre-generated mipmaps, such as PVR textures with mipmap levels embedded in file,
 	are only supported if all individual sprites are of _square_ size.
 	To use mipmaps with non-square textures, instead call CCTexture2D#generateMipmap on the sheet texture itself
 	(and to save space, save the PVR sprite sheet without mip maps included).
+	Mipmap是目前应用最为广泛的纹理映射技术之一。
  */
 @interface CCTexturePVR : NSObject
 {
-	struct CCPVRMipmap	mipmaps_[CC_PVRMIPMAP_MAX];	// pointer to mipmap images
+	struct CCPVRMipmap	mipmaps_[CC_PVRMIPMAP_MAX];	// pointer to mipmap images  
 	NSUInteger	numberOfMipmaps_;					// number of mipmap used
 
 	unsigned int	tableFormatIndex_;
@@ -100,9 +101,9 @@ enum {
 	CCTexture2DPixelFormat format_;
 }
 
-/** initializes a CCTexturePVR with a path */
+/** initializes a CCTexturePVR with a path  通过文件路径*/
 - (id)initWithContentsOfFile:(NSString *)path;
-/** initializes a CCTexturePVR with an URL */
+/** initializes a CCTexturePVR with an URL  Url*/
 - (id)initWithContentsOfURL:(NSURL *)url;
 /** creates and initializes a CCTexturePVR with a path */
 + (id)pvrTextureWithContentsOfFile:(NSString *)path;
