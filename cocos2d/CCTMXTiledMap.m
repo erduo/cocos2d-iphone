@@ -36,7 +36,7 @@
 #import "CCTextureCache.h"
 #import "Support/CGPointExtension.h"
 
-
+//tmx层，对象组，精灵，纹理缓存，点扩展
 #pragma mark -
 #pragma mark CCTMXTiledMap
 
