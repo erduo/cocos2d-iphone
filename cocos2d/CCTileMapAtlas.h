@@ -29,7 +29,7 @@
 #import "Support/TGAlib.h"
 
 /** CCTileMapAtlas is a subclass of CCAtlasNode.
-
+是CCAtlasNode的子类；知道如何呈现基于瓦片的地图；当地图为.tga文件，则瓦片为.png格式；
  It knows how to render a map based of tiles.
  The tiles must be in a .PNG format while the map must be a .TGA file.
 
@@ -42,6 +42,7 @@
  This class is deprecated. It is maintained for compatibility reasons only.
  You SHOULD not use this class.
  Instead, use the newer TMX file format: CCTMXTiledMap
+ 该类已经过时，可以使用CCTMXTileMap替换
  */
 @interface CCTileMapAtlas : CCAtlasNode
 {
