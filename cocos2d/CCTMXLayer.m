@@ -38,7 +38,7 @@
 #import "CCGLProgram.h"
 #import "Support/CGPointExtension.h"
 
-
+//精灵，纹理缓存，着色方案，着色缓存，点扩展
 #pragma mark -
 #pragma mark CCTMXLayer
 
@@ -52,7 +52,7 @@ int compareInts (const void * a, const void * b);
 
 -(CGPoint) calculateLayerOffset:(CGPoint)offset;
 
-/* optimization methos */
+/* optimization methos 优化方法 */
 -(CCSprite*) appendTileForGID:(uint32_t)gid at:(CGPoint)pos;
 -(CCSprite*) insertTileForGID:(uint32_t)gid at:(CGPoint)pos;
 -(CCSprite*) updateTileForGID:(uint32_t)gid at:(CGPoint)pos;
@@ -84,7 +84,7 @@ int compareInts (const void * a, const void * b);
 
 -(id) initWithTilesetInfo:(CCTMXTilesetInfo*)tilesetInfo layerInfo:(CCTMXLayerInfo*)layerInfo mapInfo:(CCTMXMapInfo*)mapInfo
 {
-	// XXX: is 35% a good estimate ?
+	// XXX: is 35% a good estimate ? 需要测试
 	CGSize size = layerInfo.layerSize;
 	float totalNumberOfTiles = size.width * size.height;
 	float capacity = totalNumberOfTiles * 0.35f + 1; // 35 percent is occupied ?
@@ -95,7 +95,7 @@ int compareInts (const void * a, const void * b);
 
 	if((self = [super initWithTexture:tex capacity:capacity])) {
 
-		// layerInfo
+		// layerInfo 层信息
 		self.layerName = layerInfo.name;
 		layerSize_ = size;
 		tiles_ = layerInfo.tiles;
@@ -223,7 +223,7 @@ int compareInts (const void * a, const void * b);
 			 minGID_ >= tileset_.firstGid, @"TMX: Only 1 tilset per layer is supported");
 }
 
-#pragma mark CCTMXLayer - Properties
+#pragma mark CCTMXLayer - Properties 属性
 
 -(id) propertyNamed:(NSString *)propertyName
 {
@@ -256,7 +256,7 @@ int compareInts (const void * a, const void * b);
 	}
 }
 
-#pragma mark CCTMXLayer - obtaining tiles/gids
+#pragma mark CCTMXLayer - obtaining tiles/gids 获取gid 瓦片
 
 -(CCSprite*) tileAt:(CGPoint)pos
 {
@@ -541,7 +541,7 @@ int compareInts (const void * a, const void * b)
 
 -(void) removeChild:(CCSprite*)sprite cleanup:(BOOL)cleanup
 {
-	// allows removing nil objects
+	// allows removing nil objects 移除空对象
 	if( ! sprite )
 		return;
 
