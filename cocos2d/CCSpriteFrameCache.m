@@ -42,7 +42,7 @@
 #import "CCSpriteFrame.h"
 #import "CCSprite.h"
 #import "Support/CCFileUtils.h"
-
+//平台，宏，纹理缓存，精灵帧，精灵，文件
 @interface CCSpriteFrameCache ()
 - (void) addSpriteFramesWithDictionary:(NSDictionary*)dictionary textureFilename:(NSString*)filename;
 - (void) addSpriteFramesWithDictionary:(NSDictionary *)dictionary texture:(CCTexture2D *)texture;
@@ -103,7 +103,7 @@ static CCSpriteFrameCache *sharedSpriteFrameCache_=nil;
 	[super dealloc];
 }
 
-#pragma mark CCSpriteFrameCache - loading sprite frames
+#pragma mark CCSpriteFrameCache - loading sprite frames 载人精灵帧
 
 -(void) addSpriteFramesWithDictionary:(NSDictionary*)dictionary textureReference:(id)textureReference
 {
@@ -126,7 +126,7 @@ static CCSpriteFrameCache *sharedSpriteFrameCache_=nil;
 	// check the format
 	NSAssert( format >= 0 && format <= 3, @"format is not supported for CCSpriteFrameCache addSpriteFramesWithDictionary:textureFilename:");
 
-	// SpriteFrame info
+	// SpriteFrame info 
 	CGRect rectInPixels;
 	BOOL isRotated;
 	CGPoint frameOffset;
