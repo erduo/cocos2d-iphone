@@ -30,7 +30,7 @@
  */
 
 
-/*
+/*创建精灵帧和纹理地图，可以该工具
  * To create sprite frames and texture atlas, use this tool:
  * http://zwoptex.zwopple.com/
  */
@@ -44,7 +44,7 @@
 
 /** Singleton that handles the loading of the sprite frames.
  It saves in a cache the sprite frames.
- @since v0.9
+ @since v0.9 单例来管理精灵帧
  */
 @interface CCSpriteFrameCache : NSObject
 {
@@ -53,15 +53,15 @@
 	NSMutableSet		*loadedFilenames_;
 }
 
-/** Retruns ths shared instance of the Sprite Frame cache */
+/** Retruns ths shared instance of the Sprite Frame cache 返回共享实例*/
 + (CCSpriteFrameCache *) sharedSpriteFrameCache;
 
-/** Purges the cache. It releases all the Sprite Frames and the retained instance.
+/** Purges the cache. It releases all the Sprite Frames and the retained instance. 清除缓存
  */
 +(void)purgeSharedSpriteFrameCache;
 
 
-/** Adds multiple Sprite Frames from a plist file.
+/** Adds multiple Sprite Frames from a plist file. 从链表文件中增加多个精灵帧；纹理自动载人，名称被其文件名替换；
  * A texture will be loaded automatically. The texture name will composed by replacing the .plist suffix with .png .
  * If you want to use another texture, you should use the addSpriteFramesWithFile:texture method.
  */
@@ -75,7 +75,7 @@
  */
 -(void) addSpriteFramesWithFile:(NSString*)plist texture:(CCTexture2D*)texture;
 
-/** Adds an sprite frame with a given name.
+/** Adds an sprite frame with a given name. 给定名称增加一个精灵帧；如果该名称已经存在，旧的将会被取代；
  If the name already exists, then the contents of the old name will be replaced with the new one.
  */
 -(void) addSpriteFrame:(CCSpriteFrame*)frame name:(NSString*)frameName;
@@ -86,35 +86,36 @@
  * In the short term: it will free some resources preventing your app from being killed.
  * In the medium term: it will allocate more resources.
  * In the long term: it will be the same.
+ * 如果接收到了内存警告：1，先释放一些资源防止杀死应用；2，释放更多；3，同上；
  */
 -(void) removeSpriteFrames;
 
-/** Removes unused sprite frames.
+/** Removes unused sprite frames.移除不在使用的精灵帧
  * Sprite Frames that have a retain count of 1 will be deleted.
  * It is convinient to call this method after when starting a new Scene.
  */
 -(void) removeUnusedSpriteFrames;
 
-/** Deletes an sprite frame from the sprite frame cache.
+/** Deletes an sprite frame from the sprite frame cache. 删除一个
  */
 -(void) removeSpriteFrameByName:(NSString*)name;
 
 /** Removes multiple Sprite Frames from a plist file.
 * Sprite Frames stored in this file will be removed.
 * It is convinient to call this method when a specific texture needs to be removed.
-* @since v0.99.5
+* @since v0.99.5 从链表文件中删除多个
 */
 - (void) removeSpriteFramesFromFile:(NSString*) plist;
 
 /** Removes all Sprite Frames associated with the specified textures.
  * It is convinient to call this method when a specific texture needs to be removed.
- * @since v0.995.
+ * @since v0.995. 删除所有用指定纹理的精灵帧；
  */
 - (void) removeSpriteFramesFromTexture:(CCTexture2D*) texture;
 
 /** Returns an Sprite Frame that was previously added.
  If the name is not found it will return nil.
- You should retain the returned copy if you are going to use it.
+ You should retain the returned copy if you are going to use it. 获取指定的精灵帧
  */
 -(CCSpriteFrame*) spriteFrameByName:(NSString*)name;
 
