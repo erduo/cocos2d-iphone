@@ -36,7 +36,7 @@
 
 #import "Support/CCFileUtils.h"
 #import "Support/NSThread+performBlock.h"
-
+//宏，gl,纹理，pvr，配置，导演，类型文件，线程块
 
 #ifdef __CC_PLATFORM_MAC
 #import "Platforms/Mac/CCDirectorMac.h"
@@ -82,7 +82,7 @@ static CCTextureCache *sharedTextureCache;
 	if( (self=[super init]) ) {
 		textures_ = [[NSMutableDictionary dictionaryWithCapacity: 10] retain];
 
-		// init "global" stuff
+		// init "global" stuff 全局
 		_loadingQueue = dispatch_queue_create("org.cocos2d.texturecacheloading", NULL);
 		_dictQueue = dispatch_queue_create("org.cocos2d.texturecachedict", NULL);
 
@@ -139,7 +139,7 @@ static CCTextureCache *sharedTextureCache;
 	[super dealloc];
 }
 
-#pragma mark TextureCache - Add Images
+#pragma mark TextureCache - Add Images  增加图片
 
 -(void) addImageAsync: (NSString*)path target:(id)target selector:(SEL)selector
 {
@@ -147,7 +147,7 @@ static CCTextureCache *sharedTextureCache;
 	NSAssert(target != nil, @"TextureCache: target can't be nil");
 	NSAssert(selector != NULL, @"TextureCache: selector can't be NULL");
 
-	// optimization
+	// optimization 优化
 
 	__block CCTexture2D * tex;
 
