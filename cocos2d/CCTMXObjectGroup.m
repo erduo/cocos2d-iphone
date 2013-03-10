@@ -34,7 +34,7 @@
 #import "CCTMXXMLParser.h"
 #import "ccMacros.h"
 #import "Support/CGPointExtension.h"
-
+//宏，点扩展
 
 #pragma mark -
 #pragma mark TMXObjectGroup
@@ -74,7 +74,7 @@
 			return object;
 		}
 
-	// object not found
+	// object not found 对象没有找到
 	return nil;
 }
 
