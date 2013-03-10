@@ -68,7 +68,7 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #import "Support/CCFileUtils.h"
 #import "Support/ZipUtils.h"
 #import "Support/OpenGL_Internal.h"
-
+//宏，配置，状态缓存，文件，文件，压缩，
 #pragma mark -
 #pragma mark CCTexturePVR
 
