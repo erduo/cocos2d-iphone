@@ -36,7 +36,7 @@
 
 #import "Support/NSThread+performBlock.h"
 #import "Support/OpenGL_Internal.h"
-
+//宏，纹理，纹理缓存，着色方案，状态缓存，导演，配置，块，
 @interface CCTextureAtlas ()
 -(void) setupIndices;
 -(void) mapBuffers;
@@ -56,7 +56,7 @@
 @synthesize texture = texture_;
 @synthesize quads = quads_;
 
-#pragma mark TextureAtlas - alloc & init
+#pragma mark TextureAtlas - alloc & init 非配 初始化
 
 +(id) textureAtlasWithFile:(NSString*) file capacity: (NSUInteger) n
 {
@@ -488,7 +488,7 @@
 #if CC_TEXTURE_ATLAS_USE_VAO
 
 	//
-	// Using VBO and VAO
+	// Using VBO and VAO 使用vbo and vao渲染
 	//
 
 	// XXX: update is done in draw... perhaps it should be done in a timer
