@@ -71,12 +71,13 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 //CONSTANTS:
 
 /** @typedef CCTexture2DPixelFormat
- Possible texture pixel formats
+ Possible texture pixel formats  可能的纹理像素格式
+ PVR:pvr格式是iOS的显示芯片可以直接读取的，不需要经过解析就能直接显示，所以渲染速度更快，更节省内存。
  */
 typedef enum {
 	//! 32-bit texture: RGBA8888
 	kCCTexture2DPixelFormat_RGBA8888,
-	//! 32-bit texture without Alpha channel. Don't use it.
+	//! 32-bit texture without Alpha channel. Don't use it.  不使用这个？
 	kCCTexture2DPixelFormat_RGB888,
 	//! 16-bit texture without Alpha channel
 	kCCTexture2DPixelFormat_RGB565,
@@ -104,6 +105,7 @@ typedef enum {
 @class CCGLProgram;
 
 /** CCTexture2D class.
+ * 使用该类很容易创建Opengl 2D纹理，从图片，文字或原数据中；  纹理大小和实际图片大小不相等；纹理会上下颠倒；
  * This class allows to easily create OpenGL 2D textures from images, text or raw data.
  * The created CCTexture2D object will always have power-of-two dimensions.
  * Depending on how you create the CCTexture2D object, the actual image area of the texture might be smaller than the texture dimensions i.e. "contentSize" != (pixelsWide, pixelsHigh) and (maxS, maxT) != (1.0, 1.0).
@@ -125,38 +127,38 @@ typedef enum {
 	ccResolutionType			resolutionType_;
 #endif
 
-	// needed for drawAtRect, drawInPoint
+	// needed for drawAtRect, drawInPoint 着色
 	CCGLProgram					*shaderProgram_;
 
 }
-/** Intializes with a texture2d with data */
+/** Intializes with a texture2d with data 使用纹理数据初始化 */
 - (id) initWithData:(const void*)data pixelFormat:(CCTexture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size;
 
-/** These functions are needed to create mutable textures */
+/** These functions are needed to create mutable textures 用于创建容易改变的纹理 */
 - (void) releaseData:(void*)data;
 - (void*) keepData:(void*)data length:(NSUInteger)length;
 
-/** pixel format of the texture */
+/** pixel format of the texture 像素格式 */
 @property(nonatomic,readonly) CCTexture2DPixelFormat pixelFormat;
-/** width in pixels */
+/** width in pixels 宽*/
 @property(nonatomic,readonly) NSUInteger pixelsWide;
-/** hight in pixels */
+/** hight in pixels 高 像素为单位*/
 @property(nonatomic,readonly) NSUInteger pixelsHigh;
 
-/** texture name */
+/** texture name 名称 */
 @property(nonatomic,readonly) GLuint name;
 
-/** returns content size of the texture in pixels */
+/** returns content size of the texture in pixels 内容大小 */
 @property(nonatomic,readonly, nonatomic) CGSize contentSizeInPixels;
 
-/** texture max S */
+/** texture max S ？? */
 @property(nonatomic,readwrite) GLfloat maxS;
 /** texture max T */
 @property(nonatomic,readwrite) GLfloat maxT;
-/** whether or not the texture has their Alpha premultiplied */
+/** whether or not the texture has their Alpha premultiplied 是否含有阿尔法预乘*/
 @property(nonatomic,readonly) BOOL hasPremultipliedAlpha;
 
-/** shader program used by drawAtPoint and drawInRect */
+/** shader program used by drawAtPoint and drawInRect 着色方案用于花点和绘制矩形 */
 @property(nonatomic,readwrite,retain) CCGLProgram *shaderProgram;
 
 #ifdef __CC_PLATFORM_IOS
@@ -165,19 +167,20 @@ typedef enum {
  Only valid on iOS. Not valid on OS X.
 
  Should be a readonly property. It is readwrite as a hack.
-
+是否高分辨率
  @since v1.1
  */
 @property (nonatomic, readwrite) ccResolutionType resolutionType;
 #endif
 
-/** returns the content size of the texture in points */
+/** returns the content size of the texture in points  内容大小*/
 -(CGSize) contentSize;
 
 
 @end
 
 /**
+ * 绘制扩展方法;更容易绘制基本
 Drawing extensions to make it easy to draw basic quads using a CCTexture2D object.
 These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_COORD_ARRAY client states to be enabled.
 */
@@ -189,6 +192,7 @@ These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_CO
 @end
 
 /**
+ * 使用图片文件更加容易创建一个纹理对象
 Extensions to make it easy to create a CCTexture2D object from an image file.
 Note that RGBA type textures will have their alpha premultiplied - use the blending mode (GL_ONE, GL_ONE_MINUS_SRC_ALPHA).
 */
@@ -202,6 +206,7 @@ Note that RGBA type textures will have their alpha premultiplied - use the blend
 @end
 
 /**
+ * 文本对象扩展方法；换行模式ios支持所有换行
 Extensions to make it easy to create a CCTexture2D object from a string of text.
 Note that the generated textures are of type A8 - use the blending mode (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA).
 */
@@ -221,13 +226,14 @@ Note that the generated textures are of type A8 - use the blending mode (GL_SRC_
 
 
 /**
+ * 对PVR文件支持； 格式
  Extensions to make it easy to create a CCTexture2D object from a PVRTC file
  Note that the generated textures don't have their alpha premultiplied - use the blending mode (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA).
  */
 @interface CCTexture2D (PVRSupport)
 /** Initializes a texture from a PVR file.
 
- Supported PVR formats:
+ Supported PVR formats: PVR文件格式：
  - BGRA 8888
  - RGBA 8888
  - RGBA 4444
@@ -241,7 +247,7 @@ Note that the generated textures are of type A8 - use the blending mode (GL_SRC_
 
  By default PVR images are treated as if they alpha channel is NOT premultiplied. You can override this behavior with this class method:
  - PVRImagesHavePremultipliedAlpha:(BOOL)haveAlphaPremultiplied;
-
+默认情况下，作为pvr图片处理，当阿尔法没有设置时？？
  IMPORTANT: This method is only defined on iOS. It is not supported on the Mac version.
 
  */
@@ -252,14 +258,14 @@ Note that the generated textures are of type A8 - use the blending mode (GL_SRC_
  possible load them as if they have (or not) the alpha channel premultiplied.
 
  By default it is disabled.
-
+默认为禁用
  @since v0.99.5
  */
 +(void) PVRImagesHavePremultipliedAlpha:(BOOL)haveAlphaPremultiplied;
 @end
 
 /**
- Extension to set the Min / Mag filter
+ Extension to set the Min / Mag filter 扩展设置过滤器
  */
 typedef struct _ccTexParams {
 	GLuint	minFilter;
@@ -278,7 +284,7 @@ typedef struct _ccTexParams {
  */
 -(void) setTexParameters: (ccTexParams*) texParams;
 
-/** sets antialias texture parameters:
+/** sets antialias(抗混叠） texture parameters:
   - GL_TEXTURE_MIN_FILTER = GL_LINEAR
   - GL_TEXTURE_MAG_FILTER = GL_LINEAR
  
@@ -318,7 +324,7 @@ typedef struct _ccTexParams {
 	- generate 16-bit textures: kCCTexture2DPixelFormat_RGB565 (no alpha)
 	- generate 8-bit textures: kCCTexture2DPixelFormat_A8 (only use it if you use just 1 color)
 
- How does it work ?
+ How does it work ? 像素格式
    - If the image is an RGBA (with Alpha) then the default pixel format will be used (it can be a 8-bit, 16-bit or 32-bit texture)
    - If the image is an RGB (without Alpha) then: If the default pixel format is RGBA8888 then a RGBA8888 (32-bit) will be used. Otherwise a RGB565 (16-bit texture) will be used.
 
