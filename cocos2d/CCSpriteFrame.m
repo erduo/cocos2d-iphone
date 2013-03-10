@@ -28,7 +28,7 @@
 #import "CCTextureCache.h"
 #import "CCSpriteFrame.h"
 #import "ccMacros.h"
-
+//纹理缓存，宏
 @implementation CCSpriteFrame
 @synthesize offsetInPixels = offsetInPixels_, offset = offset_;
 @synthesize originalSize = originalSize_, originalSizeInPixels = originalSizeInPixels_;
