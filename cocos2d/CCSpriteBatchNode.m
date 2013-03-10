@@ -40,7 +40,7 @@
 #import "Support/CGPointExtension.h"
 #import "Support/TransformUtils.h"
 #import "Support/CCProfiling.h"
-
+//配置，精灵，网格，绘制单元，着色缓存，着色方案，状态缓存，导演，点扩展，过渡，分析器
 // external
 #import "kazmath/GL/matrix.h"
 
@@ -63,7 +63,7 @@ const NSUInteger defaultCapacity = 29;
 
 
 /*
- * creation with CCTexture2D
+ * creation with CCTexture2D 使用纹理来创建
  */
 +(id)batchNodeWithTexture:(CCTexture2D *)tex
 {
@@ -76,7 +76,7 @@ const NSUInteger defaultCapacity = 29;
 }
 
 /*
- * creation with File Image
+ * creation with File Image 使用图片文件
  */
 +(id)batchNodeWithFile:(NSString*)fileImage capacity:(NSUInteger)capacity
 {
@@ -136,7 +136,7 @@ const NSUInteger defaultCapacity = 29;
 
 #pragma mark CCSpriteBatchNode - composition
 
-// override visit.
+// override visit. 重载访问
 // Don't call visit on its children
 -(void) visit
 {
@@ -144,7 +144,7 @@ const NSUInteger defaultCapacity = 29;
 
 	NSAssert(parent_ != nil, @"CCSpriteBatchNode should NOT be root node");
 
-	// CAREFUL:
+	// CAREFUL: 与节点相同
 	// This visit is almost identical to CCNode#visit
 	// with the exception that it doesn't call visit on its children
 	//
@@ -232,7 +232,7 @@ const NSUInteger defaultCapacity = 29;
 	[textureAtlas_ removeAllQuads];
 }
 
-//override sortAllChildren
+//override sortAllChildren 子类排序
 - (void) sortAllChildren
 {
 	if (isReorderChildDirty_)
@@ -337,7 +337,7 @@ const NSUInteger defaultCapacity = 29;
 		}
 	}
 }
-
+//交换
 - (void) swap:(NSInteger) oldIndex withNewIndex:(NSInteger) newIndex
 {
 	id* x = descendants_->data->arr;
@@ -360,7 +360,7 @@ const NSUInteger defaultCapacity = 29;
 	isReorderChildDirty_=reorder;
 }
 
-#pragma mark CCSpriteBatchNode - draw
+#pragma mark CCSpriteBatchNode - draw 绘制
 -(void) draw
 {
 	CC_PROFILER_START(@"CCSpriteBatchNode - draw");
@@ -380,7 +380,7 @@ const NSUInteger defaultCapacity = 29;
 	CC_PROFILER_STOP(@"CCSpriteBatchNode - draw");
 }
 
-#pragma mark CCSpriteBatchNode - private
+#pragma mark CCSpriteBatchNode - private  私有方法
 -(void) increaseAtlasCapacity
 {
 	// if we're going beyond the current CCTextureAtlas's capacity,
@@ -401,7 +401,7 @@ const NSUInteger defaultCapacity = 29;
 }
 
 
-#pragma mark CCSpriteBatchNode - Atlas Index Stuff
+#pragma mark CCSpriteBatchNode - Atlas Index Stuff 地图序号
 
 -(NSUInteger) rebuildIndexInOrder:(CCSprite*)node atlasIndex:(NSUInteger)index
 {
@@ -493,7 +493,7 @@ const NSUInteger defaultCapacity = 29;
 }
 
 #pragma mark CCSpriteBatchNode - add / remove / reorder helper methods
-// add child helper
+// add child helper 增加，删除，重新排序
 -(void) insertChild:(CCSprite*)sprite inAtlasAtIndex:(NSUInteger)index
 {
 	[sprite setBatchNode:self];
@@ -621,7 +621,7 @@ const NSUInteger defaultCapacity = 29;
 	
 	//
 	// update the quad directly. Don't add the sprite to the scene graph
-	//
+	//直接更新
 	
 	[sprite setBatchNode:self];
 	[sprite setAtlasIndex:index];
@@ -653,7 +653,7 @@ const NSUInteger defaultCapacity = 29;
 	[descendants_ insertObject:child atIndex:i];
 	
 	
-	// IMPORTANT: Call super, and not self. Avoid adding it to the texture atlas array
+	// IMPORTANT: Call super, and not self. Avoid adding it to the texture atlas array 调用父类，不用调用自己的方法
 	[super addChild:child z:z tag:aTag];
 	
 	//#issue 1262 don't use lazy sorting, tiles are added as quads not as sprites, so sprites need to be added in order
