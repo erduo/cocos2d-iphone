@@ -87,7 +87,7 @@
 
 #import "ccDeprecated.h"
 
-
+//gl,ns,配置，宏，pvr格式，着色，状态缓存，导演，文件
 
 #if CC_USE_LA88_LABELS
 #define LABEL_PIXEL_FORMAT kCCTexture2DPixelFormat_AI88
@@ -135,7 +135,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 		glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
 		glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
 
-		// Specify OpenGL texture image
+		// Specify OpenGL texture image 指定图片
 
 		switch(pixelFormat)
 		{
@@ -225,7 +225,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 @end
 
 #pragma mark -
-#pragma mark CCTexture2D - Image
+#pragma mark CCTexture2D - Image 图片扩展
 
 @implementation CCTexture2D (Image)
 
@@ -463,7 +463,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 @end
 
 #pragma mark -
-#pragma mark CCTexture2D - Text
+#pragma mark CCTexture2D - Text  文本扩展
 
 @implementation CCTexture2D (Text)
 
@@ -713,7 +713,7 @@ static CCTexture2DPixelFormat defaultAlphaPixelFormat_ = kCCTexture2DPixelFormat
 @end
 
 #pragma mark -
-#pragma mark CCTexture2D - PVRSupport
+#pragma mark CCTexture2D - PVRSupport pvr文件
 
 @implementation CCTexture2D (PVRSupport)
 
@@ -767,7 +767,7 @@ static BOOL PVRHaveAlphaPremultiplied_ = NO;
 @end
 
 #pragma mark -
-#pragma mark CCTexture2D - Drawing
+#pragma mark CCTexture2D - Drawing 绘制点，矩形
 
 @implementation CCTexture2D (Drawing)
 
@@ -834,7 +834,7 @@ static BOOL PVRHaveAlphaPremultiplied_ = NO;
 
 
 #pragma mark -
-#pragma mark CCTexture2D - GLFilter
+#pragma mark CCTexture2D - GLFilter 过滤
 
 //
 // Use to apply MIN/MAG filter
@@ -889,7 +889,7 @@ static BOOL PVRHaveAlphaPremultiplied_ = NO;
 
 
 #pragma mark -
-#pragma mark CCTexture2D - Pixel Format
+#pragma mark CCTexture2D - Pixel Format 像素格式
 
 //
 // Texture options for images that contains alpha
