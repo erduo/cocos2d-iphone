@@ -44,7 +44,7 @@
 #pragma mark -
 #pragma mark TMXLayerInfo
 
-
+//宏，点扩展，tmx瓦片地图，对象组，zip，文件
 @implementation CCTMXLayerInfo
 
 @synthesize name = name_, layerSize = layerSize_, tiles = tiles_, visible = visible_, opacity = opacity_, ownTiles = ownTiles_, minGID = minGID_, maxGID = maxGID_, properties = properties_;
@@ -213,7 +213,7 @@
 	[self parseXMLData:data];
 }
 
-// the XML parser calls here with all the elements
+// the XML parser calls here with all the elements  xml解析：
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
 	if([elementName isEqualToString:@"map"]) {
