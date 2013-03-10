@@ -28,7 +28,7 @@
 #import "CCTileMapAtlas.h"
 #import "ccMacros.h"
 #import "Support/CCFileUtils.h"
-
+ 
 @interface CCTileMapAtlas (Private)
 -(void) loadTGAfile:(NSString*)file;
 -(void) calculateItemsToRender;
